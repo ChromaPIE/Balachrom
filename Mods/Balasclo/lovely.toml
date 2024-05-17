@@ -1,0 +1,32 @@
+[manifest]
+version = "0.1"
+dump_lua = false
+priority = 0
+
+# 当前 Balasclo 版本
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = "VERSION = VERSION..'-FULL'"
+position = "after"
+payload = "VERSION = VERSION..' (Balasclo v0.0.1)'"
+overwrite = false
+match_indent = true
+
+# 使用轨道标签升级牌型的牌型名称本地化
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = '''handname= self.ability.orbital_hand,'''
+position = "at"
+payload = '''handname = localize(self.ability.orbital_hand, "poker_hands"),'''
+match_indent = true
+
+# “Not Allowed!”正确本地化
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''play_area_status_text("Not Allowed!")--localize('k_not_allowed_ex'), true)'''
+position = "at"
+payload = '''play_area_status_text(localize('k_not_allowed_ex'))'''
+match_indent = true
