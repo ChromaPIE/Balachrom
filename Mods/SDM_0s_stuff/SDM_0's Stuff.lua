@@ -553,11 +553,12 @@ function SMODS.INIT.sdm_0s_stuff()
             'Trance The Devil', 'sdm_trance_the_devil',
             {extra = 0.25}, {x=0, y=0}, 
             {
-                name = "Trance The Devil",
+                name = "恶魔入迷",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult per {C:spectral}Trance{} and",
-                    "{C:tarot}The Devil{} card used this run",
-                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})"
+                    "本赛局内每使用",
+                    "一张{C:tarot}恶魔{}或{C:spectral}入迷",
+                    "本牌获得{X:mult,C:white}X#1#{}倍率",
+                    "{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -1435,14 +1436,15 @@ function SMODS.INIT.sdm_0s_stuff()
         
         local j_sdm_ninja_joker = SMODS.Joker:new(
             "Ninja Joker", "sdm_ninja_joker",
-            {extra = {can_dupe = true, active = "Active", inactive = ""}},  {x=0, y=0},
+            {extra = {can_dupe = true, active = "现身", inactive = ""}},  {x=0, y=0},
             {
-                name = "Ninja Joker",
+                name = "忍者小丑",
                 text = {
-                    "Creates a {C:dark_edition}Negative{C:attention} Tag",
-                    "if a card is {C:attention}destroyed{}, reactivates",
-                    "when a {C:attention}playing card{} is added",
-                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}#2#{C:inactive})"
+                    "现身状态下有卡牌被{C:attention}摧毁{}时",
+                    "生成一个{C:dark_edition}负片{C:attention}标签{}并遁形",
+                    "遁形状态下有{C:attention}游戏牌",
+                    "被加入牌组时重新现身",
+                    "{C:inactive}（当前状态：{C:attention}#1#{C:inactive}#2#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -1456,7 +1458,7 @@ function SMODS.INIT.sdm_0s_stuff()
         SMODS.Jokers.j_sdm_ninja_joker.calculate = function(card, context)
             if context.playing_card_added  and not card.getting_sliced and not context.blueprint then
                 if not card.ability.extra.can_dupe then
-                    card.ability.extra.active = "Active"
+                    card.ability.extra.active = "现身"
                     card.ability.extra.inactive = ""
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
                         message = localize('k_active_ex'),
@@ -1469,7 +1471,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 if #context.glass_shattered > 0 then
                     if not context.blueprint then
                         card.ability.extra.active = ""
-                        card.ability.extra.inactive = "Inactive"
+                        card.ability.extra.inactive = "遁形"
                         card.ability.extra.can_dupe = false
                     end
                     G.E_MANAGER:add_event(Event({
@@ -1486,7 +1488,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 if #context.removed > 0 then
                     if not context.blueprint then
                         card.ability.extra.active = ""
-                        card.ability.extra.inactive = "Inactive"
+                        card.ability.extra.inactive = "遁形"
                         card.ability.extra.can_dupe = false
                     end
                     G.E_MANAGER:add_event(Event({
@@ -1930,11 +1932,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Treasure Chest", "sdm_treasure_chest",
             {extra = 2},  {x=0, y=0},
             {
-                name = "Treasure Chest",
+                name = "宝藏箱",
                 text = {
-                    "Gains {C:money}$#1#{} of",
-                    "{C:attention}sell value{} per",
-                    "{C:attention}consumable{} sold"
+                    "每售出一张{C:attention}消耗牌",
+                    "本牌的{C:attention}售价{}提升{C:money}$#1#"
                 }
             }, 1, 4, true, true, false, false
         )

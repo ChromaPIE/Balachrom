@@ -6,13 +6,13 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Jimbo's Prowess",
+    name = "金宝神技",
     text = {
-        "{X:mult,C:white} X1 {} Mult, plus {X:mult,C:white} X0.75 {} Mult per",
-        "difference between ranks of highest",
-        "ranked card of {C:attention}Straight{}",
-        "played and last {C:attention}Straight{} played",
-        "{C:inactive}(Last highest: {}{C:attention}#1#{} {C:inactive}(#2#)){}"
+        "{X:mult,C:white} X1 {}倍率",
+        "打出{C:attention}顺子{}时，其中最大的点数",
+        "与上一手{C:attention}顺子{}中的最大点数每相差1，",
+        "额外获得{X:mult,C:white} X0.75 {}倍率",
+        "{C:inactive}（上次最大点数：{C:attention}#1#{} {C:inactive}[#2#]）"
     }
 }
 

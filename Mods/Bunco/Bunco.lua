@@ -612,10 +612,9 @@ function SMODS.INIT.Bunco()
 
     -- Exotic cards Planets (\EX_PLA):
         local planet_loc_text = {
-            [1] = '（等级#1#）',
+            [1] = '{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）',
 		    [2] = '升级{C:attention}#2#',
-		    [3] = '{C:mult}+#3#{}倍率并且',
-		    [4] = '{C:chips}+#4#{}筹码'
+		    [3] = '{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码'
         }
         local c_quaoar = SMODS.Planet:new('Quaoar', 'quaoar', { hand_type = 'Spectrum', softlock = true }, { x = 0, y = 0 }, { name = '创神星', text = planet_loc_text }, 3, 1,
         nil, 1, true, false, 'bunco_planets')

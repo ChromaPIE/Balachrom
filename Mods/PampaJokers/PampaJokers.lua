@@ -24,7 +24,7 @@ function SMODS.INIT.MtlJokers()
 
      -- Localization
     G.localization.misc.dictionary.pampa_bye = "Bye Bye !"
-    G.localization.misc.dictionary.k_upgrade_ex_claw = "Upgrade all 3s !"
+    G.localization.misc.dictionary.k_upgrade_ex_claw = "升级所有3！"
     G.localization.misc.dictionary.ph_black_star = "Saved by Black Star"
     G.localization.misc.v_dictionary.sliding_joker = {"+#1# mult ! +#2# chips !"}
 
@@ -469,11 +469,11 @@ function SMODS.INIT.MtlJokers()
     local jokerLocalization = {
 
         j_jazztrio = {
-            name = "Jazz Trio",
+            name = "爵士三重奏",
             text = {
-                "When played hand contains",
-                "a scoring {C:attention}Jack{}, {C:attention}Queen{} and {C:attention}King{},",
-                "upgrade {C:attention}2{} random {C:attention}Poker Hands{}"
+                "如果打出的牌中包含",
+                "计分的{C:attention}J{}、{C:attention}Q{}和{C:attention}K{}",
+                "升级{C:attention}两{}个随机的{C:attention}牌型"
             }
         },
         j_bikini = {
@@ -580,10 +580,11 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_claw = {
-            name = "Claw",
+            name = "三指爪痕",
             text = {
-                "When any {C:attention}3{} is played, permanently give",
-                "{C:chips}+#1#{} chips to ALL 3s in the deck."
+                "打出任何一张{C:attention}3{}时",
+                "牌组中的所有{C:attention}3",
+                "永久{C:chips}+#1#{}筹码"
             }
         },
         j_matry = {
@@ -603,12 +604,10 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_pampa = {
-            name = "Pampa",
+            name = "潘帕",
             text = {
-                "Gain {C:money}$#1#{} at the end of round.",
-                "{C:green}#2# in #3#{} chance this",
-                "card is destroyed",
-                "at end of round"
+                "回合结束时获得{C:money}$#1#",
+                "但有{C:green}#2#/#3#{}的几率被摧毁"
             }
         },
         j_bell = {

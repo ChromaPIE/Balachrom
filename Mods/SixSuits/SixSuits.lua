@@ -90,10 +90,9 @@ function SMODS.INIT.SixSuit()
     end
 
     local planet_loc_text = {
-        [1] = '（等级#1#）',
+        [1] = '{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）',
 		[2] = '升级{C:attention}#2#',
-		[3] = '{C:mult}+#3#{}倍率并且',
-		[4] = '{C:chips}+#4#{}筹码'
+		[3] = '{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码'
     }
     local c_gj_273_c = SMODS.Planet:new('GJ 273 c', 'gj_273_c', { hand_type = 'Spectrum' }, { x = 0, y = 0 }, {
         name = '鲁坦星c', text = planet_loc_text
