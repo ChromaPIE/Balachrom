@@ -1559,9 +1559,9 @@ function SMODS.INIT.Bunco()
         ['name'] = '磁带',
         ['text'] = {
             [1] = '弃牌时，翻转此牌至另一面',
-            [2] = '{C:attention}A面：{C:hearts}红心{}、{C:diamonds}方片{}和{C:印花}印花{}牌',
+            [2] = '{C:attention}A面：{C:hearts}红心{}、{C:diamonds}方片{}、{C:星星}星星{}和{C:印花}印花{}牌',
             [3] = '在计分时给予{C:chips}+#1#{}筹码',
-            [4] = '{C:attention}B面：{C:spades}黑桃{}、{C:clubs}梅花{}和{C:斧枪}斧枪{}牌',
+            [4] = '{C:attention}B面：{C:spades}黑桃{}、{C:clubs}梅花{}、{C:月亮}月亮{}和{C:斧枪}斧枪{}牌',
             [5] = '在计分时给予{C:mult}+#2#{}倍率'
         }
     }
@@ -1598,7 +1598,8 @@ function SMODS.INIT.Bunco()
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit('Hearts') or
             context.other_card:is_suit('Diamonds') or
-            context.other_card:is_suit('印花') then
+            context.other_card:is_suit('印花') or
+            context.other_card:is_suit('星星') then
                 if self.ability.extra.side == 'A' then
                     return {
                         chips = self.ability.extra.chips,
@@ -1609,7 +1610,8 @@ function SMODS.INIT.Bunco()
 
             if context.other_card:is_suit('Spades') or
             context.other_card:is_suit('Clubs') or
-            context.other_card:is_suit('斧枪') then
+            context.other_card:is_suit('斧枪') or
+            context.other_card:is_suit('月亮') then
                 if self.ability.extra.side == 'B' then
                     return {
                         mult = self.ability.extra.mult,
@@ -1817,7 +1819,7 @@ function SMODS.INIT.Bunco()
         if context.emplace and context.emplaced_card.facing == 'back' and not context.blueprint then
             self.ability.extra.xmult = self.ability.extra.xmult + 0.2
 
-            forced_message('X'..tostring(self.ability.extra.xmult)..' Mult', self, G.C.RED)
+            forced_message('X'..tostring(self.ability.extra.xmult)..'倍率', self, G.C.RED)
             delay(0.8)
         end
 
@@ -2514,9 +2516,8 @@ function SMODS.INIT.Bunco()
     local loc_envvious = {
         ['name'] = '妒忌小丑',
         ['text'] = {
-            [1] = '打出的',
-            [2] = '{C:印花}印花{}花色牌',
-            [3] = '在计分时给予{C:mult}+#1#{}倍率'
+            [1] = '打出的{C:印花}印花{}花色牌',
+            [2] = '在计分时给予{C:mult}+#1#{}倍率'
         }
     }
 
@@ -2556,9 +2557,8 @@ function SMODS.INIT.Bunco()
     local loc_proud = {
         ['name'] = '骄傲小丑',
         ['text'] = {
-            [1] = '打出的',
-            [2] = '{C:斧枪}斧枪{}花色牌',
-            [3] = '在计分时给予{C:mult}+#1#{}倍率'
+            [1] = '打出的{C:斧枪}斧枪{}花色牌',
+            [2] = '在计分时给予{C:mult}+#1#{}倍率'
         }
     }
 
@@ -2744,11 +2744,11 @@ function SMODS.INIT.Bunco()
     SMODS.Sprite:new('j_lurid', bunco_mod.path, 'Jokers.png', 71, 95, 'asset_atli'):register()
 
     local loc_lurid = {
-        ['name'] = 'Lurid Joker',
+        ['name'] = '艳俗小丑',
         ['text'] = {
-            [1] = '{C:chips}+120{} Chips if played',
-            [2] = 'hand contains',
-            [3] = 'a {C:attention}Spectrum'
+            [1] = '如果打出的牌中',
+            [2] = '包含{C:attention}五色',
+            [3] = '{C:chips}+120{}筹码'
         }
     }
 

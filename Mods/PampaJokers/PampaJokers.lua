@@ -561,12 +561,13 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_voodoo = {
-            name = "Voodoo Doll",
+            name = "巫毒娃娃",
             text = {
-                "{X:mult,C:white}X#1# {} Mult",
-                "for each unique played rank",
-                "already played this round.",
-                "(Played ranks: {C:attention}#2#{})"
+                "",
+                "当前回合内，每打出一个",
+                "尚未打出过的点数",
+                "本牌获得{X:mult,C:white}X#1#{}倍率",
+                "（已出点数：{C:attention}#2#{}）"
 
             }
         },
@@ -588,10 +589,11 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_matry = {
-            name = "Matryoshka",
+            name = "俄罗斯套娃",
             text = {
-                "{C:blue}+#1#{} chips for each unique",
-                 "scoring hand size played this round"
+                "出牌时，若本回合内",
+                "未打出过相同张数的出牌",
+                "{C:blue}+#1#{}筹码"
             }
         },
         j_3776 = {
@@ -611,19 +613,18 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_bell = {
-            name = "Bell Curve",
+            name = "正态分布",
             text = {
-                "Enhance one random card",
-                "into a {C:attention}Lucky Card{} when",
-                "first hand is drawn",
+                "抽取第一手牌后，随机增强",
+                "其中的一张牌为{C:attention}幸运牌"
             }
         },
         j_moon = {
-            name = "Moon Rabbit",
+            name = "玉兔",
             text = {
-                "{C:green}#1# in #2#{} chance",
-                "to generate a copy of {C:attention}The Fool{}",
-                "when a hand containing a {C:attention}Full House{} is played"
+                "如果打出的牌中包含{C:attention}葫芦",
+                "则有{C:green}#1#/#2#{}的几率",
+                "生成一张{C:attention}愚者"
             }
         },
         j_mahjong = {

@@ -6,12 +6,11 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Miracle Milk",
+    name = "奇妙牛奶",
     text = {
-        "{C:attention}Undebuff{} all scored cards",
-        "This Joker gains {C:chips}+8{} Chips per",
-        "{C:attention}undebuffed{} card",
-        "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+        "使所有{C:attention}失效{}的牌在计分时{C:attention}复原",
+        "每{C:attention}复原{}一张牌，本牌获得{C:chips}+8{}筹码",
+        "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
     }
 }
 

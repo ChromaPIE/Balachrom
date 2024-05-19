@@ -275,7 +275,7 @@ function CodexArcanum.INIT.CA_Alchemicals()
     local alchemy_arsenic_def = {
         name = "砷",
         text = {
-        "用弃牌堆{C:attention}换掉{}手牌"
+        "{C:attention}对调{}出牌和弃牌次数"
         }
     }
 

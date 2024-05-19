@@ -662,12 +662,13 @@ function SMODS.INIT.sdm_0s_stuff()
             "Bounciest Ball", "sdm_bounciest_ball",
             {extra = {chips = 0, chip_mod = 10, hand = "High Card"}}, {x=0, y=0},
             {
-                name = "Bounciest Ball",
+                name = "弹出大气层",
                 text = {
-                    "This Joker gains {C:chips}+#2#{} Chips every time",
-                    "a {C:attention}#3#{} is scored, reset and",
-                    "change on {C:attention}different hand{}",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                    "打出{C:attention}#3#{}并计分时",
+                    "本牌获得{C:chips}+#2#{}筹码",
+                    "{C:attention}牌型不符{}时重置",
+                    "并改变需求牌型",
+                    "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
             }}, 1, 5, true, true, true, true
         )
 
@@ -747,12 +748,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Iconic Icon", "sdm_iconic_icon",
             {extra = {mult = 0, mult_mod = 4}},  {x=0, y=0},
             {
-                name = "Iconic Icon",
+                name = "门面头牌",
                 text = {
-                    "{C:mult}+#2#{} Mult per{C:attention} modified Aces",
-                    "(enhancement, seal, edition)",
-                    "in your {C:attention}full deck",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "{C:attention}完整牌组{}内每有一张",
+                    "带有{C:attention}增强{}、{C:attention}蜡封{}或{C:attention}版本{}的{C:attention}A",
+                    "{C:mult}+#2#{}倍率",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             }, 1, 6, true, true, true, true
         )
@@ -782,12 +783,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Mult'N'Chips", "sdm_mult_n_chips",
             {extra = {mult = 4, chips = 30}},  {x=0, y=0},
             {
-                name = "Mult'N'Chips",
+                name = "红蓝交错",
                 text = {
-                    "Scored {C:attention}Bonus{} cards",
-                    "gives {C:mult}+#1#{} Mult,",
-                    "scored {C:attention}Mult{} cards",
-                    "gives {C:chips}+#2#{} Chips",
+                    "{C:attention}奖励牌{}在计分时给予{C:mult}+#1#{}倍率",
+                    "{C:attention}倍率牌{}在计分时给予{C:chips}+#2#{}筹码"
                 }
             }, 1, 5, true, true, true, true
         )
@@ -951,11 +950,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Wandering Star", "sdm_wandering_star",
             {extra = {mult = 0, mult_mod = 3}},  {x=0, y=0},
             {
-                name = "Wandering Star",
+                name = "游星",
                 text = {
-                    "This Joker gains {C:red}+#2#{} Mult",
-                    "per {C:planet}Planet{} card sold",
-                    "{C:inactive}(Currently {C:red}+#1#{C:inactive} Mult)"
+                    "每售出一张{C:planet}星球牌",
+                    "本牌获得{C:red}+#2#{}倍率",
+                    "{C:inactive}（当前为{C:red}+#1#{C:inactive}倍率）"
                 }
             }, 1, 6, true, true, true, true
         )
@@ -1798,11 +1797,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Cupidon", "sdm_cupidon",
             {extra = {mult = 15}},  {x=0, y=0},
             {
-                name = "Cupidon",
+                name = "丘比特",
                 text = {
-                    "{C:red}+#1#{} Mult if scored hand",
-                    "contains a {C:attention}King{} and {C:attention}Queen{}",
-                    "card of the same {C:attention}suit",
+                    "如果打出的牌包含计分",
+                    "且{C:attention}花色{}相同的的{C:attention}K{}和{C:attention}Q",
+                    "{C:red}+#1#{}倍率",
                 }
             }, 1, 5, true, true, true, true
         )

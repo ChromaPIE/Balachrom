@@ -2888,64 +2888,56 @@ return {
                 name = "白标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}白注",
-                    "难度下获胜"
+                    "赢得了{C:attention}白注"
                 }
             },
             red_sticker = {
                 name = "红标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}红注",
-                    "难度下获胜"
+                    "赢得了{C:attention}红注"
                 }
             },
             green_sticker = {
                 name = "绿标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}绿注",
-                    "难度下获胜"
+                    "赢得了{C:attention}绿注"
                 }
             },
             blue_sticker = {
                 name = "蓝标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}蓝注",
-                    "难度下获胜"
+                    "赢得了{C:attention}蓝注"
                 }
             },
             black_sticker = {
                 name = "黑标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}黑注",
-                    "难度下获胜"
+                    "赢得了{C:attention}黑注"
                 }
             },
             purple_sticker = {
                 name = "紫标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}紫注",
-                    "难度下获胜"
+                    "赢得了{C:attention}紫注"
                 }
             },
             orange_sticker = {
                 name = "橙标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}橙注",
-                    "难度下获胜"
+                    "赢得了{C:attention}橙注"
                 }
             },
             gold_sticker = {
                 name = "金色标贴",
                 text = {
                     "使用本牌",
-                    "在{C:attention}金注",
-                    "难度下获胜"
+                    "赢得了{C:attention}金注"
                 }
             },
             playing_card = {

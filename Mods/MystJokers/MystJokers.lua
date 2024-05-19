@@ -60,7 +60,7 @@ function SMODS.INIT.MystJokers()
         end
     end
 
-    G.localization.misc.dictionary.k_cleansed = "Cleansed!"
+    G.localization.misc.dictionary.k_cleansed = "净化！"
     G.localization.misc.dictionary.k_wheel = "Wheel!"
     G.localization.descriptions.Joker.j_bobm_tooltip = {
         name = "bobm",

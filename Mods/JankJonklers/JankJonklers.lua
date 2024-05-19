@@ -213,11 +213,11 @@ function SMODS.INIT.JankJonklersMod()
     if config.j_feste then
         local feste = {
             loc = {
-                name = "Feste",
+                name = "费斯特",
                 text = {
-                    "Upgrade the first hand",
-                    "you play each {C:attention}Boss Blind{}",
-                    "by {C:attention}4{} levels"
+                    "将在{C:attention}Boss盲注{}中",
+                    "第一次出牌的牌型",
+                    "提升{C:attention}4{}个等级"
                 }
             },
             ability_name = "Feste",
@@ -377,11 +377,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local devilish = {
             loc = {
-                name = "Devilish Joker",
+                name = "恶魔小丑",
                 text = {
-                    "{X:mult,C:white}X3{} Mult if played",
-                    "hand contains only {C:attention}6s{}",
-                    "or {C:attention}Gold Cards{}"
+                    "如果打出的牌中",
+                    "仅包含{C:attention}6{}或{C:attention}黄金牌",
+                    "{X:mult,C:white}X3{}倍率"
                 }
             },
             ability_name = "Devilish Joker",
@@ -1121,11 +1121,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local highlander = {
             loc = {
-                name = "Highlander Joker",
+                name = "高地小丑",
                 text = {
-                    "Every scoring card permanently",
-                    "gains {C:chips}+20{} Chips when scored if",
-                    "your hand is a {C:attention}High Card{}."
+                    "打出{C:attention}高牌{}时",
+                    "每张计分的牌",
+                    "永久获得{C:chips}+20{}筹码"
                 }
             },
             ability_name = "Highlander Joker",
@@ -1289,10 +1289,10 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local shady_dealer = {
             loc = {
-                name = "Shady Dealer",
+                name = "不法商贩",
                 text = {
-                    "Sell this card to create",
-                    "a free {C:attention}Negative Tag{}"
+                    "售出本牌即可免费",
+                    "生成一个{C:attention}负片标签"
                 }
             },
             ability_name = "Shady Dealer",
