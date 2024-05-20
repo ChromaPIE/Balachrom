@@ -66,6 +66,7 @@ local space_jokers = {
     ["Sentai Joker"] = "j_sentai", -- Jank Jonklers
     ["Ternary System"] = "j_ternary_system", -- Jank Jonklers
     ["Big Bang"] = "j_big_bang", -- Fusion Joker
+    ["Moon Rabbit"] = "j_moon", -- PampaJokers
 }
 
 --- Functions ---
@@ -822,10 +823,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Moon Base", "sdm_moon_base",
             {extra = 50},  {x=0, y=0},
             {
-                name = "Moon Base",
+                name = "月球基地",
                 text = {
-                    "{C:attention}Space{} Jokers each",
-                    "give{C:chips} +#1# {}Chips",
+                    "每张{C:attention}太空{}主题的小丑牌",
+                    "给予{C:chips}+#1#{}筹码",
                 }
             }, 2, 7, true, true, true, true
         )
@@ -926,11 +927,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Tip Jar", "sdm_tip_jar",
             {},  {x=0, y=0},
             {
-                name = "Tip Jar",
+                name = "小费罐",
                 text = {
-                    "Earn your money's",
-                    "{C:attention}highest digit",
-                    "at end of round",
+                    "回合结束时获得",
+                    "与拥有资金数字中",
+                    "{C:attention}最大的一位{}等值的资金",
+                    "{C:inactive}例如：拥有132$，获得3$"
                 }
             }, 2, 6, true, true, false, true
         )
@@ -1396,11 +1398,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Infinite Staircase", "sdm_infinite_staircase",
             {extra = {Xmult = 2}},  {x=0, y=0},
             {
-                name = "Infinite Staircase",
+                name = "无尽楼梯间",
                 text = {
-                    "{X:red,C:white}X#1#{} Mult if scored hand",
-                    "contains a {C:attention}numerical Straight{}",
-                    "without an {C:attention}Ace{} card",
+                    "如果打出的牌中包含",
+                    "全部由{C:attention}数字牌{}组成",
+                    "且没有{C:attention}A{}的{C:attention}顺子",
+                    "{X:red,C:white}X#1#{}倍率"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -1512,12 +1515,14 @@ function SMODS.INIT.sdm_0s_stuff()
             "Reach The Stars", "sdm_reach_the_stars",
             {extra = {num_card1 = 1, num_card2 = 5, rts_scored = 0, remaining = 2, c1_scored = false, c2_scored = false}},  {x=0, y=0},
             {
-                name = "Reach The Stars",
+                name = "只手摘星",
                 text = {
-                    "Scoring {C:attention}#1#{} and {C:attention}#2#{} cards",
-                    "creates a random {C:planet}Planet{} card,",
-                    "changes at end of round",
-                    "{C:inactive}(Must have room)",
+                    "回合内有两次出牌",
+                    "各打出{C:attention}#1#{}张和{C:attention}#2#{}张牌时",
+                    "随机生成一张{C:planet}星球牌",
+                    "{C:inactive}（必须有空间）",
+                    "回合结束时改变张数要求",
+                    
                 }
             }, 1, 5, true, true, true, true
         )

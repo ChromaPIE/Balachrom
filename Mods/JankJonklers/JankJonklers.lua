@@ -429,10 +429,8 @@ function SMODS.INIT.JankJonklersMod()
             loc = {
                 name = "即兴整蛊小丑",
                 text = {
-                    "{X:mult,C:white}X3{} Mult if {C:attention}poker hand{}",
-                    "is a {C:attention}#1#{},",
-                    "poker hand changes on",
-                    "every matching hand"
+                    "如果打出的{C:attention}牌型{}为{C:attention}#1#{}，{X:mult,C:white}X3{}倍率",
+                    "触发后改变需求牌型"
                 }
             },
             ability_name = "Impractical Joker",
@@ -453,7 +451,7 @@ function SMODS.INIT.JankJonklersMod()
         init_joker(impractical)
         -- Set local variables
         function SMODS.Jokers.j_impractical.loc_def(card)
-            return { card.ability.extra.poker_hand }
+            return { G.localization.misc['poker_hands'][card.ability.extra.poker_hand] }
         end
         -- Calculate
         SMODS.Jokers.j_impractical.calculate = function(self, context)
@@ -648,11 +646,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local pitiful = {
             loc = {
-                name = "Pitiful Joker",
+                name = "凄惨小丑",
                 text = {
-                    "{C:mult}+10{} Mult if",
-                    "played hand is a",
-                    "{C:attention}High Card{} or {C:attention}Pair{}"
+                    "如果打出的牌型为",
+                    "{C:attention}高牌{}或{C:attention}对子",
+                    "{C:mult}+10{}倍率"
                 }
             },
             ability_name = "Pitiful Joker",
@@ -1607,7 +1605,7 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local cardslinger = {
             loc = {
-                name = "卡牌术士",
+                name = "飞牌大师",
                 text = {
                     "当前出牌中",
                     "每有一张计分的牌",

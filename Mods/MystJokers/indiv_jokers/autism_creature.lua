@@ -6,11 +6,11 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Autism Creature",
+    name = "孤独症画作",
     text = {
-        "{C:mult}+6{} Mult for each",
-        "empty {C:attention}Joker{} slot",
-        "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        "每有一个空的{C:attention}小丑牌{}槽位",
+        "本牌获得{C:mult}+6{}倍率",
+        "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
     }
 }
 

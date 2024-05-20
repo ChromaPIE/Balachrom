@@ -486,12 +486,11 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_cherry = {
-            name = "Cherry",
+            name = "樱桃",
             text = {
-                "Gains {C:red}+#1#{} Mult whenever a pair",
-                "is discarded. Destroyed",
-                "after #3# pairs discarded",
-                "{C:inactive}(Currently: {C:red}+#2#{} Mult){}"
+                "每弃掉一个{C:attention}对子{C:red}+#1#{}倍率",
+                "弃掉{C:attention}#3#{}个对子时摧毁本牌",
+                "{C:inactive}（当前为{C:red}+#2#{C:inactive}倍率"
 
             }
         },
@@ -520,11 +519,11 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_trick = {
-            name = "Trick or Treat",
+            name = "万圣捣蛋鬼",
             text = {
-                "Gains {X:mult,C:white}x#1#{} Mult for each",
-                "{C:spectral}Spectral{} card used",
-                "{C:inactive}(Currently {X:mult,C:white}x#2#{}){}"
+                "每使用一张{C:spectral}幻灵牌",
+                "本牌获得{X:mult,C:white}X#1#{}倍率",
+                "{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}倍率）"
             }
         },
         j_mathurine = {
@@ -706,18 +705,19 @@ function SMODS.INIT.MtlJokers()
             }
         },   
         j_ishihara = {
-            name = "Ishihara Test",
+            name = "色盲检测图",
             text = {
-                "All {C:attention}9{} and {C:attention}6{} become",
-                "{C:attention}Wild{} cards when played."
+                "打出的所有{C:attention}9{}和{C:attention}6",
+                "变为{C:attention}万能牌"
             }
         },
         j_scopedog = {
-            name = "Scopedog",
+            name = "眼镜斗犬",
             text = {
-                "Playing a hand containing an",
-                "{C:attention}Aces Three of a Kind{}",
-                "disables the {C:attention}Boss Blind{}"
+                "在{C:attention}Boss盲注{}中",
+                "如果打出的牌中",
+                "包含{C:attention}3张A",
+                "消除{C:attention}限制条件"
             }         
         }
     }

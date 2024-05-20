@@ -7,11 +7,11 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Yield My Flesh",
+    name = "以吾之血肉",
     text = {
-        "{X:mult,C:white} X3 {} Mult after first played",
-        "hand scores less than",
-        "{C:attention}5%{} of required chips"
+        "如果第一次出牌的得分",
+        "小于最低要求的{C:attention}5%",
+        "本回合内{X:mult,C:white} X3 {}倍率"
     }
 }
 
