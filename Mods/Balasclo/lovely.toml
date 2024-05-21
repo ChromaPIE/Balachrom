@@ -3,6 +3,14 @@ version = "0.1"
 dump_lua = false
 priority = 0
 
+# [[patches]]
+# [patches.pattern]
+# target = "game.lua"
+# pattern = '''{file = "resources/fonts/NotoSansSC-Bold.ttf", render_scale = self.TILESIZE*7, TEXT_HEIGHT_SCALE = 0.7, TEXT_OFFSET = {x=0,y=-35}, FONTSCALE = 0.12, squish = 0.9, DESCSCALE = 1.1},'''
+# position = "at"
+# payload = '''{file = "resources/fonts/NotoSansSC-Bold.ttf", render_scale = self.TILESIZE*7, TEXT_HEIGHT_SCALE = 0.9, TEXT_OFFSET = {x=0,y=-3}, FONTSCALE = 0.11, squish = 1, DESCSCALE = 1.1},'''
+# match_indent = true
+
 # 当前 Balasclo 版本
 [[patches]]
 [patches.pattern]
@@ -11,6 +19,23 @@ pattern = "VERSION = VERSION..'-FULL'"
 position = "after"
 payload = "VERSION = VERSION..' (Balasclo v0.0.1)'"
 overwrite = false
+match_indent = true
+
+# Steamodded 相关文本汉化
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''label = {"MODS"},'''
+position = "at"
+payload = '''label = {"模组"},'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''label = "Mods",'''
+position = "at"
+payload = '''label = "模组",'''
 match_indent = true
 
 # 使用轨道标签升级牌型的牌型名称本地化

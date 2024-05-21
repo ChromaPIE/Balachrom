@@ -116,29 +116,29 @@ function SMODS.INIT.Bunco()
 
     -- Exotic cards localization (\EX_LOC):
 
-    G.localization.misc['poker_hands']['Spectrum'] = 'Spectrum' -- Copied from SixSuits mod
-    G.localization.misc['poker_hands']['Straight Spectrum'] = 'Straight Spectrum'
-    G.localization.misc['poker_hands']['Royal Spectrum'] = 'Royal Spectrum'
-    G.localization.misc['poker_hands']['Spectrum House'] = 'Spectrum House'
-    G.localization.misc['poker_hands']['Spectrum Five'] = 'Spectrum Five'
+    G.localization.misc['poker_hands']['Spectrum'] = '缤彩' -- Copied from SixSuits mod
+    G.localization.misc['poker_hands']['Straight Spectrum'] = '缤彩顺'
+    G.localization.misc['poker_hands']['Royal Spectrum'] = '皇家缤彩顺'
+    G.localization.misc['poker_hands']['Spectrum House'] = '缤彩葫芦'
+    G.localization.misc['poker_hands']['Spectrum Five'] = '缤彩五条'
     G.localization.misc['poker_hand_descriptions']['Spectrum'] = {
-        [1] = '5 cards, each with a different suit'
+        [1] = '5张花色各不相同的牌'
     }
     G.localization.misc['poker_hand_descriptions']['Straight Spectrum'] = {
-        [1] = '5 cards in a row (consecutive ranks) with',
-        [2] = 'each card having a different suit'
+        [1] = '点数连续',
+        [2] = '且花色各不相同的5张牌'
     }
     G.localization.misc['poker_hand_descriptions']['Royal Spectrum'] = {
-        [1] = '5 cards in a row (consecutive ranks) with',
-        [2] = 'each card having a different suit'
+        [1] = '花色各不相同的',
+        [2] = 'A、K、Q、J、10'
     }
     G.localization.misc['poker_hand_descriptions']['Spectrum House'] = {
-        [1] = 'A Three of a Kind and a Pair with',
-        [2] = 'each card having a different suit'
+        [1] = '包含一个三条和一个对子',
+        [2] = '且每张牌花色各不相同'
     }
     G.localization.misc['poker_hand_descriptions']['Spectrum Five'] = {
-        [1] = '5 cards with the same rank,',
-        [2] = 'each with a different suit'
+        [1] = '5张点数相同',
+        [2] = '但花色各不相同的牌'
     }
 
     -- Exotic cards handlist (\EX_HAN):
@@ -1559,9 +1559,9 @@ function SMODS.INIT.Bunco()
         ['name'] = '磁带',
         ['text'] = {
             [1] = '弃牌时，翻转此牌至另一面',
-            [2] = '{C:attention}A面：{C:hearts}红心{}、{C:diamonds}方片{}、{C:星星}星星{}和{C:印花}印花{}牌',
+            [2] = '{C:attention}A面：{C:hearts}红心{}、{C:diamonds}方片{}、和{C:印花}印花{}牌',
             [3] = '在计分时给予{C:chips}+#1#{}筹码',
-            [4] = '{C:attention}B面：{C:spades}黑桃{}、{C:clubs}梅花{}、{C:月亮}月亮{}和{C:斧枪}斧枪{}牌',
+            [4] = '{C:attention}B面：{C:spades}黑桃{}、{C:clubs}梅花{}、和{C:斧枪}斧枪{}牌',
             [5] = '在计分时给予{C:mult}+#2#{}倍率'
         }
     }
@@ -1598,8 +1598,7 @@ function SMODS.INIT.Bunco()
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit('Hearts') or
             context.other_card:is_suit('Diamonds') or
-            context.other_card:is_suit('印花') or
-            context.other_card:is_suit('星星') then
+            context.other_card:is_suit('印花') then
                 if self.ability.extra.side == 'A' then
                     return {
                         chips = self.ability.extra.chips,
@@ -1610,8 +1609,7 @@ function SMODS.INIT.Bunco()
 
             if context.other_card:is_suit('Spades') or
             context.other_card:is_suit('Clubs') or
-            context.other_card:is_suit('斧枪') or
-            context.other_card:is_suit('月亮') then
+            context.other_card:is_suit('斧枪') then
                 if self.ability.extra.side == 'B' then
                     return {
                         mult = self.ability.extra.mult,

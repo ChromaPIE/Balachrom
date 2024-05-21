@@ -1388,8 +1388,8 @@ do
     local loc_txt = {
         name = "第二张半价",
         text = {
-            "兑换奖券时有{C:green}#1#%{}的几率",
-            "直接获得它的{C:attention}高级变种",
+            "兑换{C:attention}低级{}奖券时有{C:green}#1#%{}的几率",
+            "直接获得它的{C:attention}高级{}版本",
             "并失去{C:money}$#2#",
             "{C:inactive}（上述几率无法倍增）"
         }
@@ -1410,12 +1410,11 @@ do
     local name="B1G1"
     local id="b1g1"
     local loc_txt = {
-        name = name,
+        name = "买一“赠”一",
         text = {
-            "When you redeem a",
-            "{C:attention}tier 1{} Voucher, always",
-            "redeem the {C:attention}tier 2{}",
-            "one and lose {C:money}$#1#{}"
+            "兑换{C:attention}低级{}奖券时",
+            "直接获得它的{C:attention}高级{}版本",
+            "并失去{C:money}$#1#"
         }
     }
     local this_v = SMODS.Voucher:new(

@@ -481,12 +481,13 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local wanted_poster = {
             loc = {
-                name = "Wanted Poster",
+                name = "通缉令",
                 text = {
-                    "Gain {C:attention}$10{} when you",
-                    "beat a {C:attention}Blind{} first hand.",
-                    "Lose {C:attention}$2{} when you play",
-                    "a hand past your first"
+                    "若第一次出牌",
+                    "即击败{C:attention}盲注",
+                    "获得{C:money}$10",
+                    "否则每多出一次牌",
+                    "失去{C:attention}$2"
                 }
             },
             ability_name = "Wanted Poster",
@@ -906,11 +907,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local scrapper = {
             loc = {
-                name = "Scrapper Joker",
+                name = "好斗小丑",
                 text = {
-                    "{C:green}#1# in #2#{} chance to create a",
-                    "random {C:attention}Planet{} card when you",
-                    "discard five {C:attention}numbered{} cards"
+                    "有{C:green}#1#/#2#{}的几率",
+                    "在弃掉五张{C:attention}数字{}牌时",
+                    "随机生成一张{C:attention}星球牌"
                 }
             },
             ability_name = "Scrapper Joker",
@@ -967,10 +968,10 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local old_man = {
             loc = {
-                name = "Old Man Joker",
+                name = "老叟小丑",
                 text = {
-                    "When {C:attention}Boss Blind{} is selected",
-                    "create a free {C:attention}Ethereal Tag{}"
+                    "选择{C:attention}Boss盲注时",
+                    "免费生成一个{C:attention}空灵标签"
                 }
             },
             ability_name = "Old Man Joker",

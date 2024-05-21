@@ -488,9 +488,9 @@ function SMODS.INIT.MtlJokers()
         j_cherry = {
             name = "樱桃",
             text = {
-                "每弃掉一个{C:attention}对子{C:red}+#1#{}倍率",
+                "每弃掉一个{C:attention}对子{}，{C:red}+#1#{}倍率",
                 "弃掉{C:attention}#3#{}个对子时摧毁本牌",
-                "{C:inactive}（当前为{C:red}+#2#{C:inactive}倍率"
+                "{C:inactive}（当前为{C:red}+#2#{C:inactive}倍率）"
 
             }
         },
@@ -552,21 +552,20 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_flamingo = {
-            name = "Flamingo",
+            name = "火烈鸟",
             text = {
-                "When played, {C:diamonds}Diamonds{} cards",
-                "have {C:green}#1# in #2#{} chance",
-                "to become {C:dark_edition}polychrome{}.",
+                "打出的{C:diamonds}方片{}牌",
+                "有{C:green}#1#/#2#{}的几率",
+                "变为{C:dark_edition}多彩"
             }
         },
         j_voodoo = {
             name = "巫毒娃娃",
             text = {
-                "",
-                "当前回合内，每打出一个",
-                "尚未打出过的点数",
-                "本牌获得{X:mult,C:white}X#1#{}倍率",
-                "（已出点数：{C:attention}#2#{}）"
+                "出牌时，每有一张牌",
+                "与当前回合内已出过的牌",
+                "点数相同，给予{X:mult,C:white}X#1#{}倍率",
+                "（已出点数：[{C:attention}#2#{}]）"
 
             }
         },

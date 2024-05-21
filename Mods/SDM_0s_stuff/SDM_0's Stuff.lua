@@ -598,11 +598,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Burger", "sdm_burger",
             {extra = {Xmult=1.25, mult=10, chips=30, remaining=4}}, {x=0, y=0},
             {
-                name = "Burger",
+                name = "大汉堡",
                 text = {
-                    "{C:chips}+#3#{} Chips, {C:mult}+#2#{} Mult",
-                    "and {X:mult,C:white}X#1#{} Mult",
-                    "for the next {C:attention}#4#{} rounds",
+                    "在接下来的{C:attention}#4#{}回合内",
+                    "{C:chips}+#3#{}筹码，{C:mult}+#2#{}倍率，{X:mult,C:white}X#1#{}倍率"
                 }
             }, 3, 8, true, true, true, false
         )

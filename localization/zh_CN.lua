@@ -2428,7 +2428,7 @@ return {
                 }
             },
             tag_charm = {
-                name = "吊饰标签",
+                name = "魔符标签",
                 text = {
                     "获得一个免费的",
                     "{C:tarot}超级秘术包"
@@ -2442,10 +2442,10 @@ return {
                 }
             },
             tag_buffoon = {
-                name = "小丑标签",
+                name = "丑角标签",
                 text = {
                     "获得一个免费的",
-                    "{C:attention}超级小丑包"
+                    "{C:attention}超级丑角包"
                 }
             },
             tag_handy = {
@@ -3193,31 +3193,30 @@ return {
                 }
             },
             p_buffoon_normal = {
-                name = "小丑包",
+                name = "丑角包",
                 text = {
                     "从最多{C:attention}#2#张{C:joker}小丑牌{}中",
                     "选择{C:attention}#1#{}张"
                 }
             },
             p_buffoon_jumbo = {
-                name = "巨型小丑包",
+                name = "巨型丑角包",
                 text = {
                     "从最多{C:attention}#2#张{C:joker}小丑牌{}中",
                     "选择{C:attention}#1#{}张"
                 }
             },
             p_buffoon_mega = {
-                name = "超级小丑包",
+                name = "超级丑角包",
                 text = {
                     "从最多{C:attention}#2#张{C:joker}小丑牌{}中",
                     "选择{C:attention}#1#{}张"
                 }
             },
             pinned_left = {
-                name = "固定",
+                name = "左极固定",
                 text = {
-                    "本牌",
-                    "固定在",
+                    "强制固定在",
                     "最左侧"
                 }
             },
@@ -3343,32 +3342,32 @@ return {
         },
         poker_hand_descriptions = {
             ['Flush House'] = {
-                "三条及对子，且",
-                "花色相同"
+                "包含一个三条和一个对子",
+                "且花色相同"
             },
             ['Five of a Kind'] = {
                 "5张相同点数的牌"
             },
             ['Royal Flush'] = {
-                "连续5张牌（点数连续），且",
-                "花色相同"
+                "点数连续的5张牌",
+                "且花色相同"
             },
             ['Straight Flush'] = {
-                "连续5张牌（点数连续），且",
-                "花色相同"
+                "点数连续的5张牌",
+                "且花色相同"
             },
             ['Four of a Kind'] = {
                 "4张相同点数的牌，可以与另外",
                 "一张不计分的牌一同打出"
             },
             ['Full House'] = {
-                "三条及对子"
+                "包含一个三条和一个对子"
             },
             ['Flush'] = {
                 "5张牌花色相同"
             },
             ['Straight'] = {
-                "连续5张牌（点数连续）"
+                "点数连续的5张牌"
             },
             ['Three of a Kind'] = {
                 "3张点数相同的牌，可以与另外",
@@ -3408,10 +3407,10 @@ return {
             blue_seal = "蓝色蜡封",
             red_seal = "红色蜡封",
             purple_seal = "紫色蜡封",
-            eternal = "永恒卡",
+            eternal = "永恒",
             perishable = "易腐",
             rental = "出租",
-            pinned_left = "固定"
+            pinned_left = "左极固定"
         },
         dictionary = {
             b_sell = "售出",
@@ -3538,7 +3537,7 @@ return {
             k_celestial_pack = "天体包",
             k_spectral_pack = "幻灵包",
             k_standard_pack = "标准包",
-            k_buffoon_pack = "小丑包",
+            k_buffoon_pack = "丑角包",
             k_enter_text = "输入文本",
             k_defeated_by = "负于",
             k_level_prefix = "等级",
@@ -3669,7 +3668,7 @@ return {
                 "发现均被禁用"
             },
             ['$'] = "$",
-            k_redeemed_ex = "已入手！",
+            k_redeemed_ex = "已兑换！",
             k_duplicated_ex = "复制！",
             k_no_room_ex = "没有空间！",
             k_no_space_ex = "没有空间！",
@@ -3765,8 +3764,8 @@ return {
             loyalty_inactive = "#1#次后激活",
             deck_preview_wheel_singular = "由于抽出的#1#牌面朝下，数字可能较低",
             deck_preview_wheel_plural = "由于抽出的#1#牌面朝下，数字可能较低",
-            challenges_completed = "已完成#1#/#2#挑战",
-            interest = "每$#2#获得#1#利息（最高 #3#）",
+            challenges_completed = "已完成#1#/#2#个挑战",
+            interest = "每持有$#2#给予$#1#利息（最高$#3#）",
             remaining_hand_money = "剩余出牌次数（每次$#1#）",
             remaining_discard_money = "剩余弃牌次数（每次$#1#）",
             ml_foil_desc = {

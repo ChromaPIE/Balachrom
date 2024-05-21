@@ -4308,7 +4308,7 @@ function Card.calculate_dollar_bonus(self)
                 return G.GAME.skips * 3
             end
         end
-        if self.ability.name == '黄金胡萝卜' then
+        if self.ability.name == 'Golden Carrot' then
             if self.ability.extra >= 0 then
                 return self.ability.extra + 2
             end
@@ -4413,7 +4413,7 @@ function Card.add_to_deck(self, from_debuff)
         if self.ability.name == 'Huge Joker' or self.ability.name == "Huge Stuntman" then
             G.hand:change_size(-2)
         end
-        if self.ability.name == '中空小丑' then
+        if self.ability.name == 'Hollow Joker' then
             G.hand:change_size(-1)
         end
         if self.ability.name == "Philosophical Joker" then
@@ -4431,7 +4431,7 @@ function Card.remove_from_deck(self, from_debuff)
         if self.ability.name == 'Huge Joker' or self.ability.name == "Huge Stuntman" then
             G.hand:change_size(2)
         end
-        if self.ability.name == '中空小丑' then
+        if self.ability.name == 'Hollow Joker' then
             G.hand:change_size(1)
         end
         if self.ability.name == "Philosophical Joker" then
