@@ -2,7 +2,7 @@
 --- MOD_NAME: Betmma Vouchers
 --- MOD_ID: BetmmaVouchers
 --- MOD_AUTHOR: [Betmma]
---- MOD_DESCRIPTION: 34 More Vouchers and 10 Fusion Vouchers!
+--- MOD_DESCRIPTION: 36 More Vouchers and 12 Fusion Vouchers! v1.1.3.1
 --- BADGE_COLOUR: ED40BF
 
 ----------------------------------------------
@@ -14,16 +14,14 @@
 -- sold jokers become a tag that replaces the next joker appearing in shop (also an ability)
 -- complete a quest to get a soul
 -- fusion vouchers:
--- Wild Cards can't be debuffed and retrigger themselves
+-- Forbidden Word: Fusion voucher and joker may appear in the store.  Forbidden magic: Purchased fusion Joker and voucher give things related to their fusion
 -- Randomize Lucky Card effects (+Chip, Mult, xMult, money, copy first card played, generate consumable, generate joker (oops all 6 maybe), comsumable slot, joker slot, random tag, enhance jokers, enhance cards, retrigger ...)
+-- (upgraded of above) if probabilities in lucky card, that is written as A in B, satisfies A>B, this can trigger more than 1 time
 -- Magic Trick + Reroll Surplus: return all cards to deck if deck has no cards
 -- Overstock + Reroll Surplus could make it so that whenever you buy something, it's automatically replaced with a card of the same type
 -- Oversupply Plus and 4D Boosters: Rerolls in the shop also reroll the voucher (if it wasn't purchased).
--- Epilogue and Engulfer: When blind ends, create a negative Black Hole.
--- Epilogue and Scribble: Spectral cards received from Epilogue are negative.
 -- Oversupply Plus and Overstock Plus: +1 voucher slot available at shop.
--- Glow Up and Illusion: Playing cards in the shop always have an edition and may have an enhancement and/or a seal.          Or: Playing cards in the shop always have an enhancement, edition and a seal.
--- Darkness and Double Planet: the planet card generated is negative
+-- you can discard the hand when opening a pack once
 
 -- Config: DISABLE UNWANTED MODS HERE
 local config = {
@@ -62,6 +60,8 @@ local config = {
     v_epilogue=true,
     v_bonus_plus=true,
     v_mult_plus=true,
+    v_omnicard=true,
+    v_bulletproof=true,
     -- fusion vouchers
     v_gold_round_up=true,
     v_overshopping=true,
@@ -73,7 +73,8 @@ local config = {
     v_money_target=true,
     v_art_gallery=true,
     v_slate=true,
-    v_gilded_glider=true
+    v_gilded_glider=true,
+    v_mirror=true
 }
 
 
@@ -279,6 +280,15 @@ do
                     if v.config.center_key == 'm_stone' then v:set_ability(G.P_CENTERS['m_stone']) end
                 end
             end
+            if G.GAME.used_vouchers.v_bulletproof then
+                for k, v in pairs(G.playing_cards) do
+                    if v.config.center_key == 'm_glass' and v.config.center.config.Xmult~=v.ability.x_mult then 
+                        v.config.center=copy_table(v.config.center)
+                        v.config.center.config.Xmult=v.ability.x_mult
+                        -- if the x_mult has been decreased, change the number on hover UI from m_glass value to x_mult
+                    end
+                end
+            end
         end
 
     end
@@ -355,7 +365,7 @@ do
     end
 
 
-end --
+end -- oversupply
 do 
     local name="Gold Coin"
     local id="gold_coin"
@@ -425,7 +435,7 @@ do
 
 
 
-end --
+end -- gold coin
 do 
     
     local name="Abstract Art"
@@ -530,7 +540,7 @@ do
     end
 
     
-end --
+end -- abstract art
 do 
 
     local name="Round Up"
@@ -594,7 +604,7 @@ do
     end
 
 
-end --
+end -- round up
 do 
     
     local name="Event Horizon"
@@ -676,7 +686,7 @@ do
     function Card:open()
         if self.ability.set == "Booster" and self.ability.name:find('Celestial') and G.GAME.used_vouchers.v_event_horizon and
         pseudorandom('event_horizon') < G.GAME.probabilities.normal/G.P_CENTERS.v_event_horizon.config.extra then
-            create_black_hole()
+            create_black_hole(localize("k_event_horizon_generate"))
         end
         return Card_open_ref(self)
     end
@@ -685,14 +695,16 @@ do
     G.FUNCS.use_card =function(e, mute, nosave)
         local card = e.config.ref_table
         if card.ability.consumeable then
-            if card.ability.set == 'Planet' and G.GAME.used_vouchers.v_engulfer and pseudorandom('engulfer') < G.GAME.probabilities.normal/G.P_CENTERS.v_engulfer.config.extra then
-                create_black_hole()
+            if (card.ability.set == 'Planet' or card.ability.set == "Planet_dx") and G.GAME.used_vouchers.v_engulfer and pseudorandom('engulfer') < G.GAME.probabilities.normal/G.P_CENTERS.v_engulfer.config.extra then
+                create_black_hole(localize("k_engulfer_generate"))
             end
         end
         G_FUNCS_use_card_ref(e, mute, nosave)
     end
+    G.localization.misc.dictionary.k_event_horizon_generate = "Event Horizon!"
+    G.localization.misc.dictionary.k_engulfer_generate = "Engulfer!"
 
-    function create_black_hole()
+    function create_black_hole(message)
         if #G.consumeables.cards + G.GAME.consumeable_buffer >= G.consumeables.config.card_limit then return end
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
         G.E_MANAGER:add_event(Event({
@@ -703,12 +715,15 @@ do
                     card:add_to_deck()
                     G.consumeables:emplace(card)
                     G.GAME.consumeable_buffer = 0
+                    if message~=nil then
+                        card_eval_status_text(card,'extra',nil,nil,nil,{message=message})
+                    end
                     return true
                     end)}))
     end
 
 
-end --
+end -- event horizon
 do 
 
     
@@ -779,7 +794,7 @@ do
     G.localization.misc.dictionary.k_bulls_eye_generate = "正中十环！"
 
 
-end --
+end -- target
 do 
 
     local name="Voucher Bundle"
@@ -808,7 +823,7 @@ do
     local loc_txt = {
         name = name,
         text = {
-            "Gives {C:Attention}#1#{} random vouchers"
+            "Gives {C:attention}#1#{} random vouchers"
         }
     }
     local this_v = SMODS.Voucher:new(
@@ -888,7 +903,7 @@ do
     -- end
     -- local time=0
 
-end --
+end -- voucher bundle
 do 
 
     local name="Skip"
@@ -944,7 +959,7 @@ do
     end
 
     
-end --
+end -- skip
 do 
         
     local name="Scrawl"
@@ -1010,7 +1025,7 @@ do
     end
 
     
-end --
+end -- scrawl
 do 
 
     local name="Reserve Area"
@@ -1145,7 +1160,7 @@ do
     -- I suspect that this function does nothing too
     -- because replacing it with empty function seems do no harm
 
-end --
+end -- reserve area
 do 
 
     local name="Overkill"
@@ -1252,7 +1267,7 @@ do
     G.localization.misc.dictionary.k_big_blast_edition = "炸飞！"
 
 
-end --
+end -- overkill
 do 
 
     local name="3D Booster"
@@ -1320,7 +1335,7 @@ do
     local G_FUNCS_cash_out_ref=G.FUNCS.cash_out
     G.FUNCS.cash_out=function (e)
         G_FUNCS_cash_out_ref(e)
-        if G.GAME.used_vouchers.v_3d_boosters then
+        if G.GAME.used_vouchers.v_3d_boosters and not G.GAME.miser and not(G.GAME.final_trident == true and not G.GAME.blind.disabled and not next(find_joker('Chicot'))) then -- prevent reroll if shop is skipped by Miser or Trident boss in Bunco mod
             my_reroll_shop(get_booster_pack_max()-2,0)
         end
     end
@@ -1379,7 +1394,7 @@ do
     end
 
 
-end --
+end -- 3d boosters
 do 
 
 
@@ -1486,17 +1501,17 @@ do
         Card_redeem_ref(self)
     end
     
-end --
+end -- b1g50
 do 
 
     local name="Collector"
     local id="collector"
     local loc_txt = {
-        name = name,
+        name = "收集者",
         text = {
-            "Each {C:attention}Voucher{} redeemed reduces",
-            "Blind requirement by {C:attention}#1#%{}",
-            "{C:inactive}(multiplicative){}"
+            "没兑换一张{C:attention}奖券",
+            "使盲注的最低得分要求削减{C:attention}#1#%",
+            "{C:inactive}（可倍增）"
             -- just because modifying get_blind_amount(ante) is easier than
             -- adding mult to score
         }
@@ -1518,24 +1533,27 @@ do
     local loc_txt = {
         name = name,
         text = {
-            "If all {C:attention}Vouchers{} have been redeemed",
-            "and you have more than {C:money}$#1#{},",
-            "redeeming {C:attention}Blank{} triggers {C:dark_edition}that Voucher{}",
-            "and doubles the money requirement"
+            "If you have more than",
+            "{C:money}$#1#/(Vouchers Redeemed + 1){}",
+            "that is {C:money}$#2#{}, redeeming",
+            "a voucher gives {C:dark_edition}Antimatter{}",
+            "and lets the money requirement {C:red}X#3#{}"
             
         }
     }
     local this_v = SMODS.Voucher:new(
         name, id,
-        {extra={base=20,multiplier=2}},
+        {extra={base=400,multiplier=5}},
         {x=0,y=0}, loc_txt,
         10, true, true, true, {'v_collector'}
     )
     SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
     this_v:register()
     this_v.loc_def = function(self)
-        local count=G and G.GAME and G.GAME.v_blank_count or 0
-        return {self.config.extra.base*self.config.extra.multiplier^(count)}
+        local count=G and G.GAME and G.GAME.v_connoisseur_count or 0
+        local redeemed=G and G.GAME and G.GAME.vouchers_bought or 0
+        return {self.config.extra.base*self.config.extra.multiplier^(count),
+        math.ceil(self.config.extra.base/(redeemed+1)*self.config.extra.multiplier^(count)),self.config.extra.multiplier}
     end
     local v_connoisseur=this_v
 
@@ -1556,9 +1574,9 @@ do
             extra = center and center.config.extra or self and self.ability.extra
         }
         G.GAME.vouchers_bought=(G.GAME.vouchers_bought or 0)+1
-        if center_table.name == 'Blank'then
-            if G.GAME.used_vouchers.v_connoisseur and G.GAME.vouchers_bought>=#G.P_CENTER_POOLS.Voucher and G.GAME.dollars>=v_connoisseur:loc_def()[1] then
-                
+        if center_table.name ~= 'Antimatter'then
+            if G.GAME.used_vouchers.v_connoisseur and G.GAME.dollars>=v_connoisseur:loc_def()[2] then
+                G.GAME.v_connoisseur_count= (G.GAME.v_connoisseur_count or 0)+1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',
                     --blockable = false,
@@ -1568,7 +1586,7 @@ do
                         --ease_dollars(-v_connoisseur:loc_def()[1])
                         -- the description doesn't say you will pay that amount, so don't ease_dollars feels right lol
                         randomly_redeem_voucher("v_antimatter")
-                        G.GAME.v_blank_count= (G.GAME.v_blank_count or 0)+1
+                        
                         return true
                     end}))   
             end
@@ -1576,7 +1594,7 @@ do
         Card_apply_to_run_ref(self, center)
     end
 
-end --
+end -- collector
 do 
 
     local name="Flipped Card"
@@ -1752,7 +1770,7 @@ do
     end
 
 
-end --
+end -- flipped card
 do 
 
     local name="Prologue"
@@ -1849,7 +1867,7 @@ do
         end
         end_round_ref()
     end
-end --
+end -- prologue
 do 
 
     local name="Bonus+"
@@ -1918,7 +1936,152 @@ do
         Card_apply_to_run_ref(self, center)
     end
 
-end --
+end -- bonus+
+do 
+
+    local name="Omnicard"
+    local id="omnicard"
+    local loc_txt = {
+        name = name,
+        text = {
+            "{C:attention}Wild Cards{} can't be",
+            "debuffed. Retrigger",
+            "all {C:attention}Wild Cards{}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {}
+    end
+
+    local name="Bulletproof"
+    local id="bulletproof"
+    local loc_txt = {
+        name = name,
+        text = {
+            -- "{C:attention}Glass Cards{} can",
+            -- "break #1# times"
+            "{C:attention}Glass Cards{} lose {X:mult,C:white}X#1#{}",
+            "instead of breaking.",
+            "They break when",
+            "they reach {X:mult,C:white}X#2#{}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {extra={lose=0.1,lower_bound=1.5}},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true, {'v_omnicard'}
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {self.config.extra.lose,self.config.extra.lower_bound}
+    end
+
+    local Card_set_debuff=Card.set_debuff
+    function Card:set_debuff(should_debuff)
+        if G.GAME.used_vouchers.v_omnicard and self.config and self.config.center_key=='m_wild' then
+            should_debuff=false
+            if self.params.debuff_by_curse then -- DX tarots mod curses that still debuff when should_debuff is false
+                self.params.debuff_by_curse=false
+            end
+        end
+        Card_set_debuff(self,should_debuff)
+    end
+
+    local Card_calculate_seal_ref=Card.calculate_seal
+    function Card:calculate_seal(context)
+        local ret=Card_calculate_seal_ref(self,context)
+        if context.repetition and G.GAME.used_vouchers.v_omnicard and self.config and self.config.center_key=='m_wild' then
+            if ret then
+                ret.repetitions=ret.repetitions+1
+            else
+                ret={
+                    message = localize('k_again_ex'),
+                    repetitions = 1,
+                    card = self
+                }
+            end
+        end
+        return ret
+    end
+
+    local Card_shatter_ref=Card.shatter
+    function Card:shatter()
+        if G.GAME.used_vouchers.v_bulletproof and self.ability.name == 'Glass Card' and G.P_CENTERS.m_glass.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose*(self.ability.breaking_count or 0)+1>G.P_CENTERS.v_bulletproof.config.extra.lower_bound then
+            self.ability.breaking_count=(self.ability.breaking_count or 0)+1
+            self.ability.x_mult=G.P_CENTERS.m_glass.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose*self.ability.breaking_count
+            self.config.center=copy_table(self.config.center) -- prevent modifying value of G.P_CENTERS.m_glass
+            self.config.center.config.Xmult=self.ability.x_mult--self.config.center.config.Xmult-G.P_CENTERS.v_bulletproof.config.extra.lose
+            self.shattered=false
+            self.destroyed=false
+            card_eval_status_text(self,'extra',nil,nil,nil,{message=localize('k_bulletproof')})
+            card_eval_status_text(self,'extra',nil,nil,nil,{message=localize{type='variable',key='a_xmult_minus',vars={G.P_CENTERS.v_bulletproof.config.extra.lose}},colour=G.C.RED})
+            Card_shatter_not_remove(self)
+            return
+        end
+        Card_shatter_ref(self)
+    end
+    G.localization.misc.dictionary.k_bulletproof = "Bulletproof!"
+    
+    function Card_shatter_not_remove(self)
+        local dissolve_time = 0.7
+        -- self.dissolve = 0
+        self.dissolve_colours = {{1,1,1,0.8}}
+        -- self:juice_up()
+        local childParts = Particles(0, 0, 0,0, {
+            timer_type = 'TOTAL',
+            timer = 0.007*dissolve_time,
+            scale = 0.3,
+            speed = 4,
+            lifespan = 0.5*dissolve_time,
+            attach = self,
+            colours = self.dissolve_colours,
+            fill = true
+        })
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            blockable = false,
+            delay =  0.5*dissolve_time,
+            func = (function() childParts:fade(0.15*dissolve_time) return true end)
+        }))
+        G.E_MANAGER:add_event(Event({
+            blockable = false,
+            func = (function()
+                    play_sound('glass'..math.random(1, 6), math.random()*0.2 + 0.9,0.5)
+                    play_sound('generic1', math.random()*0.2 + 0.9,0.5)
+                return true end)
+        }))
+        -- G.E_MANAGER:add_event(Event({
+        --     trigger = 'ease',
+        --     blockable = false,
+        --     ref_table = self,
+        --     ref_value = 'dissolve',
+        --     ease_to = 1,
+        --     delay =  0.5*dissolve_time,
+        --     func = (function(t) return t end)
+        -- }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            blockable = false,
+            delay =  0.55*dissolve_time,
+            func = (function()  return true end)
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            blockable = false,
+            delay =  0.51*dissolve_time,
+        }))
+    end
+end -- omnicard
  
 
 
@@ -1943,7 +2106,7 @@ do
 
         return retval
     end
-end
+end -- prepare for fusions
 
 do 
     local name="Gold Round Up"
@@ -1969,13 +2132,18 @@ do
     end
     local ease_dollars_ref = ease_dollars
     function ease_dollars(mod, instant)
-        if G.GAME.used_vouchers.v_gold_round_up and (G.GAME.dollars+mod) % 2 == 1 then
-            mod=mod+1
+        if G.GAME.used_vouchers.v_gold_round_up then
+            local original=G.GAME.dollars+mod
+            local new=math.ceil(original)
+            if new % 2 == 1 then
+                new=new+1
+            end
+            mod=mod+(new-original)
         end
         ease_dollars_ref(mod, instant)
     end
 
-end --
+end -- gold round up
 do 
 
     local name="Overshopping"
@@ -2026,7 +2194,7 @@ do
         end
     end
 
-end --
+end -- overshopping
 do 
     local name="Reroll Cut"
     local id="reroll_cut"
@@ -2051,20 +2219,9 @@ do
         return {}
     end
 
-    local G_FUNC_can_reroll_ref=G.FUNCS.can_reroll
-    G.FUNCS.can_reroll= function(e)
-        G_FUNC_can_reroll_ref(e)
-        if not(G.blind_prompt_box) then 
-            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
-            e.config.button = nil
-            --e.children[1].children[1].config.shadow = false
-            --e.children[2].children[1].config.shadow = false
-            --e.children[2].children[2].config.shadow = false
-        end
-    end
-
     local G_FUNC_reroll_boss_ref =  G.FUNCS.reroll_boss
     G.FUNCS.reroll_boss = function(e) 
+        if G.STATE~=G.STATES.BLIND_SELECT then return end
         G_FUNC_reroll_boss_ref(e)
         
         if G.GAME.used_vouchers.v_reroll_cut then -- adding a pack tag when in a pack causes double pack and will crash
@@ -2106,7 +2263,7 @@ do
             --create_UIBox_blind_select()
         end
     end
-end --
+end -- reroll cut
 do 
     local name="Vanish Magic"
     local id="vanish_magic"
@@ -2211,7 +2368,7 @@ do
         return retval
     end
     
-end --
+end -- vanish magic
 do 
     local name="Darkness"
     local id="darkness"
@@ -2246,7 +2403,7 @@ do
         return poll_edition_ref(_key, _mod, _no_neg, _guaranteed)
     end
 
-end --
+end -- darkness
 do
     local name="Double Planet"
     local id="double_planet"
@@ -2275,11 +2432,11 @@ do
     G.FUNCS.buy_from_shop = function(e)
         local c1 = e.config.ref_table
         local ret=G_FUNCS_buy_from_shop_ref(e)
-        if c1.ability.consumeable and (c1.config.center.set == 'Planet') and ret~=false and G.GAME.used_vouchers.v_double_planet and #G.consumeables.cards + G.GAME.consumeable_buffer + 1 < G.consumeables.config.card_limit then -- +1 is because buy_from_shop adds a card in an event that is executed after this code
+        if c1.ability.consumeable and (c1.config.center.set == 'Planet' or c1.config.center.set =="Planet_dx") and ret~=false and G.GAME.used_vouchers.v_double_planet and #G.consumeables.cards + G.GAME.consumeable_buffer + 1 < G.consumeables.config.card_limit then -- "Planet_dx" is for deluxe consumable mod, +1 is because buy_from_shop adds a card in an event that is executed after this code
             randomly_create_planet('v_double_planet','Double Planet!',nil)
         end
     end
-end --
+end -- double planet
 do
     local name="Trash Picker"
     local id="trash_picker"
@@ -2335,7 +2492,7 @@ do
         G_FUNCS_discard_cards_from_highlighted_ref(e,hook)
         ease_hands_played(-1)
     end
-end --
+end -- trash picker
 do
     local name="Money Target"
     local id="money_target"
@@ -2383,7 +2540,7 @@ do
         end
         G_FUNCS_cash_out_ref(e)
     end
-end --
+end -- money target
 do
     local name="Art Gallery"
     local id="art_gallery"
@@ -2441,7 +2598,7 @@ do
         end
         end_round_ref()
     end
-end --
+end -- art gallery
 do
     local name="Slate"
     local id="slate"
@@ -2536,7 +2693,7 @@ do
     --     end
     -- end
 
-end --
+end -- slate
 do
     local name="Gilded Glider"
     local id="gilded_glider"
@@ -2580,7 +2737,58 @@ do
         return ret
     end
 
-end --
+end -- gilded glider
+do
+    local name="Mirror"
+    local id="mirror"
+    local loc_txt = {
+        name = name,
+        text = {
+            "When a {C:attention}Steel Card{} scores,",
+            "the card to its right",
+            "triggers one more time", 
+            "{C:inactive}(Flipped Card + Omnicard){}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true, {'v_flipped_card','v_omnicard'}
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {}
+    end
+
+    local eval_card_ref=eval_card
+    function eval_card(card, context)
+        local ret=eval_card_ref(card, context)
+        if G.GAME.used_vouchers.v_mirror and context.cardarea == G.play and card.config.center_key=='m_steel' then -- this is scoring calculation
+            local index=1
+            while G.play.cards[index]~=card and index<=#G.play.cards do
+                index=index+1
+            end
+            if index<#G.play.cards then
+                local right_card=G.play.cards[index+1]
+                right_card.ability.temp_repetition=(right_card.ability.temp_repetition or 0)+1
+            end
+        end
+        if G.GAME.used_vouchers.v_mirror and context.repetition_only  and card.ability.temp_repetition then -- if this is the red seal calculation, add temp repetition 
+            if not ret.seals then ret.seals={
+                message = localize('k_again_ex'),
+                repetitions = card.ability.temp_repetition,
+                card = card
+            }
+            else ret.seals.repetitions=ret.seals.repetitions+card.ability.temp_repetition
+            end
+            card.ability.temp_repetition=0
+        end
+        return ret
+    end
+
+end -- mirror
     -- -- this challenge is only for test
     -- table.insert(G.CHALLENGES,1,{
     --     name = "TestVoucher",
@@ -2589,40 +2797,47 @@ end --
     --         custom = {
     --         },
     --         modifiers = {
-    --             {id = 'dollars', value = 5},
+    --             {id = 'dollars', value = 5000},
     --         }
     --     },
     --     jokers = {
     --         --{id = 'j_jjookkeerr'},
     --         -- {id = 'j_ascension'},
     --         {id = 'j_hasty'},
-    --         {id = 'j_reserved_parking'},
-    --         {id = 'j_mime'},
+    --         {id = 'j_oops'},
+    --         {id = 'j_oops'},
+    --         {id = 'j_glass'},
     --         -- {id = 'j_piggy_bank'},
     --         -- {id = 'j_blueprint'},
     --         {id = 'j_triboulet'},
     --     },
     --     consumeables = {
-    --         {id = 'c_devil'},
+    --         -- {id = 'c_justice_cu'},
+    --         -- {id = 'c_heirophant_cu'},
+    --         -- {id = 'c_tower_cu'},
+    --         {id = 'c_devil_cu'},
     --         --{id = 'c_death'},
     --     },
     --     vouchers = {
     --         {id = 'v_trash_picker'},
     --         {id = 'v_slate'},
-    --         {id = 'v_bonus_plus'},
+    --         {id = 'v_3d_boosters'},
+    --         {id = 'v_4d_boosters'},
+    --         --{id = 'v_bonus_plus'},
     --         {id = 'v_gilded_glider'},
+    --         {id = 'v_bulletproof'},
     --         {id = 'v_paint_brush'},
     --         -- {id = 'v_liquidation'},
     --         -- {id = 'v_3d_boosters'},
     --         -- {id = 'v_b1g1'},
     --         -- {id = 'v_overshopping'},
     --         -- {id = 'v_directors_cut'},
-    --         -- {id = 'v_retcon'},
+    --         {id = 'v_retcon'},
     --         -- {id = 'v_event_horizon'},
     --     },
     --     deck = {
     --         type = 'Challenge Deck',
-    --         -- cards = {{s='D',r='2',e='m_stone',g='Red'},{s='D',r='3',e='m_stone',g='Red'},{s='D',r='4',e='m_stone',g='Red'},{s='D',r='5',e='m_steel',g='Red'},{s='D',r='6',e='m_steel',g='Red'},{s='D',r='7',e='m_steel',},{s='D',r='8',e='m_steel',},{s='D',r='9',e='m_steel',},{s='D',r='T',e='m_steel',},{s='D',r='J',e='m_steel',},{s='D',r='Q',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_steel',},}
+    --         cards = {{s='D',r='2',e='m_stone',g='Red'},{s='D',r='3',e='m_wild',g='Red'},{s='D',r='4',e='m_wild',g='Red'},{s='D',r='5',e='m_steel',g='Red'},{s='D',r='6',e='m_glass',g='Red'},{s='D',r='7',e='m_glass',},{s='D',r='8',e='m_steel',},{s='D',r='9',e='m_glass',},{s='D',r='T',e='m_steel',},{s='D',r='J',e='m_glass',},{s='D',r='Q',e='m_steel',},{s='D',r='K',e='m_glass',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_wild',},{s='D',r='K',e='m_wild',},{s='D',r='A',e='m_steel',},}
     --     },
     --     restrictions = {
     --         banned_cards = {
@@ -2633,7 +2848,7 @@ end --
     --         }
     --     }
     -- })
-    G.localization.misc.challenge_names.c_mod_testvoucher = "TestVoucher"
+    -- G.localization.misc.challenge_names.c_mod_testvoucher = "TestVoucher"
     init_localization()
 end
 ----------------------------------------------

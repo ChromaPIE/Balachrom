@@ -6,11 +6,10 @@ local joker = {
 }
 
 joker.localization = {
-    name = "R Key",
+    name = "R键",
     text = {
-        "Sell this Joker to",
-        "reduce Ante by {C:attention}2{},",
-        "down to minimum Ante {C:attention}1{}",
+        "售出本牌可使底注{C:attention}-2",
+        "最多可减至底注{C:attention}1"
     }
 }
 

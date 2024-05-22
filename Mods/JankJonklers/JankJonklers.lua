@@ -304,13 +304,12 @@ function SMODS.INIT.JankJonklersMod()
     if config.j_midnight_crew then
         local midnight_crew = {
             loc = {
-                name = "Midnight Crew",
+                name = "午夜帮",
                 text = {
-                    "This Joker gains {X:mult,C:white} X0.5 {} Mult",
-                    "if scoring hand contains a",
-                    "{C:attention}Flush of{} {V:1}#1#{}. Changes",
-                    "suit after every blind",
-                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})"
+                    "打出{V:1}#1#{C:attention}同花并计分时",
+                    "本牌获得{X:mult,C:white} X0.5 {}倍率",
+                    "击败盲注后改变需求花色",
+                    "{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}）"
                 }
             },
             ability_name = "Midnight Crew",
@@ -333,7 +332,7 @@ function SMODS.INIT.JankJonklersMod()
         init_joker(midnight_crew)
         -- Set local variables
         function SMODS.Jokers.j_midnight_crew.loc_def(card)
-            return { card.ability.extra.suit, card.ability.extra.x_mult, colours = {G.C.SUITS[card.ability.extra.suit]} }
+            return { localize(card.ability.extra.suit,"suits_plural"), card.ability.extra.x_mult, colours = {G.C.SUITS[card.ability.extra.suit]} }
         end
         -- Calculate
         SMODS.Jokers.j_midnight_crew.calculate = function(self, context)
@@ -1226,11 +1225,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local cut_the_cheese = {
             loc = {
-                name = "Cut the Cheese",
+                name = "切奶酪",
                 text = {
-                    "When {C:attention}Blind{} is selected",
-                    "create a random {C:attention}Food Joker{}",
-                    "{C:inactive}(Must have room){}"
+                    "选择{C:attention}盲注{}时",
+                    "随机生成一张{C:attention}食物小丑牌",
+                    "{C:inactive}（必须有空间）"
                 }
             },
             ability_name = "Cut the Cheese",
@@ -1266,6 +1265,31 @@ function SMODS.INIT.JankJonklersMod()
                         "j_selzer",
                         "j_diet_cola"
                     }
+                    if SMODS.findModByID("sdm_0s_stuff") then
+                        table.insert(food_list, "j_sdm_pizza")
+                        table.insert(food_list, "j_sdm_burger")
+                    end
+                    if SMODS.findModByID("MystJokers") then
+                        table.insert(food_list, "j_exploding_fruitcake")
+                        table.insert(food_list, "j_miracle_milk")
+                    end
+                    if SMODS.findModByID("MoreFluff") then
+                        table.insert(food_list, "j_mf_teacup")
+                        table.insert(food_list, "j_mf_tonersoup")
+                        table.insert(food_list, "j_mf_goldencarrot")
+                        table.insert(food_list, "j_mf_lollipop")
+                    end
+                    if SMODS.findModByID("CheesyJokers") then
+                        table.insert(food_list, "j_cj_cheese_wedge")
+                        table.insert(food_list, "j_cj_macarons")
+                    end
+                    if SMODS.findModByID("Bunco") then
+                        table.insert(food_list, "j_starfruit")
+                    end
+                    if SMODS.findModByID("mtl_jkr") then
+                        table.insert(food_list, "j_cherry")
+                        table.insert(food_list, "j_cafeg")
+                    end
                     G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
                     G.E_MANAGER:add_event(Event({
                         func = function() 
@@ -1444,12 +1468,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local chicken_scratch = {
             loc = {
-                name = "Chicken Scratch",
+                name = "鸡爪挠地",
                 text = {
-                    "This Joker gains {C:chips}+5{} Chips",
-                    "if scoring hand contains",
-                    "an {C:attention}8{}, {C:attention}7{}, or {C:attention}3{}",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips){}"
+                    "打出{C:attention}8{}、{C:attention}7{}或{C:attention}3{}并计分时",
+                    "本牌获得{C:chips}+5{}筹码",
+                    "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
                 }
             },
             ability_name = "Chicken Scratch",

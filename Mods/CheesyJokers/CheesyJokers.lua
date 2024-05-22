@@ -104,12 +104,13 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Dithered Joker",
+            dispname = "抖色小丑",
             slug = 'cj_dithered',
             desc = {
-                "{C:chips}+#1#{} Chips if played",
-                "hand contains exactly",
-                "{C:attention}3{} different suits",
-                "{C:inactive}(Do not need to score){}"
+                "如果打出的牌",
+                "{C:inactive}（包含不计分的牌）",
+                "正好有{C:attention}3{}种花色",
+                "{C:chips}+#1#{}筹码"
             },
             config = {
                 extra = {chip_mod = 99}
@@ -420,10 +421,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Coupon",
+            dispname = "优惠券",
             slug = 'cj_coupon',
             desc = {
-                "Whenever you lose",
-                "{C:attention}money,{} lose {C:money}$#1#{} less"
+                "扣除{C:attention}资金{}时",
+                "减免{C:money}$#1#"
             },
             config = {
                 extra = 2
@@ -462,13 +464,13 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Slingshot",
+            dispname = "弹弓",
             slug = 'cj_slingshot',
             desc = {
-                "Gains {X:red,C:white}X#2#{} Mult per hand,",
-                "only activates when in the",
-                "rightmost {C:attention}Joker{} slot,",
-                "and {C:attention}resets{} upon activation",
-                "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+                "每次出牌，本牌获得{X:red,C:white}X#2#{}倍率",
+                "仅在位于{C:attention}最右侧{}时触发",
+                "触发后{C:attention}重置{}倍率",
+                "{C:inactive}（当前为{X:mult,C:white}X#1#{C:inactive}倍率）"
             },
             config = {
                 extra = {
@@ -520,12 +522,13 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Dollar Stencil",
+            dispname = "铸币模具",
             slug = 'cj_dollar_stencil',
             desc = {
-                "Earn {C:money}$#1#{} per round for",
-                "each empty {C:attention}Joker{} slot",
-                "{s:0.8}All Stencils included",
-                "{C:inactive}(Currently {C:money}+$#2#{C:inactive})"
+                "每有一个空的{C:attention}小丑牌{}槽位",
+                "每回合结束时获得{C:money}$#1#",
+                "{s:0.8}所有“模具”小丑牌均算作空位",
+                "{C:inactive}（当前为{C:money}+$#2#{C:inactive}）"
             },
             config = {
                 extra = {
@@ -544,13 +547,13 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Package Stencil",
+            dispname = "包裹模具",
             slug = 'cj_package_stencil',
             desc = {
-                "This Joker gains {C:mult}+#2#{} Mult",
-                "for each empty {C:attention}Joker",
-                "slot at end of round",
-                "{s:0.8}All Stencils included",
-                "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                "每有一个空的{C:attention}小丑牌{}槽位",
+                "本牌获得{C:mult}+#2#{}倍率",
+                "{s:0.8}所有“模具”小丑牌均算作空位",
+                "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
             },
             config = {
                 extra = {
@@ -1294,7 +1297,7 @@ function SMODS.INIT.CheesyJokers()
             elseif not context.blueprint then
                 self.ability.extra.Xmult = self.ability.extra.Xmult + self.ability.extra.Xmult_mod
                 return {
-                    message = "Charging!",
+                    message = "蓄力！",
                     colour = G.C.ORANGE
                 }
             end
@@ -1903,7 +1906,7 @@ function SMODS.INIT.CheesyJokers()
             mod = math.min(0, mod + 2 * #find_joker('Coupon'))
             for k, v in pairs(find_joker('Coupon')) do 
                 v:juice_up(0.3, 0.3)
-                card_eval_status_text(v, 'extra', nil, nil, nil, {message = "Discount!", instant = true})
+                card_eval_status_text(v, 'extra', nil, nil, nil, {message = "优惠促销！", instant = true})
             end
         end
         ease_dollars_ref(mod, instant)

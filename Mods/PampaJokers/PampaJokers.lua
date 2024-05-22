@@ -23,9 +23,9 @@ end
 function SMODS.INIT.MtlJokers()
 
      -- Localization
-    G.localization.misc.dictionary.pampa_bye = "Bye Bye !"
+    G.localization.misc.dictionary.pampa_bye = "拜拜！"
     G.localization.misc.dictionary.k_upgrade_ex_claw = "升级所有3！"
-    G.localization.misc.dictionary.ph_black_star = "Saved by Black Star"
+    G.localization.misc.dictionary.ph_black_star = "黑色五芒星拯救了你"
     G.localization.misc.v_dictionary.sliding_joker = {"+#1# mult ! +#2# chips !"}
 
     init_localization()
@@ -597,10 +597,9 @@ function SMODS.INIT.MtlJokers()
         j_3776 = {
             name = "3776",
             text = {
-                "Each played {C:attention}3{},",
-                "{C:attention}6{} or {C:attention}7{}, gives",
-                "{C:mult}+#1#{} Mult when scored",
-                "Retrigger all {C:attention}7{} "
+                "打出的每张{C:attention}3{}、{C:attention}6{}和{C:attention}7",
+                "在计分时给予{C:mult}+#1#{}倍率",
+                "重新触发所有{C:attention}7"
             }
         },
         j_pampa = {
@@ -636,11 +635,12 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_blackstar = {
-            name = "Black Star",
+            name = "黑色五芒星",
             text = {
-                "Prevents death once.",
-                "Destroy all jokers and replace them",
-                "with 2 random rare jokers."
+                "避免一次死亡",
+                "摧毁所有小丑牌",
+                "并生成2张随机的",
+                "{C:attention}稀有{}小丑牌"
             }
         },
         j_cafeg = {
@@ -1154,7 +1154,7 @@ function Card.calculate_joker(self, context)
                         end
                     })) 
                     return {
-                        message = localize('k_saved_ex'),
+                        message = localize('ph_black_star'),
                         saved = true,
                         colour = G.C.RED
                     }

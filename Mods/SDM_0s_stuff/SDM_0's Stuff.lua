@@ -1137,11 +1137,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "La Révolution", "sdm_la_revolution",
             {hand = "High Card"},  {x=0, y=0},
             {
-                name = "La Révolution",
+                name = "大革命",
                 text = {
-                    "Upgrade {C:attention}winning poker hand{}",
-                    "by {C:attention}1{} if played hand",
-                    "contains no {C:attention}face{} cards",
+                    "若{C:attention}致胜牌{}不包含{C:attention}人头牌",
+                    "则将其牌型等级提升{C:attention}1"
                 }
             }, 3, 8, true, true, true, true
         )
@@ -1358,10 +1357,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Mystery Joker", "sdm_mystery_joker",
             {},  {x=0, y=0},
             {
-                name = "Mystery Joker",
+                name = "██小丑",
                 text = {
-                    "Create a {C:red}Rare {C:attention}Joker Tag",
-                    "when {C:attention}Boss Blind{} is defeated",
+                    "击败{C:attention}Boss盲注{}时",
+                    "生成一个{C:red}稀有{C:attention}标签",
                 }
             }, 1, 6, true, true, true, true
         )
@@ -1516,8 +1515,8 @@ function SMODS.INIT.sdm_0s_stuff()
             {
                 name = "只手摘星",
                 text = {
-                    "回合内有两次出牌",
-                    "各打出{C:attention}#1#{}张和{C:attention}#2#{}张牌时",
+                    "回合内每有两次出牌中",
+                    "各有{C:attention}#1#{}张和{C:attention}#2#{}张牌计分时",
                     "随机生成一张{C:planet}星球牌",
                     "{C:inactive}（必须有空间）",
                     "回合结束时改变张数要求",
@@ -1868,11 +1867,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Pizza", "sdm_pizza",
             {extra = {hands = 4, hand_mod = 1}},  {x=0, y=0},
             {
-                name = "Pizza",
+                name = "披萨",
                 text = {
-                    "When {C:attention}Blind{} is selected,",
-                    "{C:blue}+#1#{} #3#, reduces by",
-                    "{C:red}#2#{} every round"
+                    "选择{C:attention}盲注{}时",
+                    "{C:blue}+#1#{}出牌次数",
+                    "每回合减少{C:red}#2#"
                 }
             }, 1, 5, true, true, true, false
         )

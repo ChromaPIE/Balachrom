@@ -38,6 +38,47 @@ position = "at"
 payload = '''label = "模组",'''
 match_indent = true
 
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''label = " Steamodded Credits ",'''
+position = "at"
+payload = '''label = " Steamodded 鸣谢 ",'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''text = "List of Activated Mods",'''
+position = "at"
+payload = '''text = "已启用模组列表",'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''text = "List of Activated Mods",'''
+position = "at"
+payload = '''text = "已启用模组列表",'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''label = {" " .. modInfo.name .. " ", " By: " .. concatAuthors(modInfo.author) .. " "},'''
+position = "at"
+payload = '''label = {" " .. modInfo.name .. " ", "作者：" .. concatAuthors(modInfo.author) .. " "},'''
+match_indent = true
+
+# 减慢小丑牌名称渐入效果
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''pop_in_rate = 4,'''
+position = "at"
+payload = '''pop_in_rate = 1,'''
+match_indent = true
+
 # 使用轨道标签升级牌型的牌型名称本地化
 [[patches]]
 [patches.pattern]
@@ -54,4 +95,93 @@ target = "functions/state_events.lua"
 pattern = '''play_area_status_text("Not Allowed!")--localize('k_not_allowed_ex'), true)'''
 position = "at"
 payload = '''play_area_status_text(localize('k_not_allowed_ex'))'''
+match_indent = true
+
+# 页 x/x -> 第x/x页
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Planet / 6)))'''
+position = "at"
+payload = ''''第' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Planet / 6)) .. localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Spectral / 9)))'''
+position = "at"
+payload = ''''第' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Spectral / 9)) .. localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Tarot / 11)))'''
+position = "at"
+payload = ''''第' .. tostring(i) .. '/' .. tostring(math.ceil(#G.P_CENTER_POOLS.Tarot / 11)) .. localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''local currentPage = "Page " .. page .. "/" .. totalPages'''
+position = "at"
+payload = '''local currentPage = "第" .. page .. "/" .. totalPages .. "页"'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''table.insert(pageOptions, ("Page " .. i .. "/" .. totalPages))'''
+position = "at"
+payload = '''table.insert(pageOptions, ("第" .. i .. "/" .. totalPages .. "页"))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(joker_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Joker/(5*#G.your_collection))))'''
+position = "at"
+payload = '''table.insert(joker_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Joker/(5*#G.your_collection)))..localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(tarot_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.floor(#G.P_CENTER_POOLS.Tarot/11)))'''
+position = "at"
+payload = '''table.insert(tarot_options, '第'..tostring(i)..'/'..tostring(math.floor(#G.P_CENTER_POOLS.Tarot/11))..localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(booster_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Booster/8)))'''
+position = "at"
+payload = '''table.insert(booster_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Booster/8))..localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(spectral_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.floor(#G.P_CENTER_POOLS.Spectral/9)))'''
+position = "at"
+payload = '''table.insert(spectral_options, '第'..tostring(i)..'/'..tostring(math.floor(#G.P_CENTER_POOLS.Spectral/9))..localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(voucher_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Voucher/(4*#G.your_collection))))'''
+position = "at"
+payload = '''table.insert(voucher_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Voucher/(4*#G.your_collection)))..localize('k_page'))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(challenge_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.CHALLENGES/G.CHALLENGE_PAGE_SIZE)))'''
+position = "at"
+payload = '''table.insert(challenge_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.CHALLENGES/G.CHALLENGE_PAGE_SIZE))..localize('k_page'))'''
 match_indent = true

@@ -7,7 +7,7 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 
----- Bunco 4.1
+---- Bunco 4.2
 --
 -- A mod that I'm trying so hard to make. Of course feel free to reference anything from here.
 --
@@ -204,6 +204,10 @@ function SMODS.INIT.Bunco()
         for _, v in pairs(suits) do
             if v > 0 then num_suits = num_suits + 1 end
         end
+
+        sendDebugMessage('Amount of wild cards: '..num_wild_cards or '')
+        sendDebugMessage('Amount of non-wild cards: '..num_non_wild_cards or '')
+        sendDebugMessage('Amount of suits in total: '..num_suits or '')
 
         if num_non_wild_cards == 1 then
             return { hand }
@@ -1842,7 +1846,7 @@ function SMODS.INIT.Bunco()
     local loc_dread = {
         ['name'] = '恐惧',
         ['text'] = {
-            [1] = '回合的{C:attention}最后一手牌{}完成计分时',
+            [1] = '回合的{C:attention}最后一次出牌{}计分后',
             [2] = '将其对应{C:attention}牌型{}提升{C:attention}两级{}并摧毁这手卡牌',
             [3] = '所提升的牌型等级会在失去此牌时一并扣除'
         }
@@ -2658,10 +2662,9 @@ function SMODS.INIT.Bunco()
     local loc_fingerprints = {
         ['name'] = '指纹档案',
         ['text'] = {
-            [1] = '每回合{C:attention}最后一次出牌{}',
-            [2] = '中的每张牌在计分时',
-            [3] = '获得临时的{C:chips}+#1#{}筹码',
-            [4] = '加成仅持续一回合'
+            [1] = '每回合{C:attention}最后一手牌{}中的',
+            [2] = '每张牌获得临时的{C:chips}+#1#{}筹码',
+            [3] = '{s:0.8}加成仅在下一回合中生效'
         }
     }
 
@@ -2698,12 +2701,21 @@ function SMODS.INIT.Bunco()
             for _, v in ipairs(self.ability.extra.new_card_list) do
                 v.ability.perma_bonus = v.ability.perma_bonus or 0
                 v.ability.perma_bonus = v.ability.perma_bonus + self.ability.extra.bonus
-
-                table.insert(self.ability.extra.old_card_list, v)
             end
+
+            self.ability.extra.old_card_list = self.ability.extra.new_card_list
+            -- not needed, but good style to fail fast
+            self.ability.extra.new_card_list = nil
 
             forced_message(localize('k_upgrade_ex'), self, G.C.CHIPS)
 
+        end
+
+        if context.selling_self and not context.blueprint then
+            for _, v in ipairs(self.ability.extra.old_card_list) do
+                v.ability.perma_bonus = v.ability.perma_bonus or 0
+                v.ability.perma_bonus = v.ability.perma_bonus - self.ability.extra.bonus
+            end
         end
     end
 
