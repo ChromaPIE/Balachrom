@@ -96,7 +96,7 @@ function SMODS.INIT.BetmmaJokers()
             3, 8, true, true, false, true
         ),
         piggy_bank = SMODS.Joker:new(
-            "Piggy Bank", "",
+            "Betmmaggy Bank", "",
             {
                 extra={mults = 0, mult_mod = 1}
             },
@@ -264,7 +264,7 @@ local ease_dollars_ref = ease_dollars
 function ease_dollars(mod, instant)
     ease_dollars_ref(mod, instant)
     if mod > 0 then
-        local Piggy_Banks = find_joker('Piggy Bank')
+        local Piggy_Banks = find_joker('Betmmaggy Bank')
         -- local Piggy_Bank_number = #Piggy_Banks
         --local saved_dollars = 0
         for index, card in pairs(Piggy_Banks) do
@@ -303,14 +303,14 @@ function Card.generate_UIBox_ability_table(self)
     elseif self.ability.set == 'Joker' then
         local customJoker = false
 
-        if self.ability.name == 'JJookkeerr' or self.ability.name == 'Ascension' or self.ability.name == 'Hasty Joker' or self.ability.name == 'ERRORR' or self.ability.name == 'Piggy Bank'then
+        if self.ability.name == 'JJookkeerr' or self.ability.name == 'Ascension' or self.ability.name == 'Hasty Joker' or self.ability.name == 'ERRORR' or self.ability.name == 'Betmmaggy Bank'then
             customJoker = true
         end
 
         if self.ability.name == 'JJookkeerr' or self.ability.name == 'Hasty Joker'then
             loc_vars = {self.ability.extra}
         elseif self.ability.name == 'ERRORR' then loc_vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), self.ability.extra.odds}
-        elseif self.ability.name == 'Piggy Bank' then loc_vars = {self.ability.extra.mults, self.ability.extra.mult_mod}
+        elseif self.ability.name == 'Betmmaggy Bank' then loc_vars = {self.ability.extra.mults, self.ability.extra.mult_mod}
         end
         if customJoker then
             local badges = {}

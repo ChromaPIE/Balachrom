@@ -1595,7 +1595,7 @@ function SMODS.INIT.MoreFluff()
                 "选择盲注时",
                 "将两张临时的",
                 "{C:attention}钢铁牌{}",
-                "加入牌组"
+                "加入手牌"
             },
         },
         mf_hyperbeam = {

@@ -389,9 +389,10 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "AI Joker",
+            dispname = "AI小丑",
             slug = 'cj_ai',
             desc = {
-                "{s:0.8}Effect changes every round"
+                "{s:0.8}每回合随机变换效果"
             },
             config = {},
             pos = {x = 5, y = 2},
@@ -1742,54 +1743,51 @@ function SMODS.INIT.CheesyJokers()
             "When {C:attention}Blind{} is selected,"
         }},
         [2] = {text = {
-            "If {C:attention}Booster Pack{} is skipped,"
+            "跳过{C:attention}补充包{}时"
         }},
         [3] = {text = {
-            "When {C:attention}playing card{} is",
-            "added to your deck,"
+            "有{C:attention}游戏牌{}加入牌组时"
         }},
         [4] = {text = {
-            "If played hand is a {C:attention}#1#,"
+            "打出{C:attention}#1#{}时"
         }},
         [5] = {text = {
-            "If a {C:attention}#1#{} is discarded,"
+            "弃掉{C:attention}#1#{}时"
         }},
         [6] = {text = {
-            "For each {C:planet}Planet{} card used,"
+            "每使用一张{C:planet}星球牌"
         }},
         [7] = {text = {
-            "When a card is sold",
-            "for {C:money}$3{} or more,"
+            "售出售价大于等于{C:money}$3{}的卡牌时"
         }},
     }
 
     G.localization.descriptions.AIEffects = {
         [1] = {text = {
-            "earn {C:money}$3{} per {C:attention}Ante"
+            "每个{C:attention}底注{}获得{C:money}$3"
         }},
         [2] = {text = {
-            "create a {C:tarot}Tarot{} card"
+            "生成一张{C:tarot}塔罗牌"
         }},
         [3] = {text = {
-            "upgrade the level of",
-            "2 random {C:attention}poker hands"
+            "提升随机两种{C:attention}牌型{}的等级"
         }},
         [4] = {text = {
-            "create a random {C:attention}Joker",
-            "{C:inactive}(Must have room)"
+            "随机生成一张{C:attention}小丑牌",
+            "{C:inactive}（必须有空间）"
         }},
         [5] = {text = {
-            "create a {C:spectral}Spectral{} card"
+            "生成一张{C:spectral}幻灵牌"
         }},
         [6] = {text = {
-            "earn {C:attention}1{} free {C:green}Reroll"
+            "获得{C:attention}1{}次免费{C:green}重掷"
         }},
         [7] = {text = {
-            "create a free {C:attention}#2#"
+            "生成一个免费的{C:attention}#2#"
         }},
         [8] = {text = {
-            "create a {C:dark_edition}Negative {C:attention}Joker",
-            "that gives {C:mult}+2{} Mult"
+            "生成一张给予",
+            "{C:mult}+2{}倍率的{C:dark_edition}负片{C:attention}小丑"
         }},
         [9] = {text = {
             "gain {X:red,C:white} +15 {C:red} Max HP"

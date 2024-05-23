@@ -909,7 +909,7 @@ return {
                 }
             },
             j_cavendish = {
-                name = "卡文迪什",
+                name = "香芽蕉",
                 text = {
                     "{X:mult,C:white}X#1#{}倍率",
                     "回合结束时",
