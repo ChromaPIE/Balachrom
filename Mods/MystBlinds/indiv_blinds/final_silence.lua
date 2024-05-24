@@ -10,10 +10,10 @@ local blind = {
 }
 
 blind.localization = {
-    name = "Noir Silence",
+    name = "漆黑之寂",
     text = {
-        "-4 Hand Size, +1 Hand Size",
-        "after each hand played"
+        "-4手牌上限",
+        "每次出牌后+1手牌上限"
     }
 }
 

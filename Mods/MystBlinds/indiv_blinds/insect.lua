@@ -10,10 +10,9 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Insect",
+    name = "昆虫",
     text = {
-        "Debuff leftmost Joker",
-        "whenever cards are drawn"
+        "抽牌时使最左侧的小丑牌失效"
     }
 }
 

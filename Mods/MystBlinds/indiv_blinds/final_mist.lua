@@ -10,10 +10,10 @@ local blind = {
 }
 
 blind.localization = {
-    name = "Scarlet Mist",
+    name = "绯红之雾",
     text = {
-        "Halves Base Mult, sets",
-        "Base Chips to Base Mult"
+        "基础倍率减半",
+        "将基础筹码设为基础倍率"
     }
 }
 

@@ -10,10 +10,9 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Stone",
+    name = "石头",
     text = {
-        "All Enhanced cards",
-        "are debuffed"
+        "增强卡牌全部失效"
     }
 }
 

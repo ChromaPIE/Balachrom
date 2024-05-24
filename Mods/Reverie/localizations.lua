@@ -39,19 +39,17 @@ return {
             c_gem_heist_quest = {
                 name = "观影兑换券",
                 text = {
-                    "Converts to {C:cine}Gem Heist{}",
-                    "after selling",
-                    "{C:attention}#1# Editioned Jokers{}",
+                    "售出{C:attention}#1#{}张带有{C:attention}版本{}的{C:attention}小丑牌{}后",
+                    "置换为{C:cine}《宝石大劫案》",
                     "{C:inactive}（当前进度：{C:attention}#2#{C:inactive}/#1#）"
                 }
             },
             c_gem_heist = {
-                name = "Gem Heist",
+                name = "《宝石大劫案》",
                 text = {
                     "在本次商店购买阶段",
-                    "all cards become",
-                    "{C:dark_edition}Polychrome{} and {C:attention}25%{} off",
-                    "{s:0.8}Rerolls cards"
+                    "所有卡牌均变为{C:dark_edition}多彩{}且享有{C:attention}25%{}折扣",
+                    "{s:0.8}重掷可生效于{s:0.8,C:attention}卡牌{s:0.8}区"
                 }
             },
             c_crazy_lucky_quest = {
@@ -74,17 +72,16 @@ return {
             c_tag_or_die_quest = {
                 name = "观影兑换券",
                 text = {
-                    "Converts to {C:cine}Tag or Die{}",
-                    "after skipping {C:attention}#1# Blinds",
+                    "跳过{C:attention}#1#{}个盲注后",
+                    "置换为{C:cine}《特工灵灵签》",
                     "{C:inactive}（当前进度：{C:attention}#2#{C:inactive}/#1#）"
                 }
             },
             c_tag_or_die = {
-                name = "Tag or Die",
+                name = "《特工灵灵签》",
                 text = {
                     "在本次商店购买阶段",
-                    "only {C:attention}Tags{} that",
-                    "cost {C:money}$#1#{} appear",
+                    "仅会出现售价为{C:money}$#1#{}的{C:attention}标签",
                     "{s:0.8}重掷可生效于{s:0.8,C:attention}补充包{s:0.8}区"
                 }
             },

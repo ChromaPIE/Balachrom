@@ -1398,13 +1398,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Spectral
         local incense = {
             loc = {
-                name = "Incense",
+                name = "焚香",
                 text = {
-                    "Add {C:dark_edition}Negative{} to",
-                    "a random {C:attention}Joker{},",
-                    "{C:red}-$#1#{}, ignores",
-                    "spending limit",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "使随机一张{C:attention}小丑牌",
+                    "变为{C:dark_edition}负片{}并{C:red}-$#1#",
+                    "资金不足则扣至负数"
                 }
             },
             ability_name = "MMC Incense",
@@ -3500,12 +3498,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker,
         local commander = {
             loc = {
-                name = "Sticker Sheet",
+                name = "贴纸集",
                 text = {
-                    "If {C:attention}first hand{} of round",
-                    "has only {C:attention}#1#{} card, give it a",
-                    "random {C:attention}Enhancement{}, {C:attention}Seal",
-                    "and {C:attention}Edition"
+                    "如果每回合{C:attention}第一次出牌",
+                    "仅有{C:attention}#1#{}张牌，给予其",
+                    "随机的{C:attention}增强{}、{C:attention}蜡封{}和{C:attention}版本"
                 }
             },
             ability_name = "MMC The Commander",
@@ -4502,12 +4499,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local shackles = {
             loc = {
-                name = "Shackles",
+                name = "朽牢困兽",
                 text = {
-                    "{C:blue}+#1#{} hand, {C:red}+#2#{} discard,",
-                    "{C:attention}+#3#{} hand size. Destroyed",
-                    "if you play more than",
-                    "{C:attention}#4#{} cards in one hand"
+                    "{C:blue}+#1#{}出牌次数, {C:red}+#2#{}弃牌次数，{C:attention}+#3#{}手牌上限",
+                    "单次出牌张数大于{C:attention}#4#{}时摧毁"
                 }
             },
             ability_name = "MMC Shackles",
@@ -4558,12 +4553,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local buy_one_get_one = {
             loc = {
-                name = "Buy One Get One",
+                name = "买一送一",
                 text = {
-                    "{C:green}#2# in #1#{} chance to",
-                    "get a random {C:attention}extra card{}",
-                    "of whatever you're buying",
-                    "{C:inactive}(Must have room)"
+                    "有{C:green}#2#/#1#{}的几率在购买卡牌时",
+                    "{C:attention}额外{}获得一张同类型卡牌",
+                    "{C:inactive}（必须有空间）"
                 }
             },
             ability_name = "MMC Buy One Get One",
@@ -5334,11 +5328,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local nebula = {
             loc = {
-                name = "Nebula",
+                name = "星云",
                 text = {
-                    "Adds all {C:attention}poker",
-                    "{C:attention}hand{} levels above",
-                    "#1# to {C:mult}Mult"
+                    "将所有大于#1#的{C:attention}牌型等级",
+                    "添加至{C:mult}倍率"
                 }
             },
             ability_name = "MMC Nebula",

@@ -1076,10 +1076,10 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local expanded_art = {
             loc = {
-                name = "Expanded Art Joker",
+                name = "小丑半身像",
                 text = {
-                    "{C:attention}Enhanced Cards{} gives",
-                    "{C:chips}+30{} Chips when scored"
+                    "{C:attention}增强卡牌{}在计分时",
+                    "给予{C:chips}+30{}筹码"
                 }
             },
             ability_name = "Expanded Art Joker",

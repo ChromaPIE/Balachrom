@@ -10,10 +10,10 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Monster",
+    name = "恶兽",
     text = {
-        "Destroy all consumables,",
-        "0 consumable slots"
+        "摧毁所有消耗牌",
+        "消耗牌槽位归零"
     }
 }
 

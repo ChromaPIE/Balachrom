@@ -10,10 +10,10 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Ancestor",
+    name = "先祖",
     text = {
-        "#1# cards from your deck",
-        "are drawn face down"
+        "牌组中的#1#张牌",
+        "被抽到时将背面朝上"
     }
 }
 

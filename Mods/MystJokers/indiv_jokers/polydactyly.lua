@@ -6,10 +6,10 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Polydactyly",
+    name = "六指神通",
     text = {
-        "Choose an extra card",
-        "from {C:attention}Booster Packs{}",
+        "可从{C:attention}补充包{}中",
+        "额外获得一张卡牌"
     }
 }
 

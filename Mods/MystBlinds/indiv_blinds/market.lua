@@ -10,10 +10,9 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Market",
+    name = "市集",
     text = {
-        "Lose 25% of scored chips",
-        "after each hand played"
+        "每次出牌后损失25%已得分数"
     }
 }
 

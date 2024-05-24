@@ -625,13 +625,13 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_mahjong = {
-            name = "Mahjong Joker",
+            name = "麻将小丑",
             text = {
-                "Gains {X:mult,C:white} X#1# {} Mult for",
-                "every #2# hands containing",
-                "{C:attention}Three of a Kind{}",
-                "{C:inactive}(#3#/#2#){}",
-                "{C:inactive}(Currently {X:mult,C:white} X#4# {C:inactive} Mult)"
+                "每#2#次出牌",
+                "包含{C:attention}三条{}时",
+                "获得{X:mult,C:white} X#1# {}倍率",
+                "{C:inactive}（#3#/#2#次）",
+                "{C:inactive}（当前为{X:mult,C:white} X#4# {C:inactive}倍率）"
             }
         },
         j_blackstar = {
@@ -652,12 +652,12 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_konbini = {
-            name = "Konbini",
+            name = "日式便利店",
             text = {
-                "Gains {C:mult}+#1#{} mult",
-                "per unique {C:tarot}Tarot{}",
-                "card used this run",
-                "{C:inactive}(Currently {C:mult}+#2#{}){}"
+                "本赛局中",
+                "每使用一{C:attention}种{C:tarot}塔罗牌",
+                "获得{C:mult}+#1#{}倍率",
+                "{C:inactive}（当前为{C:mult}+#2#{}倍率）"
             }
         },
 

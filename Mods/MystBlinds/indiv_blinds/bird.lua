@@ -10,10 +10,10 @@ local blind = {
 }
 
 blind.localization = {
-    name = "The Bird",
+    name = "鸟",
     text = {
-        "Apply a random sticker",
-        "to a Joker every hand"
+        "每次出牌",
+        "为随机一张小丑牌添加一个贴标"
     }
 }
 
