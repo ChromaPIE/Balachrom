@@ -1,6 +1,6 @@
 [manifest]
 version = "0.1"
-dump_lua = false
+dump_lua = true
 priority = 0
 
 # [[patches]]
@@ -184,4 +184,55 @@ target = "functions/UI_definitions.lua"
 pattern = '''table.insert(challenge_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.CHALLENGES/G.CHALLENGE_PAGE_SIZE)))'''
 position = "at"
 payload = '''table.insert(challenge_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.CHALLENGES/G.CHALLENGE_PAGE_SIZE))..localize('k_page'))'''
+match_indent = true
+
+# 随机商店副标题
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "function G.UIDEF.shop()"
+position = "after"
+payload = '''
+function RollShopSub(seed)
+    local vSub = localize('ph_improve_run')
+    local shopSub = {
+        vSub,
+        "精打细算！",
+        "消费无罪！",
+        "Oh hi Johnny I didn't know it was you.",
+        "客官里边请！",
+        "命运之轮会欺骗你，但商店不会",
+        "打造赛局最佳小丑阵容！",
+        "更新日志：下架了金宝",
+        "更新日志：上架了金宝",
+        "留点资金吃利息？",
+        "花 > 省",
+        "接受信用卡！",
+        "ALL IN!!!",
+        "全场X折！",
+        "金宝提醒您：早买早享受",
+        "来点小丑牌？",
+        "来点塔罗牌？",
+        "来点星球牌？",
+        "来点补充包？",
+        "重掷即出好货！",
+        "重掷即出负片！",
+        "重掷即出镭射！",
+        "重掷即出闪箔！",
+        "重掷=浪费！",
+        "你的贫穷让我沮丧！",
+        "你的富裕让我痴狂！"
+    }
+    local sub = pseudorandom_element(shopSub, pseudoseed(seed))
+    return sub
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''{n=G.UIT.O, config={object = DynaText({string = {localize('ph_improve_run')}, colours = {lighten(G.C.GOLD, 0.3)},shadow = true, rotate = true, float = true, bump = true, scale = 0.5, spacing = 1, pop_in = 1.5, maxw = 4.3})}}'''
+position = "at"
+payload = '''{n=G.UIT.O, config={object = DynaText({string = {RollShopSub('ShopRandomSubGoBrr')}, colours = {lighten(G.C.GOLD, 0.3)},shadow = true, rotate = true, float = true, bump = true, scale = 0.5, spacing = 1, pop_in = 1.5, maxw = 4.3})}}'''
 match_indent = true

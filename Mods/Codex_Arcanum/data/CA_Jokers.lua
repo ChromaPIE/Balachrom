@@ -259,12 +259,12 @@ function CodexArcanum.INIT.CA_Jokers()
 
     -- Catalyst Joker
     local catalyst_joker_def = {
-        name = "Catalyst Joker",
+        name = "触媒小丑",
         text = {
-            "{C:attention}+1{} consumable slots.",
-            "Gains {X:mult,C:white} X#1# {} Mult for",
-            "every {C:attention}Consumable Card{} held",
-            "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+            "{C:attention}+1{}消耗牌槽位",
+            "每拥有一张{C:attention}消耗牌",
+            "获得{X:mult,C:white} X#1# {}倍率",
+            "{C:inactive}（当前为{X:mult,C:white} X#2# {C:inactive}倍率）"
         }
     }
 

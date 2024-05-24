@@ -533,12 +533,12 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local sentai = {
             loc = {
-                name = "Sentai Joker",
+                name = "超级战队小丑",
                 text = {
-                    "Gains {C:mult}+8{} Mult per",
-                    "{C:attention}Planet{} card used, resets",
-                    "when {C:attention}Boss Blind{} is defeated",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "每使用一张{C:attention}星球牌",
+                    "获得{C:mult}+8{}倍率",
+                    "击败{C:attention}Boss盲注{}后重置",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "Sentai Joker",

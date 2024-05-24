@@ -3085,11 +3085,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local horseshoe = {
             loc = {
-                name = "Horseshoe",
+                name = "幸运马蹄铁",
                 text = {
-                    "Retrigger all",
-                    "scored {C:attention}Lucky{} cards",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "重新出发所有",
+                    "计分的{C:attention}幸运牌"
                 }
             },
             ability_name = "MMC Horseshoe",
@@ -5383,11 +5382,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local cheapskate = {
             loc = {
-                name = "Cheapskate",
+                name = "赖皮吝啬鬼",
                 text = {
-                    "If a {C:attention}Booster Pack",
-                    "is skipped, earn",
-                    "half of it's {C:money}cost"
+                    "跳过{C:attention}补充包{}时",
+                    "获得其{C:money}售价{}的一半"
                 }
             },
             ability_name = "MMC Cheapskate",
