@@ -2243,7 +2243,7 @@ return {
                 }
             },
             m_wild = {
-                name = "万能牌",
+                name = "百搭牌",
                 text = {
                     "可以视作",
                     "任何花色"
@@ -4077,7 +4077,7 @@ return {
             card_player = "打出至少2500张牌",
             card_discarder = "弃掉至少2500张牌",
             nest_egg = "单局中拥有 $400 或以上",
-            flushed = "用5张万能牌打出一次同花",
+            flushed = "用5张百搭牌打出一次同花",
             speedrunner = "在12回合内赢得一局",
             roi = "在底注4阶段时购买5张奖券",
             shattered = "单次出牌打碎2张玻璃牌",

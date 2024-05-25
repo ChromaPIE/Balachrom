@@ -1425,7 +1425,7 @@ function SMODS.INIT.CheesyJokers()
         end
         context = new_context
 
-        if self.ability.set ~= 'Joker' or self.debuff then return end
+        if self.ability.set ~= 'Joker' and self.ability.set ~= 'Cine' or self.debuff then return end
         if next(find_joker("Facial Recognition")) then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
                 if self.ability.name == 'Shoot the Moon' and context.other_card:is_face() then

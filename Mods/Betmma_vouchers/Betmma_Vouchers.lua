@@ -2,7 +2,7 @@
 --- MOD_NAME: Betmma Vouchers
 --- MOD_ID: BetmmaVouchers
 --- MOD_AUTHOR: [Betmma]
---- MOD_DESCRIPTION: 36 More Vouchers and 12 Fusion Vouchers! v1.1.3.1
+--- MOD_DESCRIPTION: 36 More Vouchers and 14 Fusion Vouchers! v1.1.3.1
 --- BADGE_COLOUR: ED40BF
 
 ----------------------------------------------
@@ -22,6 +22,8 @@
 -- Oversupply Plus and 4D Boosters: Rerolls in the shop also reroll the voucher (if it wasn't purchased).
 -- Oversupply Plus and Overstock Plus: +1 voucher slot available at shop.
 -- you can discard the hand when opening a pack once
+-- random voucher pack $8
+-- change b1g50 to half the price
 
 -- Config: DISABLE UNWANTED MODS HERE
 local config = {
@@ -72,9 +74,11 @@ local config = {
     v_trash_picker=true,
     v_money_target=true,
     v_art_gallery=true,
+    v_b1ginf=true,
     v_slate=true,
     v_gilded_glider=true,
-    v_mirror=true
+    v_mirror=true,
+    v_real_random=true
 }
 
 
@@ -133,7 +137,7 @@ local function randomly_create_consumable(card_type,tag,message,extra)
             trigger = 'before',
             delay = 0.0,
             func = (function()
-                    local card = create_card(card_type,G.consumeables, nil, nil, nil, nil, nil, tag)
+                    local card = create_card(card_type,G.consumeables, nil, nil, nil, nil, extra.forced_key or nil, tag)
                     card:add_to_deck()
                     if extra.edition~=nil then
                         card:set_edition(extra.edition,true,false)
@@ -286,6 +290,16 @@ do
                         v.config.center=copy_table(v.config.center)
                         v.config.center.config.Xmult=v.ability.x_mult
                         -- if the x_mult has been decreased, change the number on hover UI from m_glass value to x_mult
+                    end
+                end
+            end
+            
+            if G.GAME.used_vouchers.v_real_random then
+                for k, v in pairs(G.playing_cards) do
+                    if v.config.center_key == 'm_lucky' then 
+                        v.config.center=copy_table(v.config.center)
+                        v.config.center.real_random_abilities=v.ability.real_random_abilities
+                        -- restore random abilities from v.ability
                     end
                 end
             end
@@ -1316,26 +1330,10 @@ do
         if G.GAME.used_vouchers.v_3d_boosters then value=value+1 end
         return value
     end
-    local Game_update_shop_ref= Game.update_shop
-    function Game:update_shop(dt)
-        Game_update_shop_ref(self,dt) -- Though the original function is called before, the modification of used_packs happens 0.2s later, so enumerate i from #used_packs+1 to max will add 3 packs
-        -- local i=get_booster_pack_max() -- if max number added is 2 or more this may be bugged?
-        -- G.GAME.current_round.used_packs = G.GAME.current_round.used_packs or {}
-        -- if G.GAME.used_vouchers.v_3d_boosters and not G.GAME.current_round.used_packs[i] then
-        --             G.GAME.current_round.used_packs[i] = get_pack('shop_pack').key 
-        --             local card = Card(G.shop_booster.T.x + G.shop_booster.T.w/2,
-        --             G.shop_booster.T.y, G.CARD_W*1.27, G.CARD_H*1.27, G.P_CARDS.empty, G.P_CENTERS[G.GAME.current_round.used_packs[i]], {bypass_discovery_center = true, bypass_discovery_ui = true})
-        --             create_shop_card_ui(card, 'Booster', G.shop_booster)
-        --             card.ability.booster_pos = i
-        --             card:start_materialize()
-        --             G.shop_booster:emplace(card)
-                
-        -- end
-    end
     local G_FUNCS_cash_out_ref=G.FUNCS.cash_out
     G.FUNCS.cash_out=function (e)
         G_FUNCS_cash_out_ref(e)
-        if G.GAME.used_vouchers.v_3d_boosters and not G.GAME.miser and not(G.GAME.final_trident == true and not G.GAME.blind.disabled and not next(find_joker('Chicot'))) then -- prevent reroll if shop is skipped by Miser or Trident boss in Bunco mod
+        if G.GAME.used_vouchers.v_3d_boosters and not ((G.GAME.miser or G.GAME.final_trident) and not G.GAME.blind.disabled and not next(find_joker('Chicot'))) then -- prevent reroll if shop is skipped by Miser or Trident boss in Bunco mod
             my_reroll_shop(get_booster_pack_max()-2,0)
         end
     end
@@ -1361,9 +1359,12 @@ do
         end
     end
     function my_reroll_shop(num,price_mod)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'immediate',
-                func = function()
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = function()
+                if not (G.GAME.current_round and G.GAME.current_round.used_packs and G.shop_booster and G.shop_booster.cards) then
+                    return true
+                end
                 for i = #G.shop_booster.cards,1, -1 do
                     local c = G.shop_booster:remove_card(G.shop_booster.cards[i])
                     c:remove()
@@ -1386,10 +1387,10 @@ do
                     card:start_materialize()
                     G.shop_booster:emplace(card)
                 end
-                return true
-                end
-            }))
-            G.E_MANAGER:add_event(Event({ func = function() save_run(); return true end}))
+            return true
+            end
+        }))
+        G.E_MANAGER:add_event(Event({ func = function() save_run(); return true end}))
         
     end
 
@@ -1403,22 +1404,22 @@ do
     local loc_txt = {
         name = "第二张半价",
         text = {
-            "兑换{C:attention}低级{}奖券时有{C:green}#1#%{}的几率",
+            "兑换{C:attention}奖券{}时有{C:green}#1#%{}的几率",
             "直接获得它的{C:attention}高级{}版本",
-            "并失去{C:money}$#2#",
+            "并支付其价格的一半",
             "{C:inactive}（上述几率无法倍增）"
         }
     }
     local this_v = SMODS.Voucher:new(
         name, id,
-        {extra={chance=50,lose=5}},
+        {extra={chance=50}},
         {x=0,y=0}, loc_txt,
         10, true, true, true
     )
     SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
     this_v:register()
     this_v.loc_def = function(self)
-        return {self.config.extra.chance,self.config.extra.lose}
+        return {self.config.extra.chance}
     end
 
     
@@ -1427,9 +1428,9 @@ do
     local loc_txt = {
         name = "买一“赠”一",
         text = {
-            "兑换{C:attention}低级{}奖券时",
+            "兑换{C:attention}奖券{}时",
             "直接获得它的{C:attention}高级{}版本",
-            "并失去{C:money}$#1#"
+            "并支付全款"
         }
     }
     local this_v = SMODS.Voucher:new(
@@ -1447,12 +1448,12 @@ do
         
     local Card_redeem_ref = Card.redeem
     function Card:redeem() -- use redeem instead of apply to run because redeem happens before modification of used_vouchers
-        if G.GAME.used_vouchers.v_b1g1 or G.GAME.used_vouchers.v_b1g50 and  pseudorandom('b1g1')*100 < G.P_CENTERS.v_b1g50.config.extra.chance then
-            local lose=G.P_CENTERS.v_b1g50.config.extra.lose
+        if not G.GAME.block_b1g1 and (G.GAME.used_vouchers.v_b1g50 and pseudorandom('b1g1')*100 < G.P_CENTERS.v_b1g50.config.extra.chance  or G.GAME.used_vouchers.v_b1g1 or G.GAME.used_vouchers.v_b1ginf) then
+            local lose_percent=50
             if G.GAME.used_vouchers.v_b1g1 then 
-                lose=G.P_CENTERS.v_b1g1.config.extra
+                lose_percent=100
             end
-            lose=math.max(1, math.floor((lose+0.5)*(100-G.GAME.discount_percent)/100)) -- liquidation
+            -- lose=math.max(1, math.floor((lose+0.5)*(100-G.GAME.discount_percent)/100)) -- liquidation
             local center_table = {
                 name = self.ability.name,
                 extra = self.ability.extra
@@ -1470,6 +1471,7 @@ do
                 local only_need=G.P_CENTERS[unredeemed_vouchers[1]]
                 if #unredeemed_vouchers==1 and only_need.name==center_table.name then
                     table.insert(vouchers_to_get,v)
+                    if not G.GAME.used_vouchers.v_b1ginf then break end 
                 end
             end
             if #vouchers_to_get>0 then
@@ -1480,10 +1482,16 @@ do
                     --create_shop_card_ui(card, 'Voucher', G.shop_vouchers)
                     card:start_materialize()
                     G.play:emplace(card)
-                    card.cost=lose
+                    card.cost=math.ceil(card.cost*lose_percent/100)
                     card.shop_voucher=false -- this doesn't help keeping current_round_voucher i guess
                     local current_round_voucher=G.GAME.current_round.voucher
+                    
+                    if not G.GAME.used_vouchers.v_b1ginf then 
+                        G.GAME.block_b1g1=true -- can only get 1 extra
+                    end 
                     card:redeem()
+                    G.GAME.block_b1g1=false
+
                     G.GAME.current_round.voucher=current_round_voucher -- keep the shop voucher unchanged since the voucher may be from voucher pack or other non-shop source
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
@@ -1509,7 +1517,7 @@ do
     local loc_txt = {
         name = "收集者",
         text = {
-            "没兑换一张{C:attention}奖券",
+            "每兑换一张{C:attention}奖券",
             "使盲注的最低得分要求削减{C:attention}#1#%",
             "{C:inactive}（可倍增）"
             -- just because modifying get_blind_amount(ante) is easier than
@@ -1531,13 +1539,12 @@ do
     local name="Connoisseur"
     local id="connoisseur"
     local loc_txt = {
-        name = name,
+        name = "鉴赏家",
         text = {
-            "If you have more than",
-            "{C:money}$#1#/(Vouchers Redeemed + 1){}",
-            "that is {C:money}$#2#{}, redeeming",
-            "a voucher gives {C:dark_edition}Antimatter{}",
-            "and lets the money requirement {C:red}X#3#{}"
+            "若拥有资金多于{C:money}$#1#/(兑换奖券数 + 1)",
+            "{C:inactive}（现为{C:money}$#2#{C:inactive}）",
+            "兑换奖券时将赠送{C:dark_edition}反物质",
+            "并使上述资金需求{C:red}X#3#"
             
         }
     }
@@ -1942,11 +1949,10 @@ do
     local name="Omnicard"
     local id="omnicard"
     local loc_txt = {
-        name = name,
+        name = "全能卡",
         text = {
-            "{C:attention}Wild Cards{} can't be",
-            "debuffed. Retrigger",
-            "all {C:attention}Wild Cards{}"
+            "{C:attention}百搭牌{}永不失效",
+            "且可重新触发"
         }
     }
     local this_v = SMODS.Voucher:new(
@@ -1964,14 +1970,13 @@ do
     local name="Bulletproof"
     local id="bulletproof"
     local loc_txt = {
-        name = name,
+        name = "防爆玻璃",
         text = {
             -- "{C:attention}Glass Cards{} can",
             -- "break #1# times"
-            "{C:attention}Glass Cards{} lose {X:mult,C:white}X#1#{}",
-            "instead of breaking.",
-            "They break when",
-            "they reach {X:mult,C:white}X#2#{}"
+            "{C:attention}玻璃牌{}触发破碎时",
+            "只会损失{X:mult,C:white}X#1#{}倍率而非摧毁",
+            "仅在倍率低至{X:mult,C:white}X#2#{}时摧毁"
         }
     }
     local this_v = SMODS.Voucher:new(
@@ -2030,7 +2035,7 @@ do
         end
         Card_shatter_ref(self)
     end
-    G.localization.misc.dictionary.k_bulletproof = "Bulletproof!"
+    G.localization.misc.dictionary.k_bulletproof = "防爆！"
     
     function Card_shatter_not_remove(self)
         local dissolve_time = 0.7
@@ -2600,6 +2605,31 @@ do
     end
 end -- art gallery
 do
+    local name="B1Ginf"
+    local id="b1ginf"
+    local loc_txt = {
+        name = name,
+        text = {
+            "When you redeem a",
+            "{C:attention}Voucher{}, always redeem",
+            "all {C:attention}higher tier{} Vouchers",
+            "and pay their prices",
+            "{C:inactive}(Collector + B1G1){}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true, {'v_collector','v_b1g1'}
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {}
+    end -- the effect is written in b1g50 code
+end -- b1ginf
+do
     local name="Slate"
     local id="slate"
     local loc_txt = {
@@ -2765,7 +2795,7 @@ do
     local eval_card_ref=eval_card
     function eval_card(card, context)
         local ret=eval_card_ref(card, context)
-        if G.GAME.used_vouchers.v_mirror and context.cardarea == G.play and card.config.center_key=='m_steel' then -- this is scoring calculation
+        if G.GAME.used_vouchers.v_mirror and not context.repetition_only and context.cardarea == G.play and card.config.center_key=='m_steel' then -- this is scoring calculation
             local index=1
             while G.play.cards[index]~=card and index<=#G.play.cards do
                 index=index+1
@@ -2789,6 +2819,420 @@ do
     end
 
 end -- mirror
+do
+    local name="Real Random"
+    local id="real_random"
+    local loc_txt = {
+        name = name,
+        text = {
+            "Randomize {C:attention}Lucky Card{} effects.",
+            "Create a negative {C:attention}Magician{}",
+            "when blind begins",
+            "{C:inactive}(Crystal Ball + Omnicard){}"
+        }
+    }
+    local this_v = SMODS.Voucher:new(
+        name, id,
+        {extra={ability=3}},
+        {x=0,y=0}, loc_txt,
+        10, true, true, true, {'v_crystal_ball','v_omnicard'}
+    )
+    SMODS.Sprite:new("v_"..id, SMODS.findModByID("BetmmaVouchers").path, "v_"..id..".png", 71, 95, "asset_atli"):register();
+    this_v:register()
+    this_v.loc_def = function(self)
+        return {}
+    end
+    
+    local new_round_ref=new_round
+    function new_round()
+        if G.GAME.used_vouchers.v_real_random then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                func = (function() randomly_create_tarot('v_prologue',nil,{forced_key='c_magician',edition={negative=true}}) return true end)
+            }))
+        end
+        return new_round_ref()
+    end
+
+    function log_random(lower, upper)
+        -- Generate a uniform random number between 0 and 1
+        local u = pseudorandom('real_random')
+        
+        -- Transform the uniform random number to follow a logarithmic distribution
+        local v = lower * math.exp(u * math.log(upper / lower))
+        
+        return v
+    end
+
+    function real_random_loc_def(center,ability)
+        -- center: card.config.center
+        -- ability: a table containing key (from real_random_data)
+        local key=ability.key
+        local ability_data=real_random_data[key]
+        if ability_data.chance_range then --chance has been randomly chosen so just return the existing value
+            return ability.loc_vars
+        else --chance is a function that should be calculated real-time. taking in this card and returning a value
+            local chance=ability_data.chance_function(center)   
+            return{
+                ability_data.base_value_function(chance),
+                math.ceil(chance)
+            }
+        end
+        
+    end
+
+    function real_random_add_abilities_to_card(v,times)
+        -- v:card
+        local abilities=v.config.center.real_random_abilities or {}
+        for i=1,(times or G.P_CENTERS.v_real_random.config.extra.ability) do
+            local _,random_ability_key=pseudorandom_element_weighted(real_random_data,pseudoseed('real_random'))
+            local ability_data=real_random_data[random_ability_key]
+            local ability={key=random_ability_key}
+            if ability_data.chance_range then --chance is randomly chosen between ranges that won't change
+                local chance_range=ability_data.chance_range
+                local chance=log_random(chance_range[1],chance_range[2])
+                ability.loc_vars={
+                        ability_data.base_value_function(chance),
+                        math.ceil(chance)
+                    }
+            end --chance is a function taking in this card and returning a value
+                
+            table.insert(abilities,ability)
+        end
+        v.config.center=copy_table(v.config.center)
+        v.config.center.real_random_abilities=abilities
+        v.ability.real_random_abilities=abilities
+    end
+    local Card_apply_to_run_ref = Card.apply_to_run
+    function Card:apply_to_run(center)
+        local center_table = {
+            name = center and center.name or self and self.ability.name,
+            extra = center and center.config.extra or self and self.ability.extra
+        }
+        if center_table.name == 'Real Random' then
+            for k, v in pairs(G.playing_cards) do
+                if v.config.center_key == 'm_lucky' and not (v.config and v.config.center and v.config.center.real_random_abilities) then 
+                    real_random_add_abilities_to_card(v)
+                end
+            end
+        end
+        Card_apply_to_run_ref(self, center)
+    end
+
+    local Card_set_ability_ref=Card.set_ability
+    function Card:set_ability(center, initial, delay_sprites)
+        Card_set_ability_ref(self,center,initial,delay_sprites)
+        if G.GAME.used_vouchers.v_real_random and center==G.P_CENTERS['m_lucky'] and not self.config.center.real_random_abilities then
+            real_random_add_abilities_to_card(self)
+        end
+    end
+
+    real_random_data={
+        chip={
+            chance_range={1,15},
+            base_value_function=function(chance)
+                return 25*math.ceil(chance^1.2)
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for {C:chips}+#2#{} Chips"
+            }
+        },
+        mult={
+            chance_range={1,15},
+            base_value_function=function(chance)
+                return 3*math.ceil(chance^1.2)
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for {C:mult}+#2#{} Mult"
+            }
+            },
+        x_mult={
+            chance_range={4,30},
+            base_value_function=function(chance)
+                return math.ceil(chance^1.2)/10+1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for {X:red,C:white}X#2#{} Mult"
+            }
+        },
+        dollars={
+            chance_range={10,50},
+            base_value_function=function(chance)
+                return math.ceil(chance^1.2)
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "to win {C:money}$#2#"
+            }
+        },
+        joker_slot={
+            weight=0.15,
+            chance_range={777,777},
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for {C:attention}+#2#{} Joker slot"
+            }
+        },
+        consumable_slot={
+            weight=0.15,
+            chance_range={177,177},
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for {C:attention}+#2#{} Consumable slot"
+            }
+        },
+        random_voucher={
+            weight=0.15,
+            chance_range={77,77},
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for a random {C:attention}Voucher{}"
+            }
+        },
+        random_negative_joker={
+            weight=0.15,
+            chance_range={77,77},
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for a random {C:dark_edition}negative{} {C:attention}Joker{}"
+            }
+        },
+        new_ability={
+            weight=0.15,
+            chance_function=function(center)
+                return 10^(#center.real_random_abilities-1)
+            end,
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for a new ability"
+            }
+        },
+        double_probability={
+            weight=0.1,
+            chance_function=function(center)
+                return math.ceil(4.938*(G.GAME.probabilities.normal+0.5)^2)
+            end,
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "to double all probabilities"
+            }
+        },
+        random_tag={
+            weight=0.15,
+            chance_range={7,7},
+            base_value_function=function(chance)
+                return 1
+            end,
+            text={
+                "{C:green}#1# in #3#{} chance",
+                "for a random {C:attention}tag{}"
+            }
+        }
+    }
+    for k,v in pairs(real_random_data) do
+        G.localization.descriptions.Enhanced['real_random_'..k] =v 
+    end
+    G.localization.descriptions.Enhanced.real_random_collection_page={text={"{C:dark_edition}RANDOM{}"}} -- shuold be random effects like misprint
+
+    local generate_card_ui_ref=generate_card_ui
+    function generate_card_ui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end)
+        local full_UI_table=generate_card_ui_ref(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end)
+        if G and G.GAME and G.GAME.used_vouchers.v_real_random and _c.effect == 'Lucky Card' and specific_vars then --_c is card.config.center. "and specific_vars" is to exclude side tooltip of lucky card
+            local main=full_UI_table.main
+            local main_last=main[#main]
+            for i=1,4 do
+                table.remove(main,#main)-- the description of vanilla lucky card is 4 lines
+            end
+            if _c.real_random_abilities then
+                for k,v in pairs(_c.real_random_abilities) do
+                    local loc_vars=copy_table(real_random_loc_def(_c,v))
+                    --print(loc_vars[1])
+                    table.insert(loc_vars,1,G.GAME.probabilities.normal)
+                    localize{type = 'descriptions', key = 'real_random_'..v.key, set = _c.set, nodes = main, vars = loc_vars}
+                end
+            else
+                localize{type = 'descriptions', key = 'real_random_collection_page', set = _c.set, nodes = main, vars = {}}
+            end
+        end
+        return full_UI_table
+    end
+
+    local get_chip_bonus_ref=Card.get_chip_bonus
+    function Card:get_chip_bonus()
+        local ret=get_chip_bonus_ref(self)
+        if G.GAME.used_vouchers.v_real_random and not self.debuff and self.ability.effect == 'Lucky Card' then
+            for k,v in pairs(self.config.center.real_random_abilities) do
+                local loc_vars=real_random_loc_def(self.config.center,v)
+                if v.key=='chip' and pseudorandom('lucky_chip') < G.GAME.probabilities.normal/loc_vars[2] then
+                    self.lucky_trigger = true
+                    ret=ret+loc_vars[1]
+                end
+            end
+        end
+        return ret
+    end
+    
+    local get_chip_mult_ref=Card.get_chip_mult
+    function Card:get_chip_mult()
+        local ret=get_chip_mult_ref(self)
+        if G.GAME.used_vouchers.v_real_random and not self.debuff and self.ability.effect == 'Lucky Card' then
+            ret=0 -- to override the original lucky card mult
+            for k,v in pairs(self.config.center.real_random_abilities) do
+                local loc_vars=real_random_loc_def(self.config.center,v)
+                if v.key=='mult' and pseudorandom('lucky_mult') < G.GAME.probabilities.normal/loc_vars[2] then
+                    self.lucky_trigger = true
+                    ret=ret+loc_vars[1]
+                end
+            end
+        end
+        return ret
+    end
+
+    local get_chip_x_mult_ref=Card.get_chip_x_mult
+    function Card:get_chip_x_mult(context)
+        local ret=get_chip_x_mult_ref(self)
+        if G.GAME.used_vouchers.v_real_random and not self.debuff and self.ability.effect == 'Lucky Card' then
+            if ret==0 then ret=1 end
+            for k,v in pairs(self.config.center.real_random_abilities) do
+                local loc_vars=real_random_loc_def(self.config.center,v)
+                if v.key=='x_mult' and pseudorandom('lucky_x_mult') < G.GAME.probabilities.normal/loc_vars[2] then
+                    self.lucky_trigger = true
+                    ret=ret*loc_vars[1]
+                end
+            end
+            if ret==1 then ret=0 end
+        end
+        return ret
+    end
+
+    local get_p_dollars_ref=Card.get_p_dollars
+    function Card:get_p_dollars(context)
+        if G.GAME.used_vouchers.v_real_random and not self.debuff and self.ability.effect == 'Lucky Card' then
+            local ret=0
+            if self.seal == 'Gold' then
+                ret = ret +  3
+            end
+
+            for k,v in pairs(self.config.center.real_random_abilities) do
+                local loc_vars=real_random_loc_def(self.config.center,v)
+                if v.key=='dollars' and pseudorandom('lucky_dollars') < G.GAME.probabilities.normal/loc_vars[2] then
+                    self.lucky_trigger = true
+                    ret=ret+loc_vars[1]
+                end
+            end
+            
+            if ret > 0 then 
+                G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + ret
+                G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
+            end
+            return ret
+        end
+        local ret=get_p_dollars_ref(self)
+        return ret
+    end
+
+    local eval_card_ref=eval_card
+    function eval_card(card, context) --other abilities
+        local ret=eval_card_ref(card,context)
+        if context.cardarea == G.play and not context.repetition_only and G.GAME.used_vouchers.v_real_random and not card.debuff and card.ability.effect == 'Lucky Card' then
+            for k,v in pairs(card.config.center.real_random_abilities) do
+                local loc_vars=real_random_loc_def(card.config.center,v)
+                if v.key=='joker_slot' and pseudorandom('joker_slot') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    G.E_MANAGER:add_event(Event({func = function()
+                        if G.jokers then 
+                            G.jokers.config.card_limit = G.jokers.config.card_limit + 1
+                        end
+                        return true end }))
+                elseif v.key=='consumable_slot' and pseudorandom('consumable_slot') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    G.E_MANAGER:add_event(Event({func = function()
+                        if G.consumeables then 
+                            G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+                        end
+                        return true end }))
+                elseif v.key=='random_voucher' and pseudorandom('random_voucher') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        func = function()
+                        randomly_redeem_voucher()
+                        return true end }))
+                elseif v.key=='random_negative_joker' and pseudorandom('random_negative_joker') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                        randomly_create_joker(1,'random_negative_joker',nil,{edition={negative=true}})
+                elseif v.key=='new_ability' and pseudorandom('new_ability') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    real_random_add_abilities_to_card(card,1)
+                elseif v.key=='double_probability' and pseudorandom('double_probability') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    for k, v in pairs(G.GAME.probabilities) do -- are there really other probabilities?
+                        G.GAME.probabilities[k] = v*2
+                    end
+                elseif v.key=='random_tag' and pseudorandom('random_tag') < G.GAME.probabilities.normal/loc_vars[2] then
+                    card.lucky_trigger = true
+                    
+                    local random_tag_key = get_next_tag_key()
+                    local random_tag=Tag(random_tag_key,false,'Small')
+                    
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        func = function()
+                            add_tag(random_tag)
+                        return true end }))
+                end
+
+                
+            end
+        end
+        return ret
+    end
+
+    local G_FUNCS_draw_from_discard_to_deck_ref=G.FUNCS.draw_from_discard_to_deck
+    G.FUNCS.draw_from_discard_to_deck = function(e)
+        if (G.GAME.used_vouchers.v_real_random) then
+            for k, v in ipairs(G.discard.cards) do
+                if v.ability.set=='Voucher' then
+                    -- print(k,'addad')
+                    --k.k()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()     
+                                v:remove()
+                        return true end)
+                    }))
+                end
+            end
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = (function()     
+                G_FUNCS_draw_from_discard_to_deck_ref(e)
+            return true end)
+          }))
+    end
+
+end -- real random
     -- -- this challenge is only for test
     -- table.insert(G.CHALLENGES,1,{
     --     name = "TestVoucher",
@@ -2803,13 +3247,22 @@ end -- mirror
     --     jokers = {
     --         --{id = 'j_jjookkeerr'},
     --         -- {id = 'j_ascension'},
-    --         {id = 'j_hasty'},
+    --         -- {id = 'j_sock_and_buskin'},
+    --         -- {id = 'j_sock_and_buskin'},
     --         {id = 'j_oops'},
     --         {id = 'j_oops'},
-    --         {id = 'j_glass'},
+    --         {id = 'j_oops'},
+    --         {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
+    --         -- {id = 'j_oops'},
     --         -- {id = 'j_piggy_bank'},
     --         -- {id = 'j_blueprint'},
-    --         {id = 'j_triboulet'},
+    --         -- {id = 'j_triboulet'},
+    --         -- {id = 'j_triboulet'},
     --     },
     --     consumeables = {
     --         -- {id = 'c_justice_cu'},
@@ -2820,24 +3273,23 @@ end -- mirror
     --     },
     --     vouchers = {
     --         {id = 'v_trash_picker'},
-    --         {id = 'v_slate'},
+    --         {id = 'v_mirror'},
     --         {id = 'v_3d_boosters'},
     --         {id = 'v_4d_boosters'},
     --         --{id = 'v_bonus_plus'},
-    --         {id = 'v_gilded_glider'},
-    --         {id = 'v_bulletproof'},
+    --         {id = 'v_real_random'},
+    --         -- {id = 'v_connoisseur'},
     --         {id = 'v_paint_brush'},
     --         -- {id = 'v_liquidation'},
-    --         -- {id = 'v_3d_boosters'},
-    --         -- {id = 'v_b1g1'},
+    --         {id = 'v_b1ginf'},
     --         -- {id = 'v_overshopping'},
-    --         -- {id = 'v_directors_cut'},
+    --         {id = 'v_reroll_cut'},
     --         {id = 'v_retcon'},
     --         -- {id = 'v_event_horizon'},
     --     },
     --     deck = {
     --         type = 'Challenge Deck',
-    --         cards = {{s='D',r='2',e='m_stone',g='Red'},{s='D',r='3',e='m_wild',g='Red'},{s='D',r='4',e='m_wild',g='Red'},{s='D',r='5',e='m_steel',g='Red'},{s='D',r='6',e='m_glass',g='Red'},{s='D',r='7',e='m_glass',},{s='D',r='8',e='m_steel',},{s='D',r='9',e='m_glass',},{s='D',r='T',e='m_steel',},{s='D',r='J',e='m_glass',},{s='D',r='Q',e='m_steel',},{s='D',r='K',e='m_glass',},{s='D',r='A',e='m_steel',},{s='D',r='K',e='m_steel',},{s='D',r='A',e='m_wild',},{s='D',r='K',e='m_wild',},{s='D',r='A',e='m_steel',},}
+    --         cards = {{s='D',r='2',e='m_lucky',g='Red'},{s='D',r='3',e='m_wild',g='Red'},{s='D',r='4',e='m_wild',g='Red'},{s='D',r='5',e='m_wild',g='Red'},{s='D',r='6',e='m_glass',g='Red'},{s='D',r='7',e='m_lucky',},{s='D',r='7',e='m_lucky',},{s='D',r='7',e='m_lucky',},{s='D',r='8',e='m_lucky',},{s='D',r='9',e='m_lucky',},{s='D',r='T',e='m_lucky',},{s='D',r='J',e='m_glass',},{s='D',r='Q',e='m_lucky',g='Red'},{s='D',r='K',e='m_wild',g='Red'},{s='D',r='K',e='m_wild',g='Red'},{s='D',r='Q',e='m_steel',g='Red'},{s='D',r='K',e='m_steel',g='Red'},{s='D',r='K',e='m_steel',g='Red'},{s='D',r='K',e='m_steel',g='Red'},}
     --     },
     --     restrictions = {
     --         banned_cards = {

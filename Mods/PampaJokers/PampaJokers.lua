@@ -707,7 +707,7 @@ function SMODS.INIT.MtlJokers()
             name = "色盲检测图",
             text = {
                 "打出的所有{C:attention}9{}和{C:attention}6",
-                "变为{C:attention}万能牌"
+                "变为{C:attention}百搭牌"
             }
         },
         j_scopedog = {
