@@ -412,9 +412,9 @@ return {
                 }
             },
             morseled = {
-                name = "Morsel",
+                name = "《浅尝》",
                 text = {
-                    "Ability is {C:attention}doubled"
+                    "能力{C:attention}翻倍"
                 }
             },
         }
@@ -424,7 +424,7 @@ return {
             k_cine = "电影",
             k_tag = "标签",
             k_tag_pack = "标签包",
-            k_crazy_pack = "包",
+            k_crazy_pack = "“卡包”",
             k_film_pack = "影片包",
             b_cine_cards = "电影票"
         }

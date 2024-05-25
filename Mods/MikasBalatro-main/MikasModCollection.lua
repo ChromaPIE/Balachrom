@@ -3087,7 +3087,7 @@ function SMODS.INIT.MikasModCollection()
             loc = {
                 name = "幸运马蹄铁",
                 text = {
-                    "重新出发所有",
+                    "重新触发所有",
                     "计分的{C:attention}幸运牌"
                 }
             },

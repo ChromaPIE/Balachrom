@@ -1740,7 +1740,7 @@ function SMODS.INIT.CheesyJokers()
 
     G.localization.descriptions.AIConditions = {
         [1] = {text = {
-            "When {C:attention}Blind{} is selected,"
+            "选择{C:attention}盲注{}后"
         }},
         [2] = {text = {
             "跳过{C:attention}补充包{}时"
