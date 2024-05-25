@@ -3430,7 +3430,7 @@ return {
             b_options = "选项",
             b_reroll_boss = "重掷Boss盲注",
             b_skip_blind = "跳过盲注",
-            b_skip_reward = "跳过奖励",
+            b_skip_reward = "跳关奖励",
             b_skip = "跳过",
             b_start_new_run = "开始新的一局",
             b_main_menu = "主菜单",

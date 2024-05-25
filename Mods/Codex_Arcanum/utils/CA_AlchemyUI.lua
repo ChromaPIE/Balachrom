@@ -47,7 +47,7 @@ function create_UIBox_your_collection_alchemicals()
   
     local alchemical_options = {}
     for i = 1, math.ceil(#G.P_CENTER_POOLS.Alchemical/8) do
-      table.insert(alchemical_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Alchemical/8)))
+      table.insert(alchemical_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Alchemical/8))..localize('k_page'))
     end
   
     for j = 1, #G.your_collection do

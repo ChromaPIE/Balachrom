@@ -145,7 +145,7 @@ function SMODS.INIT.BetterVouchersThisRunUI()
         
         local voucher_options = {}
         for i = 1, math.ceil(area_count/(PAIRS_PER_ROW*ROWS_PER_PAGE)) do
-        table.insert(voucher_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(area_count/(PAIRS_PER_ROW*ROWS_PER_PAGE))))
+        table.insert(voucher_options, '第'..tostring(i)..'/'..tostring(math.ceil(area_count/(PAIRS_PER_ROW*ROWS_PER_PAGE)))..localize('k_page'))
         end
     
         if not silent then

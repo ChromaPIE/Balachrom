@@ -284,33 +284,32 @@ return {
                 }
             },
             tag_tag = {
-                name = "Mark Tag",
+                name = "标签标签",
                 text = {
-                    "Gives a free",
-                    "{C:attention}Tag Pack"
+                    "获得一个免费的",
+                    "{C:attention}标签包"
                 }
             },
             tag_mega_tag = {
-                name = "Stamp Tag",
+                name = "标标签签",
                 text = {
-                    "Gives a free",
-                    "{C:attention}Jumbo Tag Pack"
+                    "获得一个免费的",
+                    "{C:attention}巨型标签包"
                 }
             }
         },
         Spectral = {
             c_reverie = {
-                name = "Reverie",
+                name = "白日幻梦",
                 text = {
-                    "Applies every",
-                    "{C:cine,E:1}Cine cards",
-                    "to this shop"
+                    "为当前商店应用",
+                    "所有的{C:cine,E:1}电影票{}效果"
                 }
             }
         },
         Voucher = {
             v_script = {
-                name = "Script",
+                name = "电影剧本",
                 text = {
                     "{C:attention}+#1#{} card slot",
                     "available in shop",
@@ -319,7 +318,7 @@ return {
                 }
             },
             v_megaphone = {
-                name = "Megaphone",
+                name = "片场大喇叭",
                 text = {
                     "Requirements of",
                     "{C:cine}Exchange Coupons{} are",

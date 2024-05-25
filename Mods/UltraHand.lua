@@ -32,7 +32,7 @@ function Card:click()
 	CardClickRef(self)
 end
 
-local spawnToggleLabel = '点击获取卡牌'
+local spawnToggleLabel = '开关卡牌获取模式'
 
 local createYourCollectionJokersRef = create_UIBox_your_collection_jokers;
 function create_UIBox_your_collection_jokers()

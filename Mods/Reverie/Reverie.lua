@@ -468,7 +468,7 @@ function create_UIBox_your_collection_cines()
 
     local cine_options = {}
     for i = 1, math.ceil(#cines / (5 * #G.your_collection)) do
-        table.insert(cine_options, localize("k_page").." "..tostring(i).."/"..tostring(math.ceil(#cines / (5 * #G.your_collection))))
+        table.insert(cine_options, "第"..tostring(i).."/"..tostring(math.ceil(#cines / (5 * #G.your_collection)))..localize("k_page"))
     end
 
     for j = 1, #G.your_collection do

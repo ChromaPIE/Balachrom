@@ -45,7 +45,7 @@ function SMODS.INIT.BetmmaJokers()
             text = {
                 "弃掉的牌的点数",
                 "有{C:green}#1#/#2#{}的几率",
-            "发生随机改变"
+                "发生随机改变"
             }
         },
         piggy_bank = {

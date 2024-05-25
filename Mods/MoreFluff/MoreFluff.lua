@@ -216,7 +216,7 @@ function create_UIBox_your_collection_colours()
     
     local colour_options = {}
     for i = 1, math.ceil(#G.P_CENTER_POOLS.Colour/8) do
-        table.insert(colour_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Colour/8)))
+        table.insert(colour_options, '第'..tostring(i)..'/'..tostring(math.ceil(#G.P_CENTER_POOLS.Colour/8))..localize('k_page'))
     end
     
     for j = 1, #G.your_collection do
