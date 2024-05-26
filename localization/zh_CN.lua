@@ -2495,7 +2495,7 @@ return {
                 }
             },
             tag_top_up = {
-                name = "充值标签",
+                name = "凑数标签",
                 text = {
                     "生成最多{C:attention}#1#张",
                     "{C:blue}普通{}小丑牌",
@@ -2649,8 +2649,7 @@ return {
             bl_house = {
                 name = "房屋",
                 text = {
-                    "第一次的手牌",
-                    "以背面朝上方式抽取"
+                    "初始手牌背面朝上"
                 }
             },
             bl_club = {

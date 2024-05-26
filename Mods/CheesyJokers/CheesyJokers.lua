@@ -39,12 +39,12 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Frozen Joker",
+            dispname = "冰封小丑",
             slug = 'cj_frozen',
             desc = {
-                "This joker gains {C:chips}Chips{}",
-                "equal to {C:attention}twice{} the level of",
-                "played {C:attention}poker hand{}",
-                "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                "出牌后，本牌获得{C:attention}两倍{}于",
+                "所出{C:attention}牌型{}等级的{C:chips}筹码",
+                "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
             },
             config = {
                 extra = {
@@ -62,11 +62,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Rainbow Joker",
+            dispname = "彩虹小丑",
             slug = 'cj_rainbow',
             desc = {
-                "This Joker gains {X:mult,C:white} X0.25 {} Mult",
-                "for each discarded {C:attention}Straight",
-                "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)"
+                "每弃掉一手{C:attention}顺子{C:inactive}顺直",
+                "本牌获得{X:mult,C:white} X0.25 {} 倍率",
+                "{C:inactive}（当前为{X:mult,C:white} X#1# {C:inactive}倍率）"
             },
             config = {
                 x_mult = 1,
@@ -83,6 +84,7 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Treasure Map",
+            dispname = "寻宝之路",
             slug = 'cj_treasure_map',
             desc = {
                 "Earn {C:money}$#3#{} if played hand",
@@ -216,12 +218,12 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Amoeba",
+            dispname = "阿米巴原虫",
             slug = 'cj_amoeba',
             desc = {
-                "{X:red,C:white}X#1#{} Mult,",
-                "duplicate this {C:attention}Joker",
-                "when {C:attention}Blind{} is selected",
-                "{C:inactive}(Must have room)"
+                "{X:red,C:white}X#1#{}倍率",
+                "选择{C:attention}盲注{}时{C:attention}自我复制",
+                "{C:inactive}（必须有空间）"
             },
             config = {
                 extra = 1.5
@@ -1790,7 +1792,7 @@ function SMODS.INIT.CheesyJokers()
             "{C:mult}+2{}倍率的{C:dark_edition}负片{C:attention}小丑"
         }},
         [9] = {text = {
-            "gain {X:red,C:white} +15 {C:red} Max HP"
+            "获得{X:red,C:white} +15 {C:red} 最大生命值"
         }},
     }
 
