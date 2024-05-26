@@ -678,13 +678,13 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_pimpbus = {
-            name = "Pimp The Bus",
+            name = "拉客巴士",
             text = {
-                "Gains {X:mult,C:white}x#1#{} Mult",
-                "for each consecutive scoring hand",
-                "with at least one",
-                "enhancement, edition or seal",
-                "{C:inactive}(Currently {X:mult,C:white}x#2#{}){}"
+                "打出的牌若至少包含一张",
+                "带有{C:attention}增强{}、{C:attention}版本{}或{C:attention}蜡封{}的卡牌",
+                "本牌获得{X:mult,C:white}X#1#{}倍率",
+                "不合要求的出牌将重置倍率",
+                "{C:inactive}（当前为{X:mult,C:white}x#2#{C:inactive}倍率）"
             }
         },
         j_open = {

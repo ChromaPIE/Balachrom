@@ -4,18 +4,18 @@ return {
             c_ive_no_shape_quest = {
                 name = "观影兑换券",
                 text = {
-                    "Converts to {C:cine}I Sing, I've No Shape",
-                    "after scoring more than {C:attention}X#1#{} of",
-                    "required Chips in {C:attention}#2# Blinds",
+                    "在{C:attention}#2#{}个{C:attention}盲注{}中获得",
+                    "超过最低要求{C:attention}#1#{}倍的得分后",
+                    "置换为{C:cine}《我无形，我歌唱》",
                     "{C:inactive}（当前进度：{C:attention}#3#{C:inactive}/#2#）"
                 }
             },
             c_ive_no_shape = {
-                name = "I Sing, I've No Shape",
+                name = "《我无形，我歌唱》",
                 text = {
                     "在本次商店购买阶段",
-                    "only owned {C:attention}Jokers{} appear",
-                    "{C:red}+$#1#{} reroll cost"
+                    "仅会出现已拥有的{C:attention}小丑牌",
+                    "重掷花费{C:red}+$#1#"
                 }
             },
             c_unseen_quest = {
@@ -250,12 +250,11 @@ return {
                 }
             },
             j_dynamic_film = {
-                name = "Dynamic Film",
+                name = "连像成影",
                 text = {
-                    "This Joker gains {C:chips}+#2#{} Chips",
-                    "every time an {C:cine}Exchange Coupon",
-                    "progresses",
-                    "{C:inactive}(Currently +{C:chips}#1#{C:inactive} Chips)"
+                    "{C:cine}观影兑换券{}进度提升时",
+                    "本牌获得{C:chips}+#2#{}筹码",
+                    "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
                 }
             }
         },
@@ -320,9 +319,8 @@ return {
             v_megaphone = {
                 name = "片场大喇叭",
                 text = {
-                    "Requirements of",
-                    "{C:cine}Exchange Coupons{} are",
-                    "halved"
+                    "{C:cine}观影兑换券{}的",
+                    "进度要求减半"
                 }
             }
         },

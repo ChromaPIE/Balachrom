@@ -3920,12 +3920,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local special_edition = {
             loc = {
-                name = "Special Edition Joker",
+                name = "特别版小丑",
                 text = {
-                    "Gains {C:mult}+#2#{} Mult per {C:attention}Seal{}, {C:chips}+#4#{}",
-                    "Chips per {C:attention}Enhancement{} and {X:mult,C:white}X#6#{} Mult",
-                    "per {C:attention}Edition{} for every card in deck",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult, {C:chips}+#3#{C:inactive}, Chips and {X:mult,C:white}X#5#{C:inactive} Mult)"
+                    "牌组中的每个{C:attention}蜡封{}给予{C:mult}+#2#{}倍率",
+                    "每个{C:attention}增强{}给予{C:chips}+#4#{}筹码",
+                    "每个{C:attention}版本{}给予{X:mult,C:white}X#6#{}倍率",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率，{C:chips}+#3#{C:inactive}筹码，{X:mult,C:white}X#5#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Special Edition Joker",
@@ -5385,7 +5385,7 @@ function SMODS.INIT.MikasModCollection()
                 name = "赖皮吝啬鬼",
                 text = {
                     "跳过{C:attention}补充包{}时",
-                    "获得其{C:money}售价{}的一半"
+                    "获得所付{C:money}资金{}的一半"
                 }
             },
             ability_name = "MMC Cheapskate",

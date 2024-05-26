@@ -498,11 +498,11 @@ function SMODS.INIT.Jestobiology()
         -- Create Joker
         local fishclown = {
             loc = {
-                name = "Fishclown",
+                name = "丑人鱼",
                 text = {
-                    "{C:attention}Enhanced Cards{} gives",
-                    "{X:mult,C:white}X1.5{} Mult when scored",
-                    "{s:0.7}(Expanded Art Joker + Clownfish){}"
+                    "打出的{C:attention}增强卡牌",
+                    "在计分时给予{X:mult,C:white}X1.5{}倍率",
+                    "{s:0.8}（小丑半身像 + 小丑鱼）"
                 }
             },
             ability_name = "Fishclown",
