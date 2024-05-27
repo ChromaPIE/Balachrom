@@ -576,11 +576,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Cheese Wedge",
+            dispname = "奶酪楔",
             slug = 'cj_cheese_wedge',
             desc = {
-                "When {C:attention}Blind{} is selected,",
-                "gain {C:blue}+#1#{} Hands, and this",
-                "Joker loses {C:red}-#2#{} Hands"
+                "选择{C:attention}盲注{}时",
+                "出牌次数{C:blue}+#1#",
+                "随后使该加成{C:red}-#2#"
             },
             config = {
                 extra = {

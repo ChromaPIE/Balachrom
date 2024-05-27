@@ -935,7 +935,7 @@ return {
             j_madness = {
                 name = "疯狂",
                 text = {
-                    "在{C:attention}小盲注{}或{C:attention}大盲注{}被选中时",
+                    "选择{C:attention}小盲注{}或{C:attention}大盲注{}时",
                     "本牌获得{X:mult,C:white}X#1#{}倍率",
                     "然后随机{C:attention}摧毁{}一张小丑牌",
                     "{C:inactive}（当前为{X:mult,C:white}X#2#{}倍率）"
@@ -1774,7 +1774,7 @@ return {
                     "生成本赛局中",
                     "上一次使用的",
                     "{C:tarot}塔罗牌{}或{C:planet}星球牌{}",
-                    "不包括{s:0.8,C:tarot}愚者{s:0.8}"
+                    "{s:0.8}不包括{s:0.8,C:tarot}愚者"
                 }
             },
             c_magician = {
@@ -2082,11 +2082,11 @@ return {
                 }
             },
             c_aura = {
-                name = "光环",
+                name = "灵气",
                 text = {
-                    "选定{C:attention}1{}张手牌，为其添加",
-                    "{C:dark_edition}闪箔卡{}、{C:dark_edition}镭射卡{}、或{C:dark_edition}多彩卡{}",
-                    "效果中的一种"
+                    "选定{C:attention}1{}张手牌",
+                    "为其添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射",
+                    "或{C:dark_edition}多彩{}版本中的一种"
                 }
             },
             c_wraith = {
@@ -2156,9 +2156,9 @@ return {
             c_deja_vu = {
                 name = "既视感",
                 text = {
-                    "给你手牌中的",
-                    "{C:attention}1{}张所选卡牌",
-                    "加上{C:red}红色蜡封{}"
+                    "为手牌中",
+                    "{C:attention}1{}张选定的卡牌",
+                    "打上{C:red}红色蜡封{}"
                 }
             },
             c_hex = {
@@ -2172,17 +2172,17 @@ return {
             c_trance = {
                 name = "入迷",
                 text = {
-                    "给你手牌中的",
-                    "{C:attention}1{}张所选卡牌",
-                    "加上{C:blue}蓝色蜡封{}"
+                    "为手牌中",
+                    "{C:attention}1{}张选定的卡牌",
+                    "打上{C:blue}蓝色蜡封{}"
                 }
             },
             c_medium = {
                 name = "灵媒",
                 text = {
-                    "给你手牌中的",
-                    "{C:attention}1{}张所选卡牌",
-                    "加上{C:purple}紫色蜡封{}"
+                    "为手牌中",
+                    "{C:attention}1{}张选定的卡牌",
+                    "打上{C:purple}紫色蜡封{}"
                 }
             },
             c_cryptid = {
@@ -2723,7 +2723,7 @@ return {
                 name = "蔚蓝之铃",
                 text = {
                     "迫使 1 张牌",
-                    "总是被选中"
+                    "总是被选定"
                 }
             }
         },

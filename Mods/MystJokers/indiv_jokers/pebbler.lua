@@ -6,11 +6,10 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Pebbler Joker",
+    name = "飞石小丑",
     text = {
-        "Allows {C:attention}Stone Cards{}",
-        "to be selected and played",
-        "past the hand card limit",
+        "{C:attention}石头牌{}无视选牌",
+        "和出牌张数上限"
     }
 }
 

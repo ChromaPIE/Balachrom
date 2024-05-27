@@ -26,7 +26,7 @@ function SMODS.INIT.MtlJokers()
     G.localization.misc.dictionary.pampa_bye = "拜拜！"
     G.localization.misc.dictionary.k_upgrade_ex_claw = "升级所有3！"
     G.localization.misc.dictionary.ph_black_star = "黑色五芒星拯救了你"
-    G.localization.misc.v_dictionary.sliding_joker = {"+#1# mult ! +#2# chips !"}
+    G.localization.misc.v_dictionary.sliding_joker = {"+#1#倍率！+#2#筹码！"}
 
     init_localization()
     
@@ -512,10 +512,11 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_snecko = {
-            name = "Snecko Eye",
+            name = "异蛇之眼",
             text = {
-                "The ranks of first drawn cards",
-                "each round are permanently randomized.",
+                "随机改变每回合",
+                "初始手牌的点数",
+                "",
             }
         },
         j_trick = {
@@ -536,19 +537,20 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_sealbouquet = {
-            name = "Seal Bouquet",
+            name = "蜡封团簇",
             text = {
-                "If first card of a {C:clubs}Spades{} flush",
-                "contains a {C:attention}seal{}, add a random {C:attention}seal{}",
-                "to another random card."
+                "若打出的{C:clubs}黑桃{}同花中",
+                "第一张牌拥有{C:attention}蜡封{}",
+                "则随机为另一张牌",
+                "打上一个蜡封"
             }
         },
         j_mixtape = {
-            name = "Mixtape",
+            name = "混音带",
             text = {
-                "Gain {C:money}$#1#{} at the end of round for each",
-                "enchanced {C:clubs}Clubs{} card in your deck.",
-                "(Currently {C:money}$#2#{})",
+                "牌组中每有一张增强的{C:clubs}梅花{}牌",
+                "回合结束时获得{C:money}$#1#",
+                "{C:inactive}（当前为{C:money}$#2#{C:inactive}）",
             }
         },
         j_flamingo = {

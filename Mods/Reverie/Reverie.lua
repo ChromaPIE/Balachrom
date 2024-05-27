@@ -468,7 +468,7 @@ function create_UIBox_your_collection_cines()
 
     local cine_options = {}
     for i = 1, math.ceil(#cines / (5 * #G.your_collection)) do
-        table.insert(cine_options, "第"..tostring(i).."/"..tostring(math.ceil(#cines / (5 * #G.your_collection)))..localize("k_page"))
+        table.insert(cine_options, localize("k_page").." "..tostring(i).."/"..tostring(math.ceil(#cines / (5 * #G.your_collection))))
     end
 
     for j = 1, #G.your_collection do
@@ -1362,13 +1362,11 @@ function Reverie.ban_modded_consumables()
 end
 
 function Reverie.adjust_shop_width()
-    if G.GAME.current_round.used_cine then
-        local jokers = G.GAME.shop.joker_max
-        G.shop_jokers.T.w = jokers * 1.02 * G.CARD_W * (jokers > 4 and 4 / jokers or 1)
+    local jokers = G.GAME.shop.joker_max
+    G.shop_jokers.T.w = jokers * 1.02 * G.CARD_W * (jokers > 4 and 4 / jokers or 1)
 
-        if G.shop then
-            G.shop:recalculate()
-        end
+    if G.shop then
+        G.shop:recalculate()
     end
 end
 
@@ -2112,7 +2110,11 @@ function Card:calculate_joker(context)
         or (self.config.center.reward == "c_crazy_lucky" and context.open_booster)
         or (self.config.center.reward == "c_tag_or_die" and context.skip_blind)
         or (self.config.center.reward == "c_let_it_moon" and context.using_consumeable
-            and (context.consumeable.ability.set == "Tarot" or context.consumeable.ability.set == "Planet"))
+            and (context.consumeable.ability.set == "Tarot"
+                or context.consumeable.ability.set == "Tarot_dx"
+                or context.consumeable.ability.set == "Tarot_cu"
+                or context.consumeable.ability.set == "Planet"
+                or context.consumeable.ability.set == "Planet_dx"))
         or (self.config.center.reward == "c_poker_face" and context.enhancing_card)
         or (self.config.center.reward == "c_eerie_inn" and context.any_card_destroyed)
         or (self.config.center.reward == "c_adrifting" and context.debuff_or_flipped_played)
@@ -2383,14 +2385,21 @@ function Card:sell_card()
     sell_card_ref(self)
 end
 
-local remove_from_deck_ref = Card.remove_from_deck
-function Card:remove_from_deck(from_debuff)
-    print(self.ability.not_destroyed)
-    local flag = (self.added_to_deck and not self.ability.not_destroyed) or (G.playing_cards and self.playing_card)
+local card_remove_ref = Card.remove
+function Card:remove()
+    local destroyed = (self.added_to_deck and not self.ability.not_destroyed) or (G.playing_cards and self.playing_card)
+    local on_game_area = nil
 
-    remove_from_deck_ref(self, from_debuff)
+    for k, v in pairs(G) do
+        if type(v) == "table" and v.is and v:is(CardArea) and self.area == v then
+            on_game_area = true
+            break
+        end
+    end
 
-    if G.cine_quests and flag then
+    card_remove_ref(self)
+
+    if G.cine_quests and destroyed and on_game_area then
         for _, v in ipairs(G.cine_quests.cards) do
             if v ~= self then
                 v:calculate_joker({
@@ -2429,7 +2438,7 @@ function G.FUNCS.play_cards_from_highlighted(e)
 end
 
 function Reverie.set_card_back(card)
-    if not card then
+    if not card or G.STAGE ~= G.STAGES.RUN then
         return
     end
 
