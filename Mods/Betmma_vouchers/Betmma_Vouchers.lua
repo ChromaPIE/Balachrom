@@ -2,7 +2,7 @@
 --- MOD_NAME: Betmma Vouchers
 --- MOD_ID: BetmmaVouchers
 --- MOD_AUTHOR: [Betmma]
---- MOD_DESCRIPTION: 36 More Vouchers and 14 Fusion Vouchers! v1.1.4
+--- MOD_DESCRIPTION: 36 More Vouchers and 14 Fusion Vouchers! v1.1.4.1
 --- BADGE_COLOUR: ED40BF
 
 ----------------------------------------------
@@ -1148,7 +1148,7 @@ do
         end
         return G_UIDEF_use_and_sell_buttons_ref(card)
     end
-    G.localization.misc.dictionary.b_reserve = "RESERVE"
+    G.localization.misc.dictionary.b_reserve = "保留"
     G.FUNCS.can_reserve_card = function(e)
         if #G.consumeables.cards < G.consumeables.config.card_limit then 
             e.config.colour = G.C.GREEN
@@ -3081,7 +3081,7 @@ do
         hand_size={
             weight=0.15,
             chance_function=function(center)
-                return G.hand.config.card_limit^2
+                return math.ceil(2.5*(math.max(G.hand.config.card_limit,8)-4)^2.5)
             end,
             base_value_function=function(chance)
                 return 1
@@ -3092,7 +3092,7 @@ do
             }
         },
         transfer_ability={
-            weight=10.05,
+            weight=0.05,
             chance_range={77,77},
             base_value_function=function(chance)
                 return 1

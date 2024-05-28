@@ -1,0 +1,68 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Add card mult localization for default cards
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif _c.set == 'Enhanced' then'''
+position = "before"
+payload = '''
+    if specific_vars and specific_vars.bonus_mult then
+        localize { type = 'other', key = 'card_extra_mult', nodes = desc_nodes, vars = { specific_vars.bonus_mult } }
+    end
+'''
+match_indent = true
+overwrite = false
+
+# Add card mult localization to mult cards specifically
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if _c.effect == 'Mult Card' then loc_vars = {_c.config.mult}'''
+position = "at"
+payload = '''
+if _c.effect == 'Mult Card' then loc_vars = {((specific_vars and specific_vars.bonus_mult) or _c.config.mult)}
+'''
+match_indent = true
+overwrite = true
+
+# Add card mult localization to lucky cards specifically
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif _c.effect == 'Lucky Card' then loc_vars = {G.GAME.probabilities.normal, _c.config.mult, 5, _c.config.p_dollars, 15}'''
+position = "at"
+payload = '''
+elseif _c.effect == 'Lucky Card' then loc_vars = {G.GAME.probabilities.normal, ((specific_vars and specific_vars.bonus_mult) or _c.config.mult), 5, _c.config.p_dollars, 15}
+'''
+match_indent = true
+overwrite = true
+
+# Add card mult localization for non-mult enhanced cards
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif _c.set == 'Booster' then'''
+position = "before"
+payload = '''
+    if (_c.effect ~= 'Mult Card' and _c.effect ~= 'Lucky Card') and ((specific_vars and specific_vars.bonus_mult) or _c.config.mult) then
+        localize{type = 'other', key = 'card_extra_mult', nodes = desc_nodes, vars = {((specific_vars and specific_vars.bonus_mult) or _c.config.mult)}}
+    end
+'''
+match_indent = true
+overwrite = false
+
+# Add bonus mult to card ability
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''bonus_chips = (self.ability.bonus + (self.ability.perma_bonus or 0)) > 0 and (self.ability.bonus + (self.ability.perma_bonus or 0)) or nil,'''
+position = "after"
+payload = '''
+bonus_mult = (self.ability.mult + (self.ability.perma_mult or 0)) > 0 and (self.ability.mult + (self.ability.perma_mult or 0)) or nil
+'''
+match_indent = true
+overwrite = false

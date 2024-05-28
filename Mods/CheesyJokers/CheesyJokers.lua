@@ -492,11 +492,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Calculator",
+            dispname = "计算器",
             slug = 'cj_calculator',
             desc = {
-                "Gives {C:money}money{} at end of round",
-                "equal to {C:attention}first digit{} of",
-                "final {C:attention}score{} during round"
+                "回合结束时给予",
+                "与最后{C:attention}得分{}的{C:attention}第一位数字",
+                "等值的{C:money}资金"
             },
             config = {},
             pos = {x = 2, y = 3},
@@ -507,12 +508,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Shell Filling",
+            dispname = "电子层填充",
             slug = 'cj_shell_filling',
             desc = {
-                "Gives {C:mult}Mult{} equal to",
-                "twice the square of the",
-                "current {C:attention}Ante{} number",
-                "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                "给予{C:attention}2(n^2){C:mult}倍率",
+                "n为当前底注数",
+                "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
             },
             config = {},
             pos = {x = 3, y = 3},
@@ -600,12 +601,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Macarons",
+            dispname = "马卡龙",
             slug = 'cj_macarons',
             desc = {
-                "{C:green}#2# in #1#{} chance for played",
-                "cards to give {C:money}$#4#{} when scored,",
-                "chance decreases by {C:green}#3# in #1#",
-                "at the end of each round"
+                "打出的牌在计分时",
+                "有{C:green}#2#/#1#{}的几率给予{C:money}$#4#",
+                "回合结束时几率减少{C:green}#3#/#1#"
             },
             config = {
                 extra = {
