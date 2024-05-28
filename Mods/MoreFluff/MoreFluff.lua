@@ -2780,7 +2780,7 @@ function SMODS.INIT.MoreFluff()
         SMODS.Jokers.j_mf_basepaulcard.calculate = function(self, context)
             if SMODS.end_calculate_context(context) then
                 -- hack. if paul support is added then incorporate that
-                if string.find(string.lower(G.PROFILES[G.SETTINGS.profile].name), "胖球") then
+                if string.find(string.lower(G.PROFILES[G.SETTINGS.profile].name), "pangqiu") then
                     return {
                         message = localize{type='variable',key='a_xmult',vars={12.5}},
                         Xmult_mod = 12.5,

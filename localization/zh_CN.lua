@@ -2610,7 +2610,7 @@ return {
                 }
             },
             bl_tooth = {
-                name = "齿",
+                name = "牙齿",
                 text = {
                     "每出一张牌",
                     "损失$1"
