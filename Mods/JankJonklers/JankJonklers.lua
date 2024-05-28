@@ -1579,11 +1579,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local boredom_slayer = {
             loc = {
-                name = "Boredom Slayer",
+                name = "无聊终结者",
                 text = {
-                    "Reduce {C:attention}Blind{} requirements",
-                    "by {C:attention}10%{} whenever you",
-                    "play a hand",
+                    "出牌时，使{C:attention}盲注{}的",
+                    "最低得分要求",
+                    "削减{C:attention}10%"
                 }
             },
             ability_name = "Boredom Slayer",

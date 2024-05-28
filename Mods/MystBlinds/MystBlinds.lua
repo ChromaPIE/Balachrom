@@ -23,7 +23,7 @@ function SMODS.INIT.MystBlinds()
     local mod_path = SMODS.findModByID("MystBlinds").path
     SMODS.Sprite:new("MystBlinds", SMODS.findModByID("MystBlinds").path, "MystBlinds.png", 34, 34, "animation_atli", 21):register()
 
-    G.localization.misc.dictionary.ph_ancestor = "(Round * 1.5)"
+    G.localization.misc.dictionary.ph_ancestor = "（当前回合数 * 1.5）"
 
     -- basically taken from 5CEBalatro lol
     for k, v in ipairs(blind_list) do

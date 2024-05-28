@@ -947,10 +947,10 @@ function SMODS.INIT.MikasModCollection()
     -- Localization
     G.localization.descriptions.Other.card_extra_mult = { text = { "{C:mult}+#1#{} extra Mult" } }
     G.localization.misc.dictionary.k_mmc_charging = "Charging..."
-    G.localization.misc.dictionary.k_mmc_bonus = "Bonus!"
-    G.localization.misc.dictionary.k_mmc_hand_up = "+ Hand Size!"
-    G.localization.misc.dictionary.k_mmc_hand_down = "- Hand Size!"
-    G.localization.misc.dictionary.k_mmc_tick = "Tick..."
+    G.localization.misc.dictionary.k_mmc_bonus = "特别奖励！"
+    G.localization.misc.dictionary.k_mmc_hand_up = "手牌上限增加！"
+    G.localization.misc.dictionary.k_mmc_hand_down = "手牌上限减少！"
+    G.localization.misc.dictionary.k_mmc_tick = "嘀嗒……"
     G.localization.misc.dictionary.k_mmc_plus_card = "Card!"
     G.localization.misc.dictionary.k_mmc_luck = "+ Luck!"
     G.localization.misc.dictionary.k_mmc_destroy = "Destroy!"
@@ -970,13 +970,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Tarot
         local ace_of_pentacles = {
             loc = {
-                name = "Ace Of Pentacles",
+                name = "星币一",
                 text = {
-                    "{C:red}#2# in #1#{} chance",
-                    "to set money to",
-                    "{C:money}$0{}, otherwise",
-                    "{C:attention}double{} your money",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "有{C:red}#2#/#1#{}的几率",
+                    "使{C:money}资金{}归零",
+                    "否则使资金{C:attention}翻倍"
                 }
             },
             ability_name = "MMC Ace Of Pentacles",
@@ -1920,13 +1918,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local scratch_card = {
             loc = {
-                name = "Scratch Card",
+                name = "刮刮乐",
                 text = {
-                    "Gain {C:money}$#1#{}, {C:money}$#2#{}, {C:money}$#3#{}, {C:money}$#4#{},",
-                    "{C:money}$#5#{} when 1, 2, 3, 4 or 5",
-                    "{C:attention}7 cards{} are scored,",
-                    "respectively",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "打出1、2、3、4或5张{C:attention}7{}时",
+                    "相应获得{C:money}$#1#{}、{C:money}$#2#{}、{C:money}$#3#{}、{C:money}$#4#{}或{C:money}$#5#"
                 }
             },
             ability_name = "MMC Scratch Card",
@@ -3131,11 +3126,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local incomplete = {
             loc = {
-                name = "Incomplete Joker",
+                name = "残缺小丑",
                 text = {
-                    "{C:chips}+#1#{} Chips if played",
-                    "hand contains",
-                    "{C:attention}#2#{} or fewer cards"
+                    "如果打出的牌",
+                    "少于等于{C:attention}#2#{}张",
+                    "{C:chips}+#1#{}筹码"
                 }
             },
             ability_name = "MMC Incomplete Joker",
@@ -3730,12 +3725,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker,
         local glue = {
             loc = {
-                name = "Glue",
+                name = "胶水",
                 text = {
-                    "If you have both {C:attention}Half",
-                    "and {C:attention}Incomplete Joker{}, give",
-                    "{C:dark_edition}+#2#{} Joker slots and {X:mult,C:white}X#1#{} Mult",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "若你拥有{C:attention}半张小丑{}和{C:attention}残缺小丑",
+                    "小丑牌槽位{C:dark_edition}+#2#{}，{X:mult,C:white}X#1#{}倍率"
                 }
             },
             ability_name = "MMC Glue",
@@ -4787,11 +4780,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local seal_steal = {
             loc = {
-                name = "Seal Steal",
+                name = "流氓条款",
                 text = {
-                    "Played {C:purple}Purple{} and",
-                    "{C:blue}Blue{} Seals trigger",
-                    "when {C:attention}scored"
+                    "带有{C:purple}紫色{}和{C:blue}蓝色{}蜡封的卡牌",
+                    "在{C:attention}计分{}时触发蜡封效果"
                 }
             },
             ability_name = "MMC Seal Steal",

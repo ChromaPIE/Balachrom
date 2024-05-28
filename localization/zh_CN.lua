@@ -1878,9 +1878,9 @@ return {
             c_temperance = {
                 name = "节制",
                 text = {
-                    "获得拥有的小丑牌",
-                    "售出价格总和的",
-                    "资金{C:inactive}（最高{C:money}$#1#{C:inactive}）",
+                    "获得当前所拥有的小丑牌",
+                    "售出总价的资金",
+                    "{C:inactive}（上限为{C:money}$#1#{C:inactive}）",
                     "{C:inactive}（当前为{C:money}$#2#{C:inactive}）"
                 }
             },

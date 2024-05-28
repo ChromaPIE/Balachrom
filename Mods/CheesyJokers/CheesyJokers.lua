@@ -340,11 +340,11 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Bitflip",
+            dispname = "取反",
             slug = 'cj_bitflip',
             desc = {
-                "If played {C:attention}hand{} contains",
-                "exactly two cards,",
-                "swap their {C:attention}suits{} and {C:attention}ranks"
+                "若{C:attention}打出的牌{}正好为两张",
+                "将其{C:attention}花色{}和{C:attention}点数互换"
             },
             config = {},
             pos = {x = 2, y = 2},

@@ -1280,11 +1280,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Warehouse", "sdm_warehouse",
             {extra = {h_size = 3, c_size = 0, dollars = -50}},  {x=0, y=0},
             {
-                name = "Warehouse",
+                name = "仓库",
                 text = {
-                    "{C:attention}+#1#{} hand size,",
-                    "{C:red}no consumable slots{},",
-                    "lose {C:money}$#2#{} if sold"
+                    "手牌上限{C:attention}+#1#",
+                    "{C:red}无消耗牌槽位",
+                    "售出时失去{C:money}$#2#"
                 }
             }, 2, 6, true, true, false, true
         )

@@ -334,37 +334,37 @@ return {
         },
         Other = {
             p_tag_normal = {
-                name = "Tag Pack",
+                name = "标签包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# Tags"
+                    "从{C:attention}#2#{}个{C:attention}标签{}中",
+                    "选择{C:attention}#1#{}个"
                 }
             },
             p_tag_jumbo = {
-                name = "Jumbo Tag Pack",
+                name = "巨型标签包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# Tags"
+                    "从{C:attention}#2#{}个{C:attention}标签{}中",
+                    "选择{C:attention}#1#{}个"
                 }
             },
             p_tag_mega = {
-                name = "Mega Tag Pack",
+                name = "超级标签包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# Tags"
+                    "从{C:attention}#2#{}个{C:attention}标签{}中",
+                    "选择{C:attention}#1#{}个"
                 }
             },
             p_luxe_mega = {
                 name = "超级精品包",
                 text = {
-                    "从最多{C:attention}#2#{}张奖券中",
+                    "从至多{C:attention}#2#{}张奖券中",
                     "选择{C:attention}#1#{}张"
                 }
             },
             p_crazy_lucky = {
                 name = "卡包",
                 text = {
-                    "从最多{C:attention}#2#{}张{C:attention,E:1}任意{}卡牌中",
+                    "从至多{C:attention}#2#{}张{C:attention,E:1}任意{}卡牌中",
                     "选择{C:attention}#1#{}张收入囊中"
                 }
             },
@@ -378,43 +378,38 @@ return {
             p_film_normal = {
                 name = "影片包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{} {C:cine}Exchange Coupon{} cards",
-                    "to add to your possession"
+                    "从至多{C:attention}#2#{}张{C:cine}观影兑换券{}中",
+                    "选择{C:attention}#1#{}张收入囊中"
                 }
             },
             p_film_jumbo = {
                 name = "巨型影片包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:cine}Exchange Coupon{} cards",
-                    "to add to your possession"
+                    "从至多{C:attention}#2#{}张{C:cine}观影兑换券{}中",
+                    "选择{C:attention}#1#{}张收入囊中"
                 }
             },
             p_film_mega = {
                 name = "超级影片包",
                 text = {
-                    "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2# {C:cine}Cine{} cards to add",
-                    "to your possession"
+                    "从至多{C:attention}#2#{}张{C:cine}电影票{}中",
+                    "选择{C:attention}#1#{}张收入囊中"
                 }
             },
             undiscovered_cine = {
-                name = "Not Discovered",
+                name = "未发现",
                 text = {
-                    "Purchase or use",
-                    "this card in an",
-                    "unseeded run to",
-                    "learn what it does"
+                    "在非预设局中",
+                    "购买或使用此牌",
+                    "以了解其效果"
                 }
             },
             undiscovered_cine_quest = {
-                name = "Not Discovered",
+                name = "未发现",
                 text = {
-                    "Purchase or use",
-                    "this card in an",
-                    "unseeded run to",
-                    "learn what it does"
+                    "在非预设局中",
+                    "购买或使用此牌",
+                    "以了解其效果"
                 }
             },
             morseled = {

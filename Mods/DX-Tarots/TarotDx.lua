@@ -292,12 +292,12 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_temperance_dx = {
-        name = "Temperance DX",
+        name = "节制·豪华",
         text = {
-            "Gives double the total sell",
-            "value of all current",
-            "Jokers {C:inactive}(Max of {C:money}$#1#{C:inactive})",
-            "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+            "获得双倍于当前所拥有的",
+            "小丑牌售出总价的资金",
+            "{C:inactive}（上限为{C:money}$#1#{C:inactive}）",
+            "{C:inactive}（当前可获得{C:money}$#2#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_devil_dx = {
@@ -425,22 +425,18 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_chariot_cu = {
-        name = "The Cursed Chariot",
+        name = "鬼魅战车",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{X:red,C:white} X#1# {} Mult. Creates a",
-            "copy of {C:tarot}The Chariot{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
+            "生成一张{C:tarot}战车{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_justice_cu = {
-        name = "Cursed Justice",
+        name = "畸变正义",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{X:red,C:white} X#1# {} Mult. Creates a",
-            "copy of {C:tarot}Justice {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{X:red,C:white} X#1#",
+            "生成一张{C:tarot}正义{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
@@ -488,12 +484,12 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_temperance_cu = {
-        name = "Cursed Temperance",
+        name = "欲壑难平",
         text = {
-            "Gives {C:money}$10{} per",
-            "current Joker",
-            "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
-            "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+            "每拥有一张小丑牌",
+            "给予{C:money}$10",
+            "{C:inactive}（上限为{C:money}$#1#{C:inactive}）",
+            "{C:inactive}（当前可获得{C:money}$#2#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_cu.c_devil_cu = {
@@ -567,7 +563,7 @@ local function setUpLocalizationPlanetDX()
         name = "水星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -575,7 +571,7 @@ local function setUpLocalizationPlanetDX()
         name = "金星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -583,7 +579,7 @@ local function setUpLocalizationPlanetDX()
         name = "地球·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -591,7 +587,7 @@ local function setUpLocalizationPlanetDX()
         name = "火星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -599,7 +595,7 @@ local function setUpLocalizationPlanetDX()
         name = "木星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -607,7 +603,7 @@ local function setUpLocalizationPlanetDX()
         name = "土星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -615,7 +611,7 @@ local function setUpLocalizationPlanetDX()
         name = "天王星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -623,7 +619,7 @@ local function setUpLocalizationPlanetDX()
         name = "海王星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -631,7 +627,7 @@ local function setUpLocalizationPlanetDX()
         name = "冥王星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -639,7 +635,7 @@ local function setUpLocalizationPlanetDX()
         name = "谷神星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -647,7 +643,7 @@ local function setUpLocalizationPlanetDX()
         name = "X行星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
@@ -655,7 +651,7 @@ local function setUpLocalizationPlanetDX()
         name = "阋神星·豪华",
         text = {
             "{s:0.8}（{s:0.8,V:1}等级#1#{s:0.8}）",
-            "提升{C:attention}#2#{C:dark_edition}2{}级",
+            "提升{C:attention}#2#{C:dark_edition}两{}级",
             "{C:mult}+#3#{}倍率，{C:chips}+#4#{}筹码"
         }
     }
