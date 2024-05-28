@@ -1750,7 +1750,7 @@ function SMODS.INIT.CheesyJokers()
             "跳过{C:attention}补充包{}时"
         }},
         [3] = {text = {
-            "有{C:attention}游戏牌{}加入牌组时"
+            "有{C:attention}扑克牌{}加入牌组时"
         }},
         [4] = {text = {
             "打出{C:attention}#1#{}时"

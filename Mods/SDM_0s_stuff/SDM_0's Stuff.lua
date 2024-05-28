@@ -1442,7 +1442,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 text = {
                     "现身状态下有卡牌被{C:attention}摧毁{}时",
                     "生成一个{C:dark_edition}负片{C:attention}标签{}并遁形",
-                    "遁形状态下有{C:attention}游戏牌",
+                    "遁形状态下有{C:attention}扑克牌",
                     "被加入牌组时重新现身",
                     "{C:inactive}（当前状态：{C:attention}#1#{C:inactive}#2#{C:inactive}）"
                 }

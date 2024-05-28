@@ -1514,8 +1514,8 @@ return {
             v_magic_trick = {
                 name = "魔术",
                 text = {
-                    "{C:attention}商店{}里面",
-                    "有{C:attention}游戏牌{}",
+                    "{C:attention}商店{}中有",
+                    "{C:attention}扑克牌",
                     "可供选购"
                 }
             },
@@ -1702,13 +1702,13 @@ return {
             v_illusion = {
                 name = "幻象",
                 text = {
-                    "商店中的{C:attention}游戏牌",
+                    "商店中的{C:attention}扑克牌",
                     "可以是{C:enhanced}增强卡牌{}、",
                     "{C:dark_edition}不同版本{}、和/或{C:attention}蜡封"
                 },
                 unlock = {
                     "在商店中购买",
-                    "总计{C:attention}#1#{}张游戏牌",
+                    "总计{C:attention}#1#{}张扑克牌",
                     "{C:inactive}(#2#)"
                 }
             },
@@ -2777,7 +2777,7 @@ return {
                 name = "金属牌组",
                 text = {
                     "开局时，将牌组内",
-                    "{C:attention}#1#张游戏牌",
+                    "{C:attention}#1#张扑克牌",
                     "加强成{C:attention}钢铁牌"
                 }
             },
@@ -3151,21 +3151,21 @@ return {
             p_standard_normal = {
                 name = "标准包",
                 text = {
-                    "从最多{C:attention}#2#张{C:attention}游戏牌{}中",
+                    "从最多{C:attention}#2#张{C:attention}扑克牌{}中",
                     "选择{C:attention}#1#{}张加入牌组"
                 }
             },
             p_standard_jumbo = {
                 name = "巨型标准包",
                 text = {
-                    "从最多{C:attention}#2#张{C:attention}游戏牌{}中",
+                    "从最多{C:attention}#2#张{C:attention}扑克牌{}中",
                     "选择{C:attention}#1#{}张加入牌组"
                 }
             },
             p_standard_mega = {
                 name = "超级标准包",
                 text = {
-                    "从最多{C:attention}#2#张{C:attention}游戏牌{}中",
+                    "从最多{C:attention}#2#张{C:attention}扑克牌{}中",
                     "选择{C:attention}#1#{}张加入牌组"
                 }
             },
@@ -3704,7 +3704,7 @@ return {
             ph_score_times_rerolled = "重掷次数",
             ph_score_cards_purchased = "购入卡牌数",
             ml_edition_seal_enhancement_explanation = {
-                "每张游戏牌可能会有",
+                "每张扑克牌可能会有",
                 "增强、不同版本和蜡封"
             },
             ml_unlock_all_explanation = {

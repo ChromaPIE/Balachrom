@@ -104,7 +104,7 @@ return {
             c_poker_face_quest = {
                 name = "观影兑换券",
                 text = {
-                    "增强{C:attention}#1#{}张{C:attention}游戏牌{}后",
+                    "增强{C:attention}#1#{}张{C:attention}扑克牌{}后",
                     "置换为{C:cine}《扑克脸》",
                     "{C:inactive}（当前进度：{C:attention}#2#{C:inactive}/#1#）"
                 }
@@ -113,7 +113,7 @@ return {
                 name = "《扑克脸》",
                 text = {
                     "在本次商店购买阶段",
-                    "仅会出现牌组中的{C:attention}游戏牌",
+                    "仅会出现牌组中的{C:attention}扑克牌",
                     "{s:0.8}重掷可生效于{s:0.8,C:attention}补充包{s:0.8}区"
                 }
             },
