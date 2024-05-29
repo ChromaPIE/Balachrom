@@ -20,15 +20,15 @@ mod.addLocalization('k_scamperTaunt', '咿呀吼！')
 
 local function updateFlavorText(self)
 	local flavorText = {
-		'why does he look like that',
-		'is he ugly on purpose',
-		'...',
-		'how does this make you feel',
-		'i\'m annoyed just looking at it',
-		'he\'s just a little guy!',
+		'他怎么长这样啊',
+		'他丑到我了',
+		'……',
+		'你看了不难受？',
+		'这鬼样子我一眼都不想看',
+		'他真的“有点”丑！',
 		':(',
-		'make him go away please',
-		'i hate him so much'
+		'把他赶走，求求了',
+		'我他妈……'
 	}
 	self.ability.extra.flavorText = flavorText[math.random(1,#flavorText)]
 

@@ -326,9 +326,9 @@ return {
         },
         Edition = {
             e_negative_cine = {
-                name = "Negative",
+                name = "负片",
                 text = {
-                    "{C:dark_edition}+#1#{} Cine slot"
+                    "{C:dark_edition}+#1#{}电影槽位"
                 }
             }
         },

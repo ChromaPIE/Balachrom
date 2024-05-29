@@ -146,10 +146,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Corrugated Iron",
+            dispname = "瓦楞铁板",
             slug = 'cj_corrugated_iron',
             desc = {
-                "Earn {C:money}$#1#{} if this",
-                "Joker is destroyed"
+                "本牌被摧毁时",
+                "获得{C:money}$#1#"
             },
             config = {
                 extra = 50
@@ -179,12 +180,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Vault",
+            dispname = "保险库",
             slug = 'cj_vault',
             desc = {
-                "At end of shop, set money",
-                "to {C:money}$0{} and gain {C:chips}+#2#{} Chips",
-                "for each dollar lost",
-                "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                "退出商店时资金{C:money}归零",
+                "每失去资金{C:money}$1{}，本牌获得{C:chips}+#2#{}筹码",
+                "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
             },
             config = {
                 extra = {
@@ -320,11 +321,12 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Hot Air Balloon",
+            dispname = "热气球",
             slug = 'cj_balloon',
             desc = {
-                "When a card is {C:attention}discarded,",
-                "{C:green}#1# in #2#{} chance to",
-                "increase its {C:attention}rank"
+                "卡牌被{C:attention}弃掉{}时",
+                "有{C:green}#1#/#2#{}的几率",
+                "使其点数{C:attention}+1"
             },
             config = {
                 extra = {odds = 3}

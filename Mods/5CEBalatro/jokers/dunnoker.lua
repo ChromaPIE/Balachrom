@@ -1,16 +1,14 @@
 local mod = SMODS.findModByID('fiveceb')
 
 local jokerInfo = {
-	name = 'Dunnoker',
+	name = '不小得丑',
 	config = {},
 	text = {
-		'{X:mult,C:white} X3.8 {} Mult if played',
-		'hand is the same',
-		'as the first hand',
-		'of 5 cards played',
-		'with this Joker.',
-		'{C:attention}The hand to match is:{}',
-		'{C:attention}#1#{}'
+		'若打出的牌与拥有本牌后',
+		'首次满5张的出牌完全一致',
+		'{X:mult,C:white} X3.8 {}倍率',
+		'{C:attention}匹配要求：',
+		'{C:attention}#1#'
 	},
 	rarity = 2,
 	cost = 5,
@@ -18,15 +16,15 @@ local jokerInfo = {
 	canEternal = true
 }
 
-mod.addLocalization('k_rememberthis_1', 'remebmer this tbh')
-mod.addLocalization('k_rememberthis_2', 'rebember this tbh')
+mod.addLocalization('k_rememberthis_1', '断链技艺力！')
+mod.addLocalization('k_rememberthis_2', '牢牢脊柱！')
 mod.addLocalization('k_rememberthis_3', 'remeber this tbh')
 mod.addLocalization('k_rememberthis_4', 'rember this tbh')
 
-mod.addLocalization('k_youremembered_1', 'You Remebmered! X3.8')
-mod.addLocalization('k_youremembered_2', 'You Rebembered! X3.8')
-mod.addLocalization('k_youremembered_3', 'You Remebered! X3.8')
-mod.addLocalization('k_youremembered_4', 'You Rembered! X3.8')
+mod.addLocalization('k_youremembered_1', '最強大恼！X3.8')
+mod.addLocalization('k_youremembered_2', '你纪注了！X3.8')
+mod.addLocalization('k_youremembered_3', '瓜脑子真从名！X3.8')
+mod.addLocalization('k_youremembered_4', '果木不忘！X3.8')
 
 local function idToString(x)
 	local convert = {}
@@ -39,7 +37,7 @@ local function idToString(x)
 end
 
 function jokerInfo.locDef(self)
-	local text = 'NONE YET'
+	local text = '尚无'
 	if self.ability.extra and self.ability.extra.hasHandYet then
 		text = ''
 		for i,v in ipairs(self.ability.extra.hand) do

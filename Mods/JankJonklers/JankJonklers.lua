@@ -306,7 +306,7 @@ function SMODS.INIT.JankJonklersMod()
             loc = {
                 name = "午夜帮",
                 text = {
-                    "打出{V:1}#1#{C:attention}同花并计分时",
+                    "打出{V:1}#1#{C:attention}同花{}并计分时",
                     "本牌获得{X:mult,C:white} X0.5 {}倍率",
                     "击败盲注后改变需求花色",
                     "{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}）"

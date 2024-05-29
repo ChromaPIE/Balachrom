@@ -2,17 +2,17 @@ local function setUpLocalizationCurses()
 
     G.localization.descriptions.Curse = {
         cu_hook = {
-            name = "The Hook",
+            name = "钩子",
             text = {
-                "{C:red}Discards #1#{} random",
-                "cards per hand played"
+                "每次出牌",
+                "随机{C:red}弃掉#1#{}张牌"
             }
         },
         cu_wall = {
-            name = "The Wall",
+            name = "围墙",
             text = {
-                "Increase Blind",
-                "size by {C:attention}#1#%{}"
+                "盲注的最低得分要求",
+                "提升{C:attention}#1#%"
             }
         },
         cu_wheel = {
@@ -33,25 +33,25 @@ local function setUpLocalizationCurses()
             }
         },
         cu_psychic = {
-            name = "The Psychic",
+            name = "灵媒",
             text = {
-                "{X:red,C:white} X#1# {} Mult if playing",
-                "less than {C:attention}5 cards{}"
+                "若打出的牌",
+                "少于{C:attention}5{}张",
+                "{X:red,C:white} X#1# {} 倍率"
             }
         },
         cu_goad = {
-            name = "The Goad",
+            name = "刺棒",
             text = {
-                "{C:attention}#1# in #2# chance{} for",
-                "each {C:spades}Spade{} card to",
-                "be {C:attention}debuffed{}",
+                "每张{C:spades}黑桃{}牌均有",
+                "{C:attention}#1#/#2#{}的几率{C:attention}失效",
                 "{C:inactive}（几率不会变动）"
             }
         },
         cu_water = {
-            name = "The Water",
+            name = "水",
             text = {
-                "{C:red}-#1#{} discard"
+                "弃牌次数{C:red}-#1#"
             }
         },
         cu_eye = {
@@ -64,12 +64,11 @@ local function setUpLocalizationCurses()
             }
         },
         cu_mouth = {
-            name = "The Mouth",
+            name = "嘴巴",
             text = {
-                "{X:red,C:white} X#1# {} Mult if hand type",
-                "is different than the",
-                "first played this round",
-                "{C:attention}#2#{}"
+                "若打出的牌型与当前回合",
+                "首次出牌{C:attention}#2#{}不同",
+                "{X:red,C:white} X#1# {} 倍率"
             }
         },
         cu_plant = {
@@ -122,7 +121,7 @@ local function setUpLocalizationCurses()
             }
         },
         cu_club = {
-            name = "棍棒",
+            name = "长棍",
             text = {
                 "每张{C:clubs}梅花{}牌",
                 "均有{C:attention}#1#/#2#{}的几率{C:attention}失效",
@@ -819,6 +818,13 @@ local function override()
                             ["Pair"] = false,
                             ["High Card"] = false,
                         }
+                        if SMODS.findModByID("Bunco") then
+                            v.ability.hand['Spectrum'] = false
+                            v.ability.hand['Straight Spectrum'] = false
+                            v.ability.hand['Royal Spectrum'] = false
+                            v.ability.hand['Spectrum House'] = false
+                            v.ability.hand['Spectrum Five'] = false
+                        end
                         v.ability.indicate_trig = false
                     end
                     if v.name == 'The Mouth' then
@@ -929,7 +935,8 @@ function setup_curses()
     G.localization.descriptions.Other.cursed = {
         name = "受诅",
         text = {
-            "使用后，随机降下",
+            "使用后",
+            "随机降下",
             "{C:attention}#1#{}条{X:black,C:white}诅咒"
         }
     }
@@ -1050,7 +1057,7 @@ function Curse:get_uibox_table(curse_sprite)
     local name_to_check, loc_vars, badges = self.name, {}, {}
     if name_to_check == 'The Ox' then loc_vars = {self.config.extra, localize(G.GAME.current_round.most_played_poker_hand, 'poker_hands')}
     elseif name_to_check == 'The Hook' then loc_vars = {self.config.extra}
-    elseif name_to_check == 'The Mouth' then loc_vars = {self.config.extra, (self.ability and self.ability.hand and '('..localize(self.ability.hand, 'poker_hands')..')') or ""}
+    elseif name_to_check == 'The Mouth' then loc_vars = {self.config.extra, (self.ability and self.ability.hand and '（'..localize(self.ability.hand, 'poker_hands')..'）') or "（暂无）"}
     elseif name_to_check == 'The Fish' then loc_vars = {self.config.chanceN, self.config.chanceD}
     elseif name_to_check == 'The Club' then loc_vars = {self.config.chanceN, self.config.chanceD}
     elseif name_to_check == 'The Manacle' then loc_vars = {self.config.extra}

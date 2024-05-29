@@ -299,7 +299,7 @@ function SMODS.INIT.Vultbines_Joker()
     	
     	--j_oscar_best_actor
     	local oscar_best_actor_def = {
-    		name = "Oscar Best Actor",
+    		name = "金像奖得主",
     		text = {
                 "Retrigger #1# times all",
                 "card {C:attention}held in",

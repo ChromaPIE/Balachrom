@@ -387,7 +387,7 @@ return {
                     "若打出的牌包含",
                     "没有计分的{C:attention}人头牌",
                     "本牌获得{C:mult}+#1#{}倍率",
-                    "不合要求的出牌将重置倍率",
+                    "人头牌计分时重置倍率",
                     "{C:inactive}（当前为{C:mult}+#2#{C:inactive}倍率）"
                 }
             },
@@ -1869,10 +1869,9 @@ return {
             c_death = {
                 name = "死神",
                 text = {
-                    "选定{C:attention}#1#{}张卡牌，",
-                    "将{C:attention}靠左{}的那张牌",
-                    "变成{C:attention}靠右{}的那张牌",
-                    "{C:inactive}（你可以拖动来改变位置）"
+                    "选定{C:attention}#1#{}张卡牌",
+                    "将{C:attention}左侧{}的牌变为{C:attention}右侧{}的牌",
+                    "{C:inactive}（拖动以改变位置）"
                 }
             },
             c_temperance = {
@@ -2096,7 +2095,7 @@ return {
                 }
             },
             c_ouija = {
-                name = "占卜",
+                name = "显灵盘",
                 text = {
                     "将手中所有",
                     "手持牌转换为同一个",
@@ -2565,7 +2564,7 @@ return {
                 }
             },
             bl_goad = {
-                name = "挑衅",
+                name = "刺棒",
                 text = {
                     "黑桃牌全部失效"
                 }
@@ -2643,7 +2642,7 @@ return {
                 }
             },
             bl_club = {
-                name = "棍棒",
+                name = "长棍",
                 text = {
                     "梅花牌全部失效"
                 }

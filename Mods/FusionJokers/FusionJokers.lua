@@ -887,7 +887,7 @@ function SMODS.INIT.FusionJokers()
 			"则有{C:green}#2#/#3#{}的几率{C:attention}复制{}自身",
 			"复制体均为{C:dark_edition}负片{}",
 			"{C:inactive}（当前为{C:mult}+#4#{C:inactive}倍率）",
-			"{C:inactive}（#5# + #6#）"
+			"{C:inactive,s:0.8}（#5# + #6#）"
 		}
 	}
 

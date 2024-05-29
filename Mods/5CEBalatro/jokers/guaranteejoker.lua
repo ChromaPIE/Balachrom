@@ -1,7 +1,7 @@
 local jokerInfo = {
-	name = 'Guarantee Joker',
+	name = '保证小丑',
 	config = {},
-	text = {'{C:chips}+#1#{} Chips'},
+	text = {'保证给{C:chips}+#1#{}筹码'},
 	rarity = 1,
 	cost = 2,
 	canBlueprint = true,

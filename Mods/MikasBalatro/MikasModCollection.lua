@@ -2570,13 +2570,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local grudgeful = {
             loc = {
-                name = "Grudgeful Joker",
+                name = "积怨小丑",
                 text = {
-                    "Lowers blind requirement",
-                    "with {C:attention}excess Chips{} from",
-                    "last round. Caps at {C:attention}#2#%",
-                    "of current blind's Chips",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                    "每回合第一次出牌计分前",
+                    "以上一回合{C:attention}得分超额#2#%{}或以下的部分",
+                    "削减当前盲注的最低得分要求",
+                    "{C:inactive}（当前为{C:chips}#1#{C:inactive}）"
                 }
             },
             ability_name = "MMC Grudgeful Joker",
@@ -3570,12 +3569,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker,
         local blue_moon = {
             loc = {
-                name = "Blue Moon",
+                name = "蓝月亮",
                 text = {
-                    "If {C:attention}#1# Lucky cards{} trigger",
-                    "in one hand, create a",
-                    "random {C:dark_edition}negative{} Joker",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "若单次出牌中",
+                    "触发了{C:attention}#1#{}张{C:attention}幸运牌",
+                    "随机生成一张{C:dark_edition}负片{}小丑牌"
                 }
             },
             ability_name = "MMC Blue Moon",
@@ -5481,11 +5479,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local cheat = {
             loc = {
-                name = "Cheat",
+                name = "相声表演艺术家",
                 text = {
-                    "Retrigger all cards",
-                    "if played hand",
-                    "contains a {C:attention}Straight{}",
+                    "如果打出的牌型为{C:attention}顺子",
+                    "重新触发所有卡牌"
                 }
             },
             ability_name = "MMC Cheat",
@@ -5530,12 +5527,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local plus_one = {
             loc = {
-                name = "Gym Membership",
+                name = "健身房会员卡",
                 text = {
-                    "Increases rank",
-                    "of scored cards by",
-                    "{C:attention}#1#{} on the {C:attention}first",
-                    "{C:attention}hand{} of round"
+                    "每回合{C:attention}第一次出牌{}中",
+                    "所有牌的点数提升{C:attention}#1#"
                 }
             },
             ability_name = "MMC Plus One",
