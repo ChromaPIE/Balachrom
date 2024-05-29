@@ -163,19 +163,19 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = false
         }, 
         {
-            name = "Piggy Bank",
+            name = "储钱罐",
             slug = 'cj_piggy_bank',
             desc = {
-                "Gains sell value of",
-                "all {C:attention}Jokers{} and",
-                "{C:attention}Consumables{} sold"
+                "将售出{C:attention}小丑牌{}和{C:attention}消耗牌",
+                "获得的资金数总和",
+                "添加至本牌的售价"
             },
             config = {},
             pos = {x = 0, y = 1},
             rarity = 2,
             cost = 6,
             blueprint_compat = false,
-            eternal_compat = true
+            eternal_compat = false
         },
         {
             name = "Vault",
@@ -668,11 +668,12 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = true
         },
         {
-            name = "Optical Illusion",
+            name = "视错觉",
             slug = 'cj_optical_illusion',
             desc = {
-                "All {C:attention}Booster Packs",
-                "may contain {C:attention}Jokers"
+                "所有{C:attention}补充包",
+                "均有可能",
+                "包含{C:attention}小丑牌"
             },
             config = {},
             pos = {x = 2, y = 4},
@@ -2566,10 +2567,10 @@ function SMODS.INIT.CheesyJokers()
     end
 
     G.localization.descriptions.Joker.j_stencil.text = {
-        "{X:red,C:white} X1 {} Mult for each",
-        "empty {C:attention}Joker{} slot",
-        "{s:0.8}All Stencils included",
-        "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})"
+        "每有一个空的{C:attention}小丑牌{}槽位",
+        "本牌获得{X:red,C:white} X1 {}倍率",
+        "{s:0.8}所有“模具”小丑牌均算作空位",
+        "（当前为{X:red,C:white} X#1# {C:inactive}倍率）"
     }
     init_localization()
 end

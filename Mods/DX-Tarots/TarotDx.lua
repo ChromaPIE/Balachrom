@@ -503,12 +503,10 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_tower_cu = {
-        name = "The Cursed Tower",
+        name = "咒波高塔",
         text = {
-            "Permanently increases",
-            "{C:attention}#2#{} bonus to",
-            "{C:blue}+#1#{} Chips. Creates a",
-            "copy of {C:tarot}The Tower{} {C:dark_edition}DX{}",
+            "永久提升{C:attention}#2#{}的加成至{C:blue}+#1#{}筹码",
+            "生成一张{C:tarot}塔{}·{C:dark_edition}豪华",
             "{C:inactive}（必须有空间）"
         }
     }
@@ -790,11 +788,10 @@ local function setUpLocalizationSpectralDX()
         }
     }
     G.localization.descriptions.Spectral_dx.c_soul_dx = {
-        name = "The Soul DX",
+        name = "灵魂·豪华",
         text = {
-            "Creates a",
-            "{C:legendary,E:1}Legendary{} Joker",
-            "{C:inactive}(Don't need room...?)"
+            "生成一张{C:legendary,E:1}传奇{}小丑牌",
+            "{C:inactive}（不需要空间……？）"
         }
     }
     G.localization.descriptions.Spectral_dx.c_black_hole_dx = {
@@ -1259,7 +1256,7 @@ local function overrides()
 
         -- poll planet edition if it is enabled
         if planet_edition_enabled then
-            if (_type == 'Planet' or _type == 'Planet_dx') and created_card.ability.consumeable.hand_type then
+            if (_type == 'Planet' or _type == 'Planet_dx') and created_card.ability.consumeable ~= nil and created_card.ability.consumeable.hand_type then
                 local mod = math.max(1, 1 + (0.07 * math.min(7, G.GAME.hands[created_card.ability.consumeable.hand_type].level))) or 1
                 if G.GAME.used_cu_augments and G.GAME.used_cu_augments.c_high_priestess_cu then mod = mod * G.P_CENTERS.c_high_priestess_cu.config.prob_mult end
                 local edition = poll_edition('edi'..(key_append or '')..G.GAME.round_resets.ante, mod, true)

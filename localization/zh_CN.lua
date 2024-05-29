@@ -1184,7 +1184,7 @@ return {
                 name = "男爵",
                 text = {
                     "留在手牌中的",
-                    "每一张{C:attention}K{}",
+                    "每一张{C:attention}K",
                     "会给予{X:mult,C:white} X#1# {}倍率"
                 }
             },

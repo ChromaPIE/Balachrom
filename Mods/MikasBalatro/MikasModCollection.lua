@@ -3973,12 +3973,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local stockpiler = {
             loc = {
-                name = "The Stockpiler",
+                name = "囤牌好手",
                 text = {
-                    "{C:attention}+#2#{} hand size for every #4#",
-                    "cards in deck above {C:attention}#3#{}",
-                    "Caps at the current Ante",
-                    "{C:inactive}(Currently {C:attention}+#1#{C:inactive} hand size)"
+                    "牌库中的牌每比{C:attention}#3#{}多#4#张",
+                    "{C:attention}+#2#{}手牌上限",
+                    "加成无法超过当前底注数",
+                    "{C:inactive}（当前为{C:attention}+#1#{C:inactive}手牌上限）"
                 }
             },
             ability_name = "MMC The Stockpiler",
@@ -4132,7 +4132,7 @@ function SMODS.INIT.MikasModCollection()
             loc = {
                 name = "孤注一掷",
                 text = {
-                    "每{C:red}-$#3#",
+                    "每{C:red}负债$#3#",
                     "获得{C:chips}+#1#{}筹码",
                     "{C:inactive}（当前为{C:chips}#2#{C:inactive}筹码）"
                 }
@@ -5180,12 +5180,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local savings = {
             loc = {
-                name = "Savings",
+                name = "积蓄",
                 text = {
-                    "{C:mult}+#1#{} Mult per round",
-                    "Resets when",
-                    "buying a {C:attention}card",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+                    "每回合{C:mult}+#1#{}倍率",
+                    "购买{C:attention}卡牌{}时重置",
+                    "{C:inactive}（当前为{C:mult}+#2#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Savings",
@@ -5216,7 +5215,7 @@ function SMODS.INIT.MikasModCollection()
         SMODS.Jokers.j_mmc_savings.calculate = function(self, context)
             -- Reset mult on purchase
             if context.buying_card and not context.blueprint then
-                if self.ability.extra.current_mult ~= 0 then
+                if self.ability.extra.current_mult ~= 0 and context.card.ability.set ~= "Voucher" then
                     self.ability.extra.current_mult = 0
                     -- Reset message
                     card_eval_status_text(self, "extra", nil, nil, nil, {

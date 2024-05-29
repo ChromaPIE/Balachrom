@@ -20,7 +20,7 @@ local function setUpLocalizationCurses()
             text = {
                 "{C:attention}#1# in #2#{} cards get",
                 "drawn {C:attention}face down{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_arm = {
@@ -29,7 +29,7 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} to",
                 "{C:attention}decrease{} level of",
                 "played poker hand",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_psychic = {
@@ -45,7 +45,7 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} for",
                 "each {C:spades}Spade{} card to",
                 "be {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_water = {
@@ -73,18 +73,17 @@ local function setUpLocalizationCurses()
             }
         },
         cu_plant = {
-            name = "The Plant",
+            name = "植物",
             text = {
-                "{C:attention}#1# in #2# chance{} for",
-                "each {C:attention}face{} card to",
-                "be {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "每张{C:attention}人头牌",
+                "均有{C:attention}#1#/#2#{}的几率{C:attention}失效",
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_needle = {
-            name = "The Needle",
+            name = "针",
             text = {
-                "{C:blue}-#1#{} hand"
+                "出牌次数{C:blue}-#1#"
             }
         },
         cu_head = {
@@ -93,7 +92,7 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} for",
                 "each {C:hearts}Heart{} card to",
                 "be {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_tooth = {
@@ -102,7 +101,7 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} to",
                 "lose {C:money}$1{} for",
                 "each card played",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_ox = {
@@ -119,16 +118,15 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} for each",
                 "card of first hand to",
                 "be {C:attention}drawn face down{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_club = {
-            name = "The Club",
+            name = "棍棒",
             text = {
-                "{C:attention}#1# in #2# chance{} for",
-                "each {C:clubs}Club{} card to",
-                "be {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "每张{C:clubs}梅花{}牌",
+                "均有{C:attention}#1#/#2#{}的几率{C:attention}失效",
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_fish = {
@@ -137,7 +135,7 @@ local function setUpLocalizationCurses()
                 "Cards drawn after playing a",
                 "hand have a {C:attention}#1# in #2# chance{} of",
                 "being {C:attention}drawn face down{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_window = {
@@ -168,7 +166,7 @@ local function setUpLocalizationCurses()
                 "Cards played this Ante",
                 "have a {C:attention}#1# in #2# chance{}",
                 " of being {C:attention}debuffed{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_flint = {
@@ -185,7 +183,7 @@ local function setUpLocalizationCurses()
                 "{C:attention}#1# in #2# chance{} for each",
                 "{C:attention}face{} card to be",
                 "drawn {C:attention}face down{}",
-                "{C:inactive}(Fixed probability){}"
+                "{C:inactive}（几率不会变动）"
             }
         },
         cu_final_vessel = {
