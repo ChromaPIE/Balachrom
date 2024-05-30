@@ -712,11 +712,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Lucky Joker", "sdm_lucky_joker",
             {extra = {repitition = 2}},  {x=0, y=0},
             {
-                name = "Lucky Joker",
+                name = "幸运小丑",
                 text = {
-                    "Retrigger each played",
-                    "{C:attention}Lucky{} card {C:attention}7{}",
-                    "{C:attention}#1#{} additional times"
+                    "使打出的每张",
+                    "点数为{C:attention}7{}的{C:attention}幸运牌",
+                    "重新触发{C:attention}#1#{}次"
                 },
             }, 2, 7, true, true, true, true
         )

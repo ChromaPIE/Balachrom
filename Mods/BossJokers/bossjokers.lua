@@ -1042,19 +1042,19 @@ function SMODS.INIT.BossJokers()
             }
         },
         theox = {
-            name = "Ox Joker",
+            name = "{C:red}公牛{}小丑",
             text = {
-                "Earn {C:money}$1{} for every",
-                "time this {C:attention}poker hand{}",
-                "has been played",
-                "{C:inactive}(Max of $5){}"
+                "出牌时，其{C:attention}牌型",
+                "每已被打出一次",
+                "给予{C:money}$1",
+                "{C:inactive}（至多给予$5）"
             }
         },
         theflint = {
-            name = "Flint Joker",
+            name = "{C:red}燧石{}小丑",
             text = {
-                "Scored cards give",
-                "{X:mult,C:white}X1.2{} Mult",
+                "每张牌在计分时",
+                "给予{X:mult,C:white} X1.2 {}倍率",
             }
         },
         thepsychic = {

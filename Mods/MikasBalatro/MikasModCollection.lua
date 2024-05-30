@@ -945,7 +945,7 @@ end
 
 function SMODS.INIT.MikasModCollection()
     -- Localization
-    G.localization.descriptions.Other.card_extra_mult = { text = { "{C:mult}+#1#{} extra Mult" } }
+    G.localization.descriptions.Other.card_extra_mult = { text = { "{C:mult}+#1#{}额外倍率" } }
     G.localization.misc.dictionary.k_mmc_charging = "Charging..."
     G.localization.misc.dictionary.k_mmc_bonus = "特别奖励！"
     G.localization.misc.dictionary.k_mmc_hand_up = "手牌上限增加！"
@@ -1466,12 +1466,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local prime_time = {
             loc = {
-                name = "Prime Time",
+                name = "黄金时段",
                 text = {
-                    "Each played {C:attention}2{},",
-                    "{C:attention}3{}, {C:attention}5{}, {C:attention}7{} or {C:attention}Ace{}, gives",
-                    "{X:mult,C:white}X#1#{} Mult when scored",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "打出的每张",
+                    "{C:attention}2{}、{C:attention}3{}、{C:attention}5{}、{C:attention}7{}或{C:attention}A{}",
+                    "在计分时给予{X:mult,C:white}X#1#{}倍率"
                 }
             },
             ability_name = "MMC Prime Time",
@@ -3853,10 +3852,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker,
         local football_card = {
             loc = {
-                name = "Football Card",
+                name = "足球卡",
                 text = {
-                    "{C:blue}Common{} Jokers",
-                    "each give {C:chips}+#1#{} Chips"
+                    "每张{C:blue}普通{}小丑牌",
+                    "给予{C:chips}+#1#{}筹码"
                 }
             },
             ability_name = "MMC Football Card",
@@ -4446,11 +4445,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local mountain_climber = {
             loc = {
-                name = "Mountain Climber",
+                name = "登山者",
                 text = {
-                    "Every played {C:attention}card{}",
-                    "permanently gains",
-                    "{C:mult}+#1#{} Mult when scored"
+                    "打出的{C:attention}每张牌",
+                    "在计分时永久获得{C:mult}+#1#{}倍率"
                 }
             },
             ability_name = "MMC Mountain Climber",

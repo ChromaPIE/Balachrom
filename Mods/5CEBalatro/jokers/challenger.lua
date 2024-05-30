@@ -1,10 +1,10 @@
 local jokerInfo = {
-	name = 'Challenger',
+	name = '挑战者登场',
 	config = {},
 	text = {
-		"When {C:attention}Blind{} is selected,",
-		"create {C:attention}1{C:attention} Joker",
-		"{C:inactive}(Must have room)"
+		"选择{C:attention}盲注{}时",
+		"生成{C:attention}1{C:attention}张小丑牌",
+		"{C:inactive}（必须有空间）"
 	},
 	rarity = 3,
 	cost = 6,

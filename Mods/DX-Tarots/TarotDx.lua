@@ -374,12 +374,11 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_high_priestess_cu = {
-        name = "The Cursed High Priestess",
+        name = "降咒女祭司",
         text = {
-            "{C:planet}Planet{} cards are {C:attention}#1# times{}",
-            "more likely to be {C:dark_edition}Foil{},",
-            "{C:dark_edition}Holographic{}, or {C:dark_edition}Polychrome{}.",
-            "Creates up to two {C:planet}Planet{} {C:dark_edition}DX{}",
+            "{C:planet}星球牌{}带有{C:dark_edition}闪箔{}、{C:dark_edition}镭射",
+            "或{C:dark_edition}多彩{}的几率提升{C:attention}#1#倍",
+            "生成至多两张{C:dark_edition}豪华{C:planet}星球牌",
             "{C:inactive}（必须有空间）"
         }
     }

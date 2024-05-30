@@ -18,7 +18,7 @@ local config = {
 	loudspeaker = true,
 	easyMode = true,
 	antiBubzia = true,
-	blåhaj = true,
+	blahaj = true,
 	chess_pawn = true,
 	chess_knight = true,
 	chess_bishop = true,
@@ -171,11 +171,10 @@ function Jokers()
 		-- Create Joker
 		local chill_joker = {
 			loc = {
-				name = "Chill Joker",
+				name = "松弛感小丑",
 				text = {
-					"{X:mult,C:white}X#1#{} Mult divided",
-					"by game speed",
-					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+					"{X:mult,C:white}X(#1#/游戏速度){}倍率",
+					"{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}倍率）",
 				},
 			},
 			ability_name = "Aiz Chill Joker",
@@ -226,11 +225,11 @@ function Jokers()
 		-- Create Joker
 		local loudspeaker = {
 			loc = {
-				name = "Loudspeaker",
+				name = "扬声器",
 				text = {
-					"Gives {C:chips}Chips{} based",
-					"on {C:attention}Audio volume{}",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+					"依据游戏的{C:attention}设置音量",
+					"给予{C:chips}筹码",
+					"{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）",
 				},
 			},
 			ability_name = "Aiz Loudspeaker",
@@ -343,13 +342,13 @@ function Jokers()
 		end
 	end
 
-	if config.blåhaj then
+	if config.blahaj then
 		-- Blåhaj
 		-- Does nothing by itself since it just gives +1 joker slot
 		-- Has code in Card:add_to_deck & Card:remove_from_deck
 
 		-- Create Joker
-		local blåhaj = {
+		local blahaj = {
 			loc = {
 				name = "Blåhaj",
 				text = {
@@ -375,10 +374,10 @@ function Jokers()
 			},
 		}
 		-- Initialize Joker
-		init_joker(blåhaj)
+		init_joker(blahaj)
 
 		-- Set local variables
-		SMODS.Jokers.j_aiz_blåhaj.loc_def = function(card)
+		SMODS.Jokers.j_aiz_blahaj.loc_def = function(card)
 			return { card.ability.extra.j_slots }
 		end
 	end

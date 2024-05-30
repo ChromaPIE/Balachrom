@@ -148,7 +148,7 @@ function CodexArcanum.INIT.CA_Jokers()
                 
                 return true
             end}))
-            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Copied", colour = G.C.SECONDARY_SET.Alchemy})
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "已复制！", colour = G.C.SECONDARY_SET.Alchemy})
             card.ability.extra.used = true
             return
         end

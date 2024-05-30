@@ -357,10 +357,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Missing Piece",
+            dispname = "丢失的拼图",
             slug = 'cj_missing_piece',
             desc = {
-                "All shop Jokers",
-                "are {C:green}Uncommon"
+                "商店内所有小丑牌的",
+                "稀有度均为{C:green}罕见"
             },
             config = {},
             pos = {x = 3, y = 2},
@@ -371,10 +372,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Vending Machine",
+            dispname = "自动售货机",
             slug = 'cj_vending_machine',
             desc = {
-                "Earn {C:money}$#1#{} per {C:red}discard,",
-                "Lose {C:money}$#2#{} per played {C:attention}hand"
+                "每次{C:red}弃牌{}获得{C:money}$#1#",
+                "每次{C:attention}出牌{}获得{C:money}$#2#"
             },
             config = {
                 extra = {
@@ -407,11 +409,12 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "High Score",
+            dispname = "最高得分",
             slug = 'cj_high_score',
             desc = {
-                "Earn {C:money}$#1#{} whenever you",
-                "triple the {C:attention}required",
-                "{C:attention}score{} for the {C:attention}Blind"
+                "以三倍于{C:attention}最低要求",
+                "的{C:attention}得分{}击败{C:attention}盲注{}时",
+                "获得{C:money}$#1#"
             },
             config = {
                 extra = 7
