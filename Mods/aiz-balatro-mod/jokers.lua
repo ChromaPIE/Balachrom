@@ -623,12 +623,11 @@ function Jokers()
 		-- Create Joker
 		local penny = {
 			loc = {
-				name = "Penny",
+				name = "一分钱",
 				text = {
-					"At end of round,",
-					"duplicate {C:attention}All{} cards",
-					"in your deck",
-					"{s:0.5}Please sell when you have 1000 cards or more!",
+					"回合结束时",
+					"复制你的{C:attention}整个牌组",
+					"{s:0.5}牌组里有超过1000张牌的时候求你把它卖了，真的。"
 				},
 			},
 			ability_name = "Aiz Penny",

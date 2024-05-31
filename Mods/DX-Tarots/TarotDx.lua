@@ -251,27 +251,27 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_hermit_dx = {
-        name = "The Hermit DX",
+        name = "隐者·豪华",
         text = {
-            "Triples money",
-            "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
+            "资金翻三倍",
+            "{C:inactive}（至多{C:money}$#1#{C:inactive}）"
         }
     }
     G.localization.descriptions.Tarot_dx.c_wheel_of_fortune_dx = {
-        name = "The Wheel of Fortune DX",
+        name = "命运之轮·豪华",
         text = {
-            "{C:green}#1# in #2#{} chance to add",
-            "{C:dark_edition}Foil{}, {C:dark_edition}Holographic{}, or",
-            "{C:dark_edition}Polychrome{} edition",
-            "to a random {C:attention}Joker"
+            "有{C:green}#1#/#2#{}的几率",
+            "为随机一张{C:attention}小丑牌",
+            "添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射{}",
+            "或{C:dark_edition}多彩{}版本"
         }
     }
     G.localization.descriptions.Tarot_dx.c_strength_dx = {
-        name = "Strength DX",
+        name = "力量·豪华",
         text = {
-            "Increases rank of",
-            "up to {C:attention}#1#{} selected",
-            "cards by {C:attention}1"
+            "将最多{C:attention}#1#{}张",
+            "选定卡牌的",
+            "点数提高{C:attention}1"
         }
     }
     G.localization.descriptions.Tarot_dx.c_hanged_man_dx = {

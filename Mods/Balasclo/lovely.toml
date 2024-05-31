@@ -197,6 +197,17 @@ function RollShopSub(seed)
     local vSub = localize('ph_improve_run')
     local shopSub = {
         vSub,
+        "WOKE UP LOOKIN' LIKE THIS",
+        "你的资金$1是多少$？",
+        "孤注一掷！",
+        "跑步进入Steamodded 2.0",
+        "Also try Balamod!",
+        "又来哑剧红封钢K啦？",
+        "别人都一对了，你还在高牌。",
+        "Doubleplusbig Blind",
+        "金宝是至高无上的神！",
+        "(a nil value)",
+        "你疑似有点抠门了",
         "精打细算！",
         "消费无罪！",
         "Oh hi Johnny I didn't know it was you.",

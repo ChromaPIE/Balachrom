@@ -16,19 +16,20 @@ local function setUpLocalizationCurses()
             }
         },
         cu_wheel = {
-            name = "The Wheel",
+            name = "车轮",
             text = {
-                "{C:attention}#1# in #2#{} cards get",
-                "drawn {C:attention}face down{}",
+                "抽到的卡牌",
+                "有{C:attention}#1#/#2#{}的几率",
+                "{C:attention}背面朝上",
                 "{C:inactive}（几率不会变动）"
             }
         },
         cu_arm = {
-            name = "The Arm",
+            name = "手臂",
             text = {
-                "{C:attention}#1# in #2# chance{} to",
-                "{C:attention}decrease{} level of",
-                "played poker hand",
+                "出牌时",
+                "有{C:attention}#1#/#2#{}的几率",
+                "{C:attention}降低{}其牌型等级",
                 "{C:inactive}（几率不会变动）"
             }
         },

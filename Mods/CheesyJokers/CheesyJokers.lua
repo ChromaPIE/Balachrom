@@ -448,13 +448,13 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = true
         },
         {
-            name = "Extraterrestrial",
+            name = "异星来客",
             slug = 'cj_extraterrestrial',
             desc = {
-                "When a {C:planet}Planet{} card is used,",
-                "{C:green}#1# in #2#{} chance to add a copy",
-                "to your consumable area",
-                "{C:inactive}(Must have room)"
+                "使用{C:planet}星球牌{}后",
+                "有{C:green}#1#/#2#{}的几率复制之",
+                "并收入消耗牌槽位",
+                "{C:inactive}（必须有空间）"
             },
             config = {
                 extra = {

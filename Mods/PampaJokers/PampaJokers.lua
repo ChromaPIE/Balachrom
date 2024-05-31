@@ -572,12 +572,12 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_sliding = {
-            name = "Sliding Joker",
+            name = "滑块小丑",
             text = {
-                "Gains {C:red}+#1#{} Mult for each hand containing a {C:attention}Flush{}.",
-                "Gains {C:chips}+#2#{} Chips for each hand containing a {C:attention}Straight{}.",
-                "Resets at the end of each ante.",
-                "(Currently: {C:red}+#3#{} Mult, {C:chips}+#4#{} Chips)"
+                "每打出一手包含{C:attention}同花{}的牌，{C:red}+#1#{}倍率",
+                "每打出一手包含{C:attention}顺子{}的牌，{C:chips}+#2#{}筹码",
+                "每个底注结束时重置",
+                "（当前为{C:red}+#3#{}倍率，{C:chips}+#4#{}筹码）"
             }
         },
         j_claw = {
@@ -664,12 +664,12 @@ function SMODS.INIT.MtlJokers()
         },
 
         j_fabric = {
-            name = "Fabric Design",
+            name = "锦织装饰",
             text = {
-                "When {C:attention}Blind{} is selected",
-                "lose all {C:red}Discards{} and apply a random ",
-                "{C:attention}enhancement{} to all cards in the deck.",
-                "When removed, turn all cards back to normal."
+                "选择{C:attention}盲注{}时",
+                "失去所有{C:red}弃牌次数",
+                "并为整个牌组随机添加{C:attention}增强",
+                "移除本牌时，所有卡牌退回原状"
             }
         },
         j_selfpaint = {

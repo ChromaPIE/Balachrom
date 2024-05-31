@@ -341,7 +341,7 @@ return {
                 }
             },
             j_even_steven = {
-                name = "偶数先生",
+                name = "偶数欧叔",
                 text = {
                     "打出的{C:attention}偶数{}点卡牌",
                     "在计分时给予{C:mult}+#1#{}倍率",
@@ -349,7 +349,7 @@ return {
                 }
             },
             j_odd_todd = {
-                name = "奇数小哥",
+                name = "奇数基叔",
                 text = {
                     "打出的{C:attention}奇数{}点卡牌",
                     "在计分时给予{C:chips}+#1#{}筹码",
@@ -1839,14 +1839,14 @@ return {
                 name = "隐者",
                 text = {
                     "资金加倍",
-                    "{C:inactive}（最高{C:money}$#1#{C:inactive}）"
+                    "{C:inactive}（至多{C:money}$#1#{C:inactive}）"
                 }
             },
             c_wheel_of_fortune = {
                 name = "命运之轮",
                 text = {
                     "有{C:green}#1#/#2#{}的几率",
-                    "给一张随机{C:attention}小丑牌",
+                    "为随机一张{C:attention}小丑牌",
                     "添加{C:dark_edition}闪箔{}、{C:dark_edition}镭射{}",
                     "或{C:dark_edition}多彩{}版本"
                 }
@@ -1855,8 +1855,8 @@ return {
                 name = "力量",
                 text = {
                     "将最多{C:attention}#1#{}张",
-                    "选定卡牌",
-                    "点数提高{C:attention}1"
+                    "选定卡牌的",
+                    "点数提升{C:attention}1"
                 }
             },
             c_hanged_man = {

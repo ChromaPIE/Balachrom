@@ -1519,12 +1519,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local straight_nate = {
             loc = {
-                name = "Straight Nate",
+                name = "顺子孙子",
                 text = {
-                    "{X:mult,C:white} X#1# {} Mult if played hand",
-                    "contains a {C:attention}Straight{} and you have",
-                    "both {C:attention}Odd Todd{} and {C:attention}Even Steven{}",
-                    "Gives {C:dark_edition}+#2#{} Joker slot"
+                    "小丑牌槽位{C:dark_edition}+#2#",
+                    "若打出的牌中包含{C:attention}顺子",
+                    "且同时拥有{C:attention}奇数基叔{}和{C:attention}偶数欧叔",
+                    "{X:mult,C:white} X#1# {}倍率"
                 }
             },
             ability_name = "MMC Straight Nate",
@@ -1663,11 +1663,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local impatient = {
             loc = {
-                name = "Impatient Joker",
+                name = "急躁小丑",
                 text = {
-                    "{C:mult}+#2#{} Mult per card discarded",
-                    "Resets every round",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "每弃牌一次",
+                    "本牌获得{C:mult}+#2#{}倍率",
+                    "每回合重置",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Impatient Joker",
@@ -1742,12 +1743,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local cultist = {
             loc = {
-                name = "Cultist",
+                name = "邪教分子",
                 text = {
-                    "{X:mult,C:white}X#2#{} Mult per hand played",
-                    "Resets every round",
-                    "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "每出牌一次",
+                    "本牌获得{X:mult,C:white}X#2#{}倍率",
+                    "每回合重置",
+                    "{C:inactive}（当前为{X:mult,C:white}X#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Cultist",
@@ -1815,11 +1816,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local seal_collector = {
             loc = {
-                name = "Seal Collector",
+                name = "蜡封收藏家",
                 text = {
-                    "Gains {C:chips}+#2#{} Chips for",
-                    "every card with a {C:attention}seal",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                    "每有一张带{C:attention}蜡封{}的牌",
+                    "本牌获得{C:chips}+#2#{}筹码",
+                    "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
                 }
             },
             ability_name = "MMC Seal Collector",
@@ -2089,12 +2090,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local showoff = {
             loc = {
-                name = "The Show-Off",
+                name = "浪荡B王",
                 text = {
-                    "Gains {X:mult,C:white}X#2#{} Mult when",
-                    "a blind is finished with",
-                    "{C:attention}X#3#{} the chip requirement",
-                    "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+                    "以至少{C:attention}#3#{}倍于最低要求",
+                    "的分数击败盲注时",
+                    "本牌获得{X:mult,C:white}X#2#{}倍率",
+                    "{C:inactive}（当前为{X:mult,C:white}X#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC The Show-Off",
@@ -2165,7 +2166,7 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local sniper = {
             loc = {
-                name = "The Sniper",
+                name = "狙击手",
                 text = {
                     "Gains {X:mult,C:white}X#2#{} Mult when a",
                     "blind is finished within {C:attention}#3#%{} of",
@@ -2242,13 +2243,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local blackjack = {
             loc = {
-                name = "Blackjack Joker",
+                name = "21点小丑",
                 text = {
-                    "Gives {X:mult,C:white}X#1#{} Mult when",
-                    "the ranks of all played",
-                    "cards is {C:attention}exactly #2#",
-                    "Gives {X:mult,C:white}X#3#{} Mult less for",
-                    "every point below #2#"
+                    "若打出的牌点数之总和",
+                    "{C:attention}恰好{}为{C:attention}#2#{}，给予{X:mult,C:white}X#1#{}倍率",
+                    "若不足#2#，每少1点，加成扣减{X:mult,C:white}X#3#"
                 }
             },
             ability_name = "MMC Blackjack Joker",
@@ -2349,13 +2348,14 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local batman = {
             loc = {
-                name = "Batman",
+                name = "蝙蝠侠",
                 text = {
-                    "Gains {C:mult}+#2#{} Mult for",
-                    "every {C:attention}non-lethal{} hand played",
-                    "Mult gain increases for every",
-                    "Joker with {C:attention}\"Joker\"{} in the name",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "每打出一次{C:attention}非致胜牌",
+                    "本牌获得{C:mult}+#2#{}倍率" ,
+                    "拥有的每张名称中",
+                    "含{C:attention}“小丑”{}二字的小丑牌",
+                    "均会提升倍率加成",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Batman",
@@ -3004,12 +3004,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local training_wheels = {
             loc = {
-                name = "Training Wheels",
+                name = "用筷辅助器",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult, gains {X:mult,C:white}X#2#{}",
-                    "Mult per {C:attention}#4# cards{} scored",
-                    "{C:inactive}Currently {C:attention}#3# {C:inactive}cards scored",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "{X:mult,C:white}X#1#{}倍率",
+                    "每计分{C:attention}#4#{}张牌",
+                    "本牌获得{X:mult,C:white}X#2#{}倍率",
+                    "{C:inactive}当前已计分{C:attention}#3#{C:inactive}张牌"
                 }
             },
             ability_name = "MMC Training Wheels",
@@ -4073,11 +4073,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local broke = {
             loc = {
-                name = "Broke Joker",
+                name = "穷鬼小丑",
                 text = {
-                    "Gains {C:mult}+#1#{} Mult",
-                    "per {C:red}-$#3#",
-                    "{C:inactive}(Currently {C:mult}#2#{C:inactive} Mult)"
+                    "每{C:red}负债$#3#",
+                    "本牌获得{C:mult}+#1#{}倍率",
+                    "{C:inactive}（当前为{C:mult}#2#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Broke Joker",
@@ -4312,12 +4312,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local one_of_us = {
             loc = {
-                name = "One Of Us",
+                name = "吾之族类",
                 text = {
-                    "If played hand",
-                    "contains {C:attention}#1# Enhanced cards,",
-                    "give a random Joker",
-                    "a random {C:attention}Edition"
+                    "若打出的牌中",
+                    "包含{C:attention}#1#{}张{C:attention}增强卡牌",
+                    "给予随机一张小丑牌",
+                    "随机的{C:attention}版本"
                 }
             },
             ability_name = "MMC One Of Us",
@@ -4391,11 +4391,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local investor = {
             loc = {
-                name = "The Investor",
+                name = "风险投资",
                 text = {
-                    "Gives {C:money}$#1#{} at end of",
-                    "round. {C:green}#3# in #2#{} chance to",
-                    "give {C:red}-$#1#{} instead"
+                    "回合结束时",
+                    "有{C:green}#3#/#2#{}的几率失去{C:red}$#1#",
+                    "否则获得{C:money}$#1#"
                 }
             },
             ability_name = "MMC The Investor",

@@ -1622,11 +1622,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Sword Of Damocles", "sdm_sword_of_damocles",
             {},  {x=0, y=0},
             {
-                name = "Sword Of Damocles",
+                name = "达摩克利斯之剑",
                 text = {
-                    "{C:attention}Doubles{} or {C:red}destroys{}",
-                    "added {C:attention}Joker{} cards",
-                    "{C:inactive}(Must have room)"
+                    "{C:attention}复制{}或{C:red}摧毁",
+                    "加入槽位的{C:attention}小丑牌",
+                    "{C:inactive}（必须有空间）"
                 }
             }, 2, 5, true, true, false, true
         )
@@ -1755,13 +1755,13 @@ function SMODS.INIT.sdm_0s_stuff()
             "Contract", "sdm_contract",
             {extra = {Xmult = 3, dollars = 0, dollars_mod = 15, registered = false, breached = false}},  {x=0, y=0},
             {
-                name = "Contract",
+                name = "合同",
                 text = {
-                    "{X:red,C:white}X#1#{} Mult",
-                    "when {C:attention}Blind{} is selected,",
-                    "register current money,",
-                    "destroyed if out of range",
-                    "{C:inactive}({C:money}$#3#{C:inactive} - {C:money}$#4#{C:inactive})"
+                    "{X:red,C:white}X#1#{}倍率",
+                    "选择{C:attention}盲注{}时",
+                    "登记你当前的资金数",
+                    "超出范围将摧毁本牌",
+                    "{C:inactive}（{C:money}$#3#{C:inactive} - {C:money}$#4#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, false
         )
