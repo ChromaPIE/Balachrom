@@ -1588,12 +1588,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local fisherman = {
             loc = {
-                name = "The Fisherman",
+                name = "渔夫",
                 text = {
-                    "{C:attention}+#2#{} hand size per discard",
-                    "{C:attention}-#2#{} hand size per hand played",
-                    "Resets every round",
-                    "{C:inactive}(Currently {C:attention}+#1#{C:inactive} hand size)"
+                    "每次弃牌{C:attention}+#2#{}手牌上限",
+                    "每次出牌{C:attention}-#2#{}手牌上限",
+                    "每回合重置",
+                    "{C:inactive}（当前为{C:attention}+#1#{C:inactive}手牌上限）"
                 }
             },
             ability_name = "MMC The Fisherman",
@@ -1994,12 +1994,13 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local delayed = {
             loc = {
-                name = "Deli Ticket",
+                name = "排号小票",
                 text = {
-                    "Gives {C:mult}+#1#{} Mult, {C:chips}+#2#{}",
-                    "Chips and {X:mult,C:white}X#3#{} Mult on",
-                    "the {C:attention}#5#th{} action",
-                    "{C:inactive}(Current action: {C:attention}#4#{C:inactive} )"
+                    "每次出牌或弃牌累积1个位次",
+                    "若出牌时处于第{C:attention}#5#{}个位次",
+                    "给予{C:mult}+#1#{}倍率、{C:chips}+#2#{}筹码",
+                    "和{X:mult,C:white}X#3#{}倍率",
+                    "{C:inactive}（当前位次：{C:attention}#4#{C:inactive}）"
                 }
             },
             ability_name = "MMC Delayed Joker",

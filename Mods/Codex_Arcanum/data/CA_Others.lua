@@ -168,10 +168,11 @@ function CodexArcanum.INIT.CA_Others()
 
 
     local c_philosopher_stone_def = {
-        name = "Philosopher's Stone",
+        name = "贤者之石",
         text = {
-        "{C:attention}Retrigger{} all played cards",
-        "for one blind"
+        "在本盲注内",
+        "打出的所有牌",
+        "均会{C:attention}重新触发"
         }
     }
 

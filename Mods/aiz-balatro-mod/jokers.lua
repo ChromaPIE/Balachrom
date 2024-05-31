@@ -350,13 +350,13 @@ function Jokers()
 		-- Create Joker
 		local blahaj = {
 			loc = {
-				name = "Blåhaj",
+				name = "布罗艾鲨鱼",
 				text = {
-					"{C:dark_edition}+#1#{} Joker slots",
+					"{C:dark_edition}+#1#{}小丑牌槽位",
 				},
 			},
 			ability_name = "Aiz Blåhaj",
-			slug = "aiz_blåhaj",
+			slug = "aiz_blahaj",
 			ability = {
 				extra = {
 					j_slots = 1,
@@ -783,11 +783,12 @@ function Jokers()
 		-- Create Joker
 		local pawn = {
 			loc = {
-				name = "Pawn",
+				name = "兵",
 				text = {
-					"Advances at end of round",
-					"Adds current rank to mult",
-					"{C:inactive}(Currently on rank {C:attention}#1#{C:inactive})",
+					"回合结束时向前进一行",
+					"出牌计分时",
+					"将当前行数加至倍率",
+					"{C:inactive}（当前行数：{C:attention}#1#{C:inactive}）",
 				},
 			},
 			ability_name = "Aiz Pawn",
@@ -1212,10 +1213,11 @@ function Jokers()
 		-- Create Joker
 		local king = {
 			loc = {
-				name = "King",
+				name = "王",
 				text = {
-					"Other {C:attention}Chess Jokers",
-					"Give {X:mult,C:white}X#1#{} Mult",
+					"每有一张其他的",
+					"{C:attention}国际象棋小丑牌",
+					"给予{X:mult,C:white}X#1#{}倍率"
 				},
 			},
 			ability_name = "Aiz King",

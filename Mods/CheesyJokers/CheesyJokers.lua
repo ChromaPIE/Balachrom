@@ -87,9 +87,10 @@ function SMODS.INIT.CheesyJokers()
             dispname = "寻宝之路",
             slug = 'cj_treasure_map',
             desc = {
-                "Earn {C:money}$#3#{} if played hand",
-                "contains a scoring {C:attention}#1#{} and {C:attention}#2#{},",
-                "ranks change every round"
+                "若打出的牌中",
+                "同时包含计分的{C:attention}#1#{}和{C:attention}#2#",
+                "获得{C:money}$#3#",
+                "每回合改变需求点数"
             },
             config = {
                 extra = 10
@@ -829,7 +830,7 @@ function SMODS.INIT.CheesyJokers()
             local count_rank1 = 0
             local count_rank2 = 0
             for i = 1, #context.scoring_hand do
-                if context.card:get_id() == G.GAME.current_round.treasure_card.id1 then 
+                if context.scoring_hand[i]:get_id() == G.GAME.current_round.treasure_card.id1 then 
                     count_rank1 = count_rank1 + 1 
                 elseif next(find_joker("Facial Recognition")) and 
                 context.card:is_face() and (
@@ -839,7 +840,7 @@ function SMODS.INIT.CheesyJokers()
                     count_rank1 = count_rank1 + 1 
                 end
 
-                if context.card:get_id() == G.GAME.current_round.treasure_card.id2 then 
+                if context.scoring_hand[i]:get_id() == G.GAME.current_round.treasure_card.id2 then 
                     count_rank2 = count_rank2 + 1 
                 elseif next(find_joker("Facial Recognition")) and 
                 context.card:is_face() and (

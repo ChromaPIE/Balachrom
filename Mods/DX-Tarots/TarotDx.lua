@@ -275,10 +275,10 @@ local function setUpLocalizationTarotDX()
         }
     }
     G.localization.descriptions.Tarot_dx.c_hanged_man_dx = {
-        name = "The Hanged Man DX",
+        name = "倒吊人·豪华",
         text = {
-            "Destroys up to",
-            "{C:attention}#1#{} selected cards"
+            "摧毁至多{C:attention}#1#{}张",
+            "选定卡牌"
         }
     }
     G.localization.descriptions.Tarot_dx.c_death_dx = {
@@ -458,11 +458,10 @@ local function setUpLocalizationTarotCU()
         }
     }
     G.localization.descriptions.Tarot_cu.c_hanged_man_cu = {
-        name = "The Cursed Hanged Man",
+        name = "悬命之人",
         text = {
-            "Select up to {C:attention}#1#{} cards,",
-            "destroys {C:attention}all cards{} matching",
-            "{C:attention}selected ranks{}"
+            "选定至多{C:attention}#1#{}张卡牌",
+            "摧毁与之{C:attention}点数相同{}的{C:attention}所有卡牌"
         }
     }
     G.localization.descriptions.Tarot_cu.c_death_cu = {
