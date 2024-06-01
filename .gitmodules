@@ -1,3 +1,6 @@
 [submodule "Mods/Betmma-mods"]
 	path = Mods/Betmma-mods
 	url = https://github.com/ChromaPIE/betmma-mods-ZHCN-Locale.git
+[submodule "Mods/Codex-Arcanum"]
+	path = Mods/Codex-Arcanum
+	url = https://github.com/ChromaPIE/Codex-Arcanum-ZHCN-Locale.git
