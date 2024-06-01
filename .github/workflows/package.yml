@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - overlord
+    paths:
+      - 'Mods/**'
+      - 'resources/**'
+      - 'localization/**'
   workflow_dispatch:
 
 jobs:
@@ -12,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4.1.5
       with:
         submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -35,7 +39,7 @@ jobs:
         mv Mods/ca-temp Mods/Codex-Arcanum
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4.3.3
       with:
         name: pack_snapshot.zip
         path: ./
