@@ -30,13 +30,21 @@ jobs:
         find . -type d -name '.git' -exec rm -rf {} +
         find . -type f -name '.git' -exec rm -rf {} +
         find . -type f -iname 'README.md' -exec rm -f {} +
+        find . -type f -iname 'CHANGELOG.md' -exec rm -f {} +
         find . -type f -iname 'LICENSE' -exec rm -f {} +
 
-    - name: Move and rename directory
+    - name: CA arrange
       run: |
         mv Mods/Codex-Arcanum/mod Mods/ca-temp
         rm -rf Mods/Codex-Arcanum
         mv Mods/ca-temp Mods/Codex-Arcanum
+
+    - name: DX-Tarots arrange
+      run: |
+        mv Balachrom/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/
+        mv Balachrom/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/
+        mv Mods/DX-Tarots/assets/1x/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/Tarots_dx.png
+        mv Mods/DX-Tarots/assets/2x/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/Tarots_dx.png
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.3.3

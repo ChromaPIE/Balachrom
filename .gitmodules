@@ -4,3 +4,6 @@
 [submodule "Mods/Codex-Arcanum"]
 	path = Mods/Codex-Arcanum
 	url = https://github.com/ChromaPIE/Codex-Arcanum-ZHCN-Locale.git
+[submodule "Mods/DX-Tarots"]
+	path = Mods/DX-Tarots
+	url = https://github.com/ChromaPIE/DX-Tarots-ZHCN-Locale.git
