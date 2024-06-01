@@ -1122,26 +1122,26 @@ function SMODS.INIT.BossJokers()
             },
         },
         theserpent = {
-            name = "Serpent Joker",
+            name = "{C:red}蛇{}小丑",
             text = {
-                "After playing or discarding",
-                "draw an extra card"
+                "出牌或弃牌后",
+                "额外抽一张牌"
             },
         },
         thepillar = {
-            name = "Pillar Joker",
+            name = "{C:red}支柱{}小丑",
             text = {
-                "Retrigger all cards that",
-                "{C:attention}have been played this ante{}",
+                "本底注中打出过的牌",
+                "{C:attention}均会重新触发",
             },
         },
         thehouse = {
-            name = "House Joker",
+            name = "{C:red}房屋{}小丑",
             text = {
-                "{C:green}#1# in #2#{} chance to",
-                "create a {C:spectral}Spectral{} card",
-                "when {C:attention}Blind{} is selected",
-                "{C:inactive}(Must have room)"
+                "选择{C:attention}盲注{}时",
+                "有{C:green}#1#/#2#{}的几率",
+                "生成一张{C:spectral}幻灵牌",
+                "{C:inactive}（必须有空间）"
             },
         }
     }

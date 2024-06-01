@@ -6,12 +6,11 @@ local joker = {
 }
 
 joker.localization = {
-    name = "bobm",
+    name = "炸惮",
     text = {
-        "{C:dark_edition}Negative, Eternal{}",
-        "Lose the game",
-        "after {C:attention}300{} seconds",
-        "{C:inactive}(Time left: #1#s)"
+        "{C:dark_edition}负片{}、{C:dark_edition}永恒",
+        "{C:attention}300{}秒后输掉赛局",
+        "{C:inactive}（剩余时间：#1#s）"
     }
 }
 

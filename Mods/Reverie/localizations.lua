@@ -222,7 +222,7 @@ return {
             j_diet_cola_morsel_alternative = {
                 text = {
                     ".", -- Blank strings are ignored, so putting random character to preserve index info
-                    "create two free"
+                    "免费生成两个"
                 }
             },
             j_fine_wine_morsel_alternative = {
@@ -246,7 +246,8 @@ return {
             },
             j_mf_tonersoup_morsel_alternative = {
                 text = {
-                    "Create two {C:tarot}Tarot{} cards"
+                    ".",
+                    "生成两张{C:tarot}塔罗牌"
                 }
             },
             j_dynamic_film = {

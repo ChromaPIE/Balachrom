@@ -3351,12 +3351,10 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local gold_bar = {
             loc = {
-                name = "Gold Bar",
+                name = "金条",
                 text = {
-                    "Earn {C:money}$#1#{} for every",
-                    "{C:attention}Gold Seal{} and {C:attention}Gold card{}",
-                    "at end of round",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "每有一个{C:attention}金色蜡封{}或{C:attention}黄金牌",
+                    "回合结束时获得{C:money}$#1#"
                 }
             },
             ability_name = "MMC Gold Bar",

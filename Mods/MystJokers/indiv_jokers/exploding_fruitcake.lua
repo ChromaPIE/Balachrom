@@ -6,12 +6,12 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Exploding Fruitcake",
+    name = "爆炸果糕",
     text = {
-        "When {C:attention}Small Blind{} begins, gives",
-        "a random {C:dark_edition}Edition{} to all",
-        "Jokers and consumables, then",
-        "replace this with a {C:attention}bobm{}"
+        "{C:attention}小盲注{}开局时",
+        "为所有小丑牌和消耗牌",
+        "添加随机的{C:dark_edition}版本",
+        "并将本牌替换为{C:attention}炸惮"
     }
 }
 

@@ -1324,8 +1324,9 @@ return {
             j_diet_cola = {
                 name = "零糖可乐",
                 text = {
-                    "售出这牌即可免费",
-                    "生成一个{C:attention}#1#"
+                    "售出本牌即可",
+                    "免费生成一个",
+                    "{C:attention}#1#"
                 }
             },
             j_trading = {

@@ -1234,7 +1234,7 @@ function SMODS.INIT.MoreFluff()
             text = {
                 "如果回合的{C:attention}第一次出牌{}",
                 "只有一张{C:attention}2{}，则将其摧毁",
-                "并创建一个免费的{C:attention}#1#{}",
+                "并免费生成一个{C:attention}#1#{}",
             }
         },
         mf_impostor = {
@@ -1433,7 +1433,7 @@ function SMODS.INIT.MoreFluff()
             name = "双口心力又太冝",
             text = {
                 "每次出牌时",
-                "生成一张{C:tarot}塔罗牌{}",
+                "生成一张{C:tarot}塔罗牌",
                 "{C:inactive}（必须有空间）",
                 "击败盲注后摧毁"
             },
