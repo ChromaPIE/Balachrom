@@ -7,3 +7,6 @@
 [submodule "Mods/DX-Tarots"]
 	path = Mods/DX-Tarots
 	url = https://github.com/ChromaPIE/DX-Tarots-ZHCN-Locale.git
+[submodule "Mods/Bunco"]
+	path = Mods/Bunco
+	url = https://github.com/ChromaPIE/Bunco-ZHCN-Locale.git
