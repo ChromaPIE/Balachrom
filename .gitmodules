@@ -1,0 +1,3 @@
+[submodule "Mods/Betmma-mods"]
+	path = Mods/Betmma-mods
+	url = https://github.com/ChromaPIE/betmma-mods-ZHCN-Locale.git
