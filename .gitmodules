@@ -10,3 +10,6 @@
 [submodule "Mods/Bunco"]
 	path = Mods/Bunco
 	url = https://github.com/ChromaPIE/Bunco-ZHCN-Locale.git
+[submodule "Mods/MikasBalatro"]
+	path = Mods/MikasBalatro
+	url = https://github.com/ChromaPIE/MikasBalatro-ZHCN-Locale.git
