@@ -28,7 +28,8 @@ jobs:
         rm -rf Mods/Betmma-mods/Betmma_Voucher_Pack
         rm -rf Mods/Betmma-mods/5_legendary_challenges
         rm -rf Mods/Codex-Arcanum/art Mods/Codex-Arcanum/doc
-        rm -rf Mods/MikasBalatro/icon.png Mods/MikasBalatro/index.html
+        find ./Mods -maxdepth 2 -type f -name 'icon.png' -exec rm -f {} +
+        find ./Mods -maxdepth 2 -type f -name 'index.html' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'm6x11plus.ttf' -exec rm -f {} +
         find . -type d -name '.git' -exec rm -rf {} +
         find . -type d -name 'site' -exec rm -rf {} +
@@ -36,16 +37,16 @@ jobs:
         find . -type d -name '.vscode' -exec rm -rf {} +
         find . -type d -name 'gitresources' -exec rm -rf {} +
         find . -type f -name '.git' -exec rm -rf {} +
-        find . -type f -name '.gitignore' -exec rm -rf {} +
-        find . -type f -name '.gitattributes' -exec rm -rf {} +
+        find . -type f -iname 'LICENSE' -exec rm -f {} +
+        find . -type f -iname 'style.css' -exec rm -f {} +
         find . -type f -iname 'README.md' -exec rm -f {} +
         find . -type f -iname 'README.asc' -exec rm -f {} +
-        find . -type f -iname 'CHANGELOG.md' -exec rm -f {} +
-        find . -type f -iname 'LICENSE' -exec rm -f {} +
-        find . -type f -iname 'manifest.json' -exec rm -f {} +
-        find . -type f -iname 'style.css' -exec rm -f {} +
+        find . -type f -name '.gitignore' -exec rm -rf {} +
         find . -type f -iname 'changelog.md' -exec rm -f {} +
         find . -type f -iname 'addjokers.js' -exec rm -f {} +
+        find . -type f -iname 'CHANGELOG.md' -exec rm -f {} +
+        find . -type f -iname 'manifest.json' -exec rm -f {} +
+        find . -type f -name '.gitattributes' -exec rm -rf {} +
         find . -type f -iname 'generate_sprite.fish' -exec rm -f {} +
 
     - name: CA arrange
