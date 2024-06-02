@@ -16,3 +16,6 @@
 [submodule "Mods/aiz-balatro-mod"]
 	path = Mods/aiz-balatro-mod
 	url = https://github.com/ChromaPIE/aiz-balatro-mod-ZHCN-Locale.git
+[submodule "Mods/JankJonklers"]
+	path = Mods/JankJonklers
+	url = https://github.com/ChromaPIE/JankJonklers-ZHCN-Locale.git
