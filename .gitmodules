@@ -13,3 +13,6 @@
 [submodule "Mods/MikasBalatro"]
 	path = Mods/MikasBalatro
 	url = https://github.com/ChromaPIE/MikasBalatro-ZHCN-Locale.git
+[submodule "Mods/aiz-balatro-mod"]
+	path = Mods/aiz-balatro-mod
+	url = https://github.com/ChromaPIE/aiz-balatro-mod-ZHCN-Locale.git
