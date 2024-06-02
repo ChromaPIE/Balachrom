@@ -128,10 +128,11 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Businessman",
+            dispname = "买卖人",
             slug = 'cj_businessman',
             desc = {
-                "Earn {C:money}$#1#{} when skipping {C:attention}Blind",
-                "and increase this value by {C:money}$#2#"
+                "跳过{C:attention}盲注{}时获得{C:money}$#1#",
+                "并使该数字增加{C:money}$#2#"
             },
             config = {
                 extra = {dollars = 4, increase = 4}

@@ -29,6 +29,7 @@ jobs:
         rm -rf Mods/Codex-Arcanum/art Mods/Codex-Arcanum/doc
         find . -type d -name '.git' -exec rm -rf {} +
         find . -type f -name '.git' -exec rm -rf {} +
+        find . -type f -name '.gitignore' -exec rm -rf {} +
         find . -type f -name '.gitattributes' -exec rm -rf {} +
         find . -type f -iname 'README.md' -exec rm -f {} +
         find . -type f -iname 'CHANGELOG.md' -exec rm -f {} +

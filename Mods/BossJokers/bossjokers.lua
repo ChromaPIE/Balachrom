@@ -1072,19 +1072,19 @@ function SMODS.INIT.BossJokers()
             }
         },
         themouth = {
-            name = "Mouth Joker",
+            name = "{C:red}嘴巴{}小丑",
             text = {
-                "{X:mult,C:white}X3{} mult unless this",
-                "{C:attention}Poker hand{} has already",
-                "been played this round"
+                "若出牌{C:attention}牌型{}为",
+                "本回合首次打出",
+                "{X:mult,C:white}X3{}倍率"
             }
         },
         theeye = {
-            name = "Eye Joker",
+            name = "{C:red}眼睛{}小丑",
             text = {
-                "Upgrade level of played",
-                "{C:attention}Poker hand{} if it has",
-                "already been played this round"
+                "若出牌{C:attention}牌型",
+                "非本回合首次打出",
+                "则提升其等级"
             }
         },
         themanacle = {

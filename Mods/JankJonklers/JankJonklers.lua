@@ -1357,11 +1357,11 @@ function SMODS.INIT.JankJonklersMod()
         -- Create Joker
         local suspicious_vase = {
             loc = {
-                name = "Suspicious Vase",
+                name = "蹊跷花瓶",
                 text = {
-                    "All {C:attention}2s{}, {C:attention}3s{} and {C:attention}4s{}",
-                    "become {C:attention}Glass Cards{} and",
-                    "give {X:mult,C:white}X2{} Mult when played."
+                    "打出的所有{C:attention}2{}、{C:attention}3{}和{C:attention}4",
+                    "均变为{C:attention}玻璃牌",
+                    "且可给予{X:mult,C:white}X2{}倍率"
                 }
             },
             ability_name = "Suspicious Vase",
