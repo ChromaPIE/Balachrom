@@ -226,7 +226,7 @@ function SMODS.INIT.CheesyJokers()
             desc = {
                 "{X:red,C:white}X#1#{}倍率",
                 "选择{C:attention}盲注{}时{C:attention}自我复制",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
             config = {
                 extra = 1.5
@@ -455,7 +455,7 @@ function SMODS.INIT.CheesyJokers()
                 "使用{C:planet}星球牌{}后",
                 "有{C:green}#1#/#2#{}的几率复制之",
                 "并收入消耗牌槽位",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
             config = {
                 extra = {
@@ -1786,7 +1786,7 @@ function SMODS.INIT.CheesyJokers()
         }},
         [4] = {text = {
             "随机生成一张{C:attention}小丑牌",
-            "{C:inactive}（必须有空间）"
+            "{C:inactive}（必须有空位）"
         }},
         [5] = {text = {
             "生成一张{C:spectral}幻灵牌"

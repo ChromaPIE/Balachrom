@@ -1315,7 +1315,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 text = {
                     "{C:attention}售出{}除{C:tarot}死神{}外的卡牌时",
                     "有{C:green}#1#/#2#{}的几率生成一张{C:tarot}死神",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             }, 1, 4, true, true, true, true
         )
@@ -1518,7 +1518,7 @@ function SMODS.INIT.sdm_0s_stuff()
                     "回合内每有两次出牌中",
                     "各有{C:attention}#1#{}张和{C:attention}#2#{}张牌计分时",
                     "随机生成一张{C:planet}星球牌",
-                    "{C:inactive}（必须有空间）",
+                    "{C:inactive}（必须有空位）",
                     "回合结束时改变张数要求",
                     
                 }
@@ -1626,7 +1626,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 text = {
                     "{C:attention}复制{}或{C:red}摧毁",
                     "加入槽位的{C:attention}小丑牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             }, 2, 5, true, true, false, true
         )

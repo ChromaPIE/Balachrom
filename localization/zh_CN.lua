@@ -244,7 +244,7 @@ return {
                     "打出的每一张{C:attention}8{}",
                     "有{C:green}#1#/#2#{}的几率在计分时",
                     "生成一张{C:tarot}塔罗牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_misprint = {
@@ -468,7 +468,7 @@ return {
                     "如果回合的{C:attention}第一次出牌{}",
                     "是一张单独的{C:attention}6{}",
                     "则将其销毁并生成一张{C:spectral}幻灵牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_constellation = {
@@ -509,7 +509,7 @@ return {
                     "如果打出的牌中包含",
                     "一张{C:attention}A{}和一个{C:attention}顺子{}",
                     "生成一张{C:tarot}塔罗牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_todo_list = {
@@ -955,7 +955,7 @@ return {
                     "如果{C:attention}牌型{}为",
                     "{C:attention}#1#{}，随机生成",
                     "一张{C:spectral}幻灵牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_riff_raff = {
@@ -963,7 +963,7 @@ return {
                 text = {
                     "在选择{C:attention}盲注{}时",
                     "生成{C:attention}#1#张{C:blue}普通{C:attention}小丑牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_stuntman = {
@@ -1047,7 +1047,7 @@ return {
                 text = {
                     "在选择{C:attention}盲注{}时",
                     "生成一张{C:tarot}塔罗牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 },
                 unlock = {
                     "发现每张",
@@ -1294,7 +1294,7 @@ return {
                     "打开任一{C:attention}补充包{}时",
                     "有{C:green}#1#/#2#{}的几率",
                     "生成一张{C:attention}塔罗牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             j_lucky_cat = {
@@ -1542,7 +1542,7 @@ return {
                     "生成你最常用的",
                     "{C:attention}消耗牌{}",
                     "{E:1,V:1}#1#",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             v_overstock_plus = {
@@ -1743,7 +1743,7 @@ return {
                     "生成你最常",
                     "打出的{C:attention}小丑牌{}",
                     "{E:1,V:1}#1#",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 },
                 unlock = {
                     "在商店中购买",
@@ -1790,7 +1790,7 @@ return {
                 text = {
                     "生成最多{C:attention}#1#张",
                     "张随机{C:planet}星球牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             c_empress = {
@@ -1805,7 +1805,7 @@ return {
                 text = {
                     "生成最多{C:attention}#1#张",
                     "随机{C:tarot}塔罗牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             c_heirophant = {
@@ -1927,7 +1927,7 @@ return {
                 text = {
                     "生成一张随机的",
                     "{C:attention}{}小丑牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             c_world = {
@@ -2125,7 +2125,7 @@ return {
                 text = {
                     "生成一张",
                     "{C:legendary,E:1}传奇{}小丑牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             c_black_hole = {
@@ -2297,7 +2297,7 @@ return {
                 name = "绿注",
                 text = {
                     "{C:attention}底注{}提升时",
-                    "过关需求分数的增速更快",
+                    "过关需求分数的涨幅更大",
                     "{s:0.8}先前所有赌注的限制也都起效"
                 }
             },
@@ -2320,7 +2320,7 @@ return {
                 name = "紫注",
                 text = {
                     "{C:attention}底注{}提升时",
-                    "过关需求分数的增速更快",
+                    "过关需求分数的涨幅更大",
                     "{s:0.8}先前所有赌注的限制也都起效"
                 }
             },
@@ -2489,7 +2489,7 @@ return {
                 text = {
                     "生成最多{C:attention}#1#张",
                     "{C:blue}普通{}小丑牌",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             tag_skip = {
@@ -3210,7 +3210,7 @@ return {
                     "如果在回合结束时",
                     "本牌还{C:attention}留在{}手牌中",
                     "会生成最后一手牌型的{C:planet}星球牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             purple_seal = {
@@ -3218,7 +3218,7 @@ return {
                 text = {
                     "被{C:attention}弃掉{}时",
                     "生成一张{C:tarot}塔罗牌{}",
-                    "{C:inactive}（必须有空间）"
+                    "{C:inactive}（必须有空位）"
                 }
             },
             eternal = {

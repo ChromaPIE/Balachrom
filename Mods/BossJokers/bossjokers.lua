@@ -1141,7 +1141,7 @@ function SMODS.INIT.BossJokers()
                 "选择{C:attention}盲注{}时",
                 "有{C:green}#1#/#2#{}的几率",
                 "生成一张{C:spectral}幻灵牌",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         }
     }

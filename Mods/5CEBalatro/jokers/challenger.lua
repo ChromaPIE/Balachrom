@@ -4,7 +4,7 @@ local jokerInfo = {
 	text = {
 		"选择{C:attention}盲注{}时",
 		"生成{C:attention}1{C:attention}张小丑牌",
-		"{C:inactive}（必须有空间）"
+		"{C:inactive}（必须有空位）"
 	},
 	rarity = 3,
 	cost = 6,

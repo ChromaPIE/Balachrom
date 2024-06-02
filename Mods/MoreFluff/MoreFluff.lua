@@ -1363,7 +1363,7 @@ function SMODS.INIT.MoreFluff()
             text = {
                 "选择{C:attention}盲注{}时",
                 "生成{C:attention}1{}张{C:dark_edition}非原版{}的{C:attention}小丑牌",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         },
         mf_fived = {
@@ -1418,7 +1418,7 @@ function SMODS.INIT.MoreFluff()
                 "跳过补充包时",
                 "随机生成一张",
                 "{C:planet}星球牌{}或{C:tarot}塔罗牌",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         },
         mf_hollow = {
@@ -1434,7 +1434,7 @@ function SMODS.INIT.MoreFluff()
             text = {
                 "每次出牌时",
                 "生成一张{C:tarot}塔罗牌",
-                "{C:inactive}（必须有空间）",
+                "{C:inactive}（必须有空位）",
                 "击败盲注后摧毁"
             },
         },
@@ -1443,7 +1443,7 @@ function SMODS.INIT.MoreFluff()
             text = {
                 "选择{C:attention}Boss盲注{}时",
                 "生成一张{C:attention}死神{}{C:tarot}塔罗牌{}",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         },
         mf_pipe = {
@@ -1635,7 +1635,7 @@ function SMODS.INIT.MoreFluff()
             text = {
                 "选择{C:attention}盲注{}时",
                 "生成一张{C:colourcard}色彩卡",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         },
         mf_loadeddisk = {
@@ -1644,7 +1644,7 @@ function SMODS.INIT.MoreFluff()
                 "售出此牌即可",
                 "生成{C:colourcard}粉色{}和{C:colourcard}黄色",
                 "的{C:colourcard}色彩卡{}各一张",
-                "{C:inactive}（必须有空间）"
+                "{C:inactive}（必须有空位）"
             },
         },
         mf_mrloans = {
