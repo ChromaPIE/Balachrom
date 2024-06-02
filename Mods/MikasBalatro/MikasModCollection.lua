@@ -2420,12 +2420,11 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local bomb = {
             loc = {
-                name = "Bomb",
+                name = "炸弹",
                 text = {
-                    "Gains {C:mult}+#2#{} Mult per round",
-                    "self destructs after {C:attention}#3#{} rounds",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy"
+                    "每回合本牌获得{C:mult}+#2#{}倍率",
+                    "{C:attention}#3#{}回合后自毁",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             },
             ability_name = "MMC Bomb",
@@ -2496,13 +2495,12 @@ function SMODS.INIT.MikasModCollection()
         -- Create Joker
         local eye_chart = {
             loc = {
-                name = "Eye Chart",
+                name = "视力检测表",
                 text = {
-                    "Gives {C:chips}+#1#{} Chips for every",
-                    "letter {C:attention}\"#2#\"{} in your Jokers",
-                    "Letter changes when this",
-                    "Joker appears in the shop",
-                    "{C:inactive}Art by {C:green,E:1,S:1.1}Grassy" }
+                    "所拥有的小丑牌名称中",
+                    "每有一个字母{C:attention}“#2#”",
+                    "给予{C:chips}+#1#{}筹码",
+                    "本牌出现于商店时改变所需字母"
             },
             ability_name = "MMC Eye Chart",
             slug = "mmc_eye_chart",

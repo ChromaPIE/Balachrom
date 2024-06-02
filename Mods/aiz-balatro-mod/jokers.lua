@@ -281,13 +281,12 @@ function Jokers()
 		-- Create Joker
 		local easyMode = {
 			loc = {
-				name = "Easy Mode",
+				name = "简单模式",
 				text = {
-					"Gives {C:mult}+1 mult{} for",
-					"every 2 jokers with",
-					"{C:attention}White stickers{}",
-					"in your collection",
-					"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
+					"收藏中每有2张",
+					"拥有{C:attention}白色纪念贴{}的小丑牌",
+					"{C:mult}+1{}倍率",
+					"{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）",
 				},
 			},
 			ability_name = "Aiz Easy Mode",
