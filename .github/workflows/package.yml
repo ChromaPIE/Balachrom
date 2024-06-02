@@ -22,12 +22,29 @@ jobs:
         submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Mod files arrange
+      run: |
+        echo "_______Codex Arcanum"
+        mv Mods/Codex-Arcanum/mod Mods/ca-temp
+        rm -rf Mods/Codex-Arcanum
+        mv Mods/ca-temp Mods/Codex-Arcanum
+
+        echo "_______Steamodded"
+        mv Mods/Steamodded/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
+        
+        echo "_______DX Tarots"
+        mv Balachrom/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/
+        mv Balachrom/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/
+        mv Mods/DX-Tarots/assets/1x/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/Tarots_dx.png
+        mv Mods/DX-Tarots/assets/2x/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/Tarots_dx.png
+
     - name: Remove unwanted files and directories
       run: |
         rm -rf .gitignore .gitmodules .github
         rm -rf Mods/Betmma-mods/Betmma_Voucher_Pack
         rm -rf Mods/Betmma-mods/5_legendary_challenges
         rm -rf Mods/Codex-Arcanum/art Mods/Codex-Arcanum/doc
+        rm -rf Mods/Steamodded/7-zip Mods/Steamodded/example_mods Mods/Steamodded/requirements.txt
         find ./Mods -maxdepth 2 -type f -name 'icon.png' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'index.html' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'm6x11plus.ttf' -exec rm -f {} +
@@ -36,6 +53,10 @@ jobs:
         find . -type d -name '.github' -exec rm -rf {} +
         find . -type d -name '.vscode' -exec rm -rf {} +
         find . -type d -name 'gitresources' -exec rm -rf {} +
+        find . -type f -name '*.py' -exec rm -f {} +
+        find . -type f -name '*.sh' -exec rm -f {} +
+        find . -type f -name '*.bat' -exec rm -f {} +
+        find . -type f -name '*.ps1' -exec rm -f {} +
         find . -type f -name '.git' -exec rm -rf {} +
         find . -type f -iname 'LICENSE' -exec rm -f {} +
         find . -type f -iname 'style.css' -exec rm -f {} +
@@ -48,19 +69,6 @@ jobs:
         find . -type f -iname 'manifest.json' -exec rm -f {} +
         find . -type f -name '.gitattributes' -exec rm -rf {} +
         find . -type f -iname 'generate_sprite.fish' -exec rm -f {} +
-
-    - name: CA arrange
-      run: |
-        mv Mods/Codex-Arcanum/mod Mods/ca-temp
-        rm -rf Mods/Codex-Arcanum
-        mv Mods/ca-temp Mods/Codex-Arcanum
-
-    - name: DX-Tarots arrange
-      run: |
-        mv Balachrom/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/
-        mv Balachrom/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/
-        mv Mods/DX-Tarots/assets/1x/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/Tarots_dx.png
-        mv Mods/DX-Tarots/assets/2x/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/Tarots_dx.png
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4.3.3

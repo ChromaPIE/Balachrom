@@ -19,3 +19,6 @@
 [submodule "Mods/JankJonklers"]
 	path = Mods/JankJonklers
 	url = https://github.com/ChromaPIE/JankJonklers-ZHCN-Locale.git
+[submodule "Mods/Steamodded"]
+	path = Mods/Steamodded
+	url = https://github.com/ChromaPIE/Steamodded.git
