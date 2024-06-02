@@ -261,17 +261,17 @@ return {
         },
         Back = {
             b_filmstrip = {
-                name = "Filmstrip Deck",
+                name = "录影带牌组",
                 text = {
-                    "{C:cine}Cine{} cards can stack",
-                    "{C:attention}+#1#{} Cine slot"
+                    "{C:cine}电影票{}可以叠加",
+                    "电影槽位{C:attention}+#1#"
                 }
             },
             b_stamp = {
-                name = "Stamp Deck",
+                name = "标签牌组",
                 text = {
-                    "Skipping {C:attention}Blind{} gives",
-                    "{C:attention,T:p_tag_jumbo_1}#1#{} instead"
+                    "以{C:attention,T:p_tag_jumbo_1}#1#{}取代",
+                    "所有跳过{C:attention}盲注{}的奖励"
                 }
             }
         },

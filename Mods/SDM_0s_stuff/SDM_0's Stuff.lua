@@ -215,11 +215,11 @@ function SMODS.INIT.sdm_0s_stuff()
     if get_random_sdm_modded_jokers(2, true) then
 
         local b_sdm_sdm_0_s_deck_loc_def = {
-            name ="SDM_0's Deck",
+            name ="SDM_0的牌组",
             text ={
-                "Start run with",
-                "{C:attention}2{} random {C:eternal}Eternal non-{C:legendary}legendary",
-                "{C:attention}SDM_0's Stuff{} jokers",
+                "开局时即拥有随机{C:attention}2{}张",
+                "来自{C:attention}SDM_0's Stuff{}模组的{C:eternal}永恒{}小丑牌",
+                "（不包括{C:legendary}传奇{}小丑牌）",
         },
         }
 
