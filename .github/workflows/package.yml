@@ -29,6 +29,10 @@ jobs:
         rm -rf Mods/Codex-Arcanum
         mv Mods/ca-temp Mods/Codex-Arcanum
 
+        echo "_______BossJokers"
+        mv Mods/BossJokers/BossJokers/* Mods/BossJokers/
+        rm -rf Mods/BossJokers/BossJokers
+
         echo "_______Steamodded"
         mv Mods/Steamodded/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
         
