@@ -25,3 +25,6 @@
 [submodule "Mods/Cardsauce"]
 	path = Mods/Cardsauce
 	url = https://github.com/ChromaPIE/Cardsauce.git
+[submodule "Mods/BossJokers"]
+	path = Mods/BossJokers
+	url = https://github.com/ChromaPIE/BossJokers.git
