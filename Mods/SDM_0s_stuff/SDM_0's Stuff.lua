@@ -862,11 +862,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Shareholder Joker", "sdm_shareholder_joker",
             {extra = {min = 1, max = 8}},  {x=0, y=0},
             {
-                name = "Shareholder Joker",
+                name = "股东小丑",
                 text = {
-                    "Earn between",
-                    "{C:money}$#1#{} and {C:money}$#2#{}",
-                    "at end of round",
+                    "回合结束时",
+                    "获得{C:money}$#1#{} - {C:money}$#2#"
                 }
             }, 1, 5, true, true, false, true
         )
@@ -992,14 +991,15 @@ function SMODS.INIT.sdm_0s_stuff()
             "Ouija Board", "sdm_ouija_board",
             {extra = {remaining = 0, rounds = 3, sold_rare = false, scored_secret = false, used_spectral = false}},  {x=0, y=0},
             {
-                name = "Ouija Board",
+                name = "显灵板",
                 text = {
-                    "After selling a {C:red}Rare {C:attention}Joker{}",
-                    "scoring a {C:attention}secret poker hand{}",
-                    "and using a {C:spectral}Spectral{} card,",
-                    "sell this card to create a {C:spectral}Soul{} card",
-                    "{s:0.8,C:inactive}(Must have room)",
-                    "{C:inactive}(Remaining {C:attention}#1#{C:inactive}/#2#)"
+                    "达成下述所有条件后",
+                    "售出本牌即可生成一张{C:spectral}灵魂{}：",
+                    "{s:0.8,C:inactive}（必须有空间）",
+                    "- 售出一张{C:red}稀有{C:attention}小丑牌",
+                    "- 打出{C:attention}秘密牌型{}并计分",
+                    "- 使用一张{C:spectral}幻灵牌",
+                    "{C:inactive}（任务进度：{C:attention}#1#{C:inactive}/#2#）"
                 }
             }, 3, 8, true, true, false, false
         )
@@ -1181,12 +1181,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Clown Bank", "sdm_clown_bank",
             {extra = {Xmult=1, Xmult_mod=0.25, dollars = 1, inflation = 1}},  {x=0, y=0},
             {
-                name = "Clown Bank",
+                name = "小丑钱罐",
                 text = {
-                    "When {C:attention}Blind{} is selected, this Joker",
-                    "gains {X:mult,C:white}X#2#{} Mult for {C:money}$#3#{} if possible,",
-                    "increases cost by {C:money}$#4#{}",
-                    "{C:inactive}(Currenty {X:mult,C:white}X#1#{C:inactive} Mult)"
+                    "选择{C:attention}盲注{}时，若资金足够",
+                    "则花费{C:money}$#3#{}使本牌获得{X:mult,C:white}X#2#{}倍率",
+                    "并使费用上涨{C:money}$#4#",
+                    "{C:inactive}（当前为{X:mult,C:white}X#1#{C:inactive}倍率）"
                 }
             }, 3, 8, true, true, true, true
         )
