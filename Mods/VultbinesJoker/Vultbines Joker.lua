@@ -8,8 +8,8 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 
-G.localization.misc.v_dictionary.sweet_theatre_combo = {"+#1#mult +#2#chips"}
-G.localization.misc.v_dictionary.melancholy_phantom = {"X#1#mult +#2#chips"}
+G.localization.misc.v_dictionary.sweet_theatre_combo = {"+#1#倍率 +#2#筹码"}
+G.localization.misc.v_dictionary.melancholy_phantom = {"X#1#倍率 +#2#筹码"}
 
 local Vultbines_Joker = {}
 Vultbines_Joker.fusions = {
@@ -109,12 +109,11 @@ function SMODS.INIT.Vultbines_Joker()
     
     	--j_sweet_theatre_combo
     	local sweet_theatre_combo_def = {
-    		name = "Sweet Theatre Combo",
+    		name = "甜蜜影院套餐",
     		text = {
-                "{C:mult}+#1#{} Mult",
-    			"{C:chips}+#2#{} Chips",
-    			"Destroyed after {C:attention}#3#{} rounds",
-    			"{C:inactive}(#4# + #5#)"
+                "{C:mult}+#1#{}倍率，{C:chips}+#2#{}筹码",
+    			"{C:attention}#3#{}回合后摧毁",
+    			"{C:inactive}（#4# + #5#）"
     		}
     	}
     	
