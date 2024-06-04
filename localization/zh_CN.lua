@@ -1726,7 +1726,7 @@ return {
                 }
             },
             v_retcon = {
-                name = "重构",
+                name = "追溯修订",
                 text = {
                     "重掷Boss盲注",
                     "{C:attention}不限{}次数",

@@ -6,12 +6,12 @@ local joker = {
 }
 
 joker.localization = {
-    name = "Lucky Seven",
+    name = "幸运7",
     text = {
-        "When {C:attention}Blind{} is selected,",
-        "lose {C:money}$3{} and use",
-        "{C:attention}The Wheel of Fortune{}",
-        "{s:0.8}(if possible){}",
+        "选择{C:attention}盲注{}时",
+        "若尚有无版本的小丑牌",
+        "则失去{C:money}$3",
+        "并使用{C:attention}命运之轮"
     }
 }
 
