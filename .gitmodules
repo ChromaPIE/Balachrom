@@ -28,3 +28,6 @@
 [submodule "Mods/BossJokers"]
 	path = Mods/BossJokers
 	url = https://github.com/ChromaPIE/BossJokers.git
+[submodule "Mods/MoreFluff"]
+	path = Mods/MoreFluff
+	url = https://github.com/ChromaPIE/MoreFluff-ZHCN-Locale.git
