@@ -4,3 +4,12 @@
 [submodule "Mods/Steamodded"]
 	path = Mods/Steamodded
 	url = https://github.com/ChromaPIE/Steamodded.git
+[submodule "Mods/Talisman"]
+	path = Mods/Talisman
+	url = https://github.com/ChromaPIE/Talisman.git
+[submodule "Mods/Cryptid"]
+	path = Mods/Cryptid
+	url = https://github.com/ChromaPIE/Cryptid.git
+[submodule "Mods/MystMods"]
+	path = Mods/MystMods
+	url = https://github.com/ChromaPIE/BalatroMods.git
