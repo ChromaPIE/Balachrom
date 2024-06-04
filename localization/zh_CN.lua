@@ -1513,7 +1513,7 @@ return {
                 }
             },
             v_magic_trick = {
-                name = "魔术",
+                name = "戏法",
                 text = {
                     "{C:attention}商店{}中有",
                     "{C:attention}扑克牌",
