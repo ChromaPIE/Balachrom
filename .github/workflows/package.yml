@@ -24,10 +24,16 @@ jobs:
 
     - name: Mod files arrange
       run: |
+        echo "_______Myst's Mods"
+        PATH="Mods/MystMods"
+        mv $PATH/Steamodded/MystBlinds $PATH/MystBlinds
+        mv $PATH/Steamodded/MystJokers $PATH/MystJokers
+        rm -rf $PATH/{Steamodded,Balamod,Infodumps}
+        
         echo "_______Codex Arcanum"
         mv Mods/Codex-Arcanum/mod Mods/ca-temp
         rm -rf Mods/Codex-Arcanum
-        mv Mods/ca-temp Mods/Codex-Arcanum
+        mv Mods/{ca-temp,Codex-Arcanum}
 
         echo "_______BossJokers"
         mv Mods/BossJokers/BossJokers/* Mods/BossJokers/
@@ -37,10 +43,11 @@ jobs:
         mv Mods/Steamodded/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
         
         echo "_______DX Tarots"
-        mv Balachrom/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/
-        mv Balachrom/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/
-        mv Mods/DX-Tarots/assets/1x/Tarots_dx1x.png Mods/DX-Tarots/assets/1x/Tarots_dx.png
-        mv Mods/DX-Tarots/assets/2x/Tarots_dx2x.png Mods/DX-Tarots/assets/2x/Tarots_dx.png
+        PATH="Mods/DX-Tarots"
+        mv Balachrom/Tarots_dx1x.png $PATH/assets/1x/
+        mv Balachrom/Tarots_dx2x.png $PATH/assets/2x/
+        mv $PATH/assets/1x/Tarots_dx1x.png $PATH/assets/1x/Tarots_dx.png
+        mv $PATH/assets/2x/Tarots_dx2x.png $PATH/assets/2x/Tarots_dx.png
 
     - name: Remove unwanted files and directories
       run: |

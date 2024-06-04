@@ -31,3 +31,6 @@
 [submodule "Mods/MoreFluff"]
 	path = Mods/MoreFluff
 	url = https://github.com/ChromaPIE/MoreFluff-ZHCN-Locale.git
+[submodule "Mods/MystMods"]
+	path = Mods/MystMods
+	url = https://github.com/ChromaPIE/BalatroMods.git
