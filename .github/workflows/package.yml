@@ -24,42 +24,46 @@ jobs:
 
     - name: Per-mod files/directories clean-up
       run: |
-        echo "_______SDM_0 Mods"
+        echo "Start re-arranging mod files..."
+
         mv "Mods/SDM0_Mods/SDM_0's Stuff" Mods/
         rm -rf Mods/SDM0_Mods
+        echo "SDM0_Mods Done."
 
-        echo "_______Myst's Mods"
         RPATH="Mods/MystMods"
         mv $RPATH/Steamodded/MystBlinds $RPATH/MystBlinds
         mv $RPATH/Steamodded/MystJokers $RPATH/MystJokers
         rm -rf $RPATH/{Steamodded,Balamod,Infodumps}
-        
-        echo "_______Codex Arcanum"
+        echo "MystMods Done."
+
         mv Mods/Codex-Arcanum/mod Mods/ca-temp
         rm -rf Mods/Codex-Arcanum
         mv Mods/ca-temp Mods/Codex-Arcanum
+        echo "Codex-Arcanum Done."
 
-        echo "_______BossJokers"
         mv Mods/BossJokers/BossJokers/* Mods/BossJokers/
         rm -rf Mods/BossJokers/BossJokers
+        echo "BossJokers Done."
 
-        echo "_______Steamodded"
         RPATH="Mods/Steamodded"
-        mv RPATH/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
-        rm -rf RPATH/{7-zip,example_mods,requirements.txt}
-        
-        echo "_______DX Tarots"
+        mv $RPATH/example_mods/Mods/MoreSpeeds.lua Mods/
+        rm -rf $RPATH/{7-zip,example_mods,requirements.txt}
+        echo "Steamodded Done."
+
         RPATH="Mods/DX-Tarots"
         mv Balachrom/Tarots_dx1x.png $RPATH/assets/1x/
         mv Balachrom/Tarots_dx2x.png $RPATH/assets/2x/
         mv $RPATH/assets/1x/Tarots_dx1x.png $RPATH/assets/1x/Tarots_dx.png
         mv $RPATH/assets/2x/Tarots_dx2x.png $RPATH/assets/2x/Tarots_dx.png
+        echo "DX-Tarots Done."
 
         echo "_______Betmma"
         rm -rf Mods/Betmma-mods/{Betmma_Voucher_Pack,5_legendary_challenges}
 
     - name: Universal unwanted files/directories removal
       run: |
+        echo "Start deleting redundant files..."
+
         rm -rf .gitignore .gitmodules .github
         find ./Mods -maxdepth 2 -type f -name 'icon.png' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'index.html' -exec rm -f {} +
