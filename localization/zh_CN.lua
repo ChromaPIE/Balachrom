@@ -1925,8 +1925,8 @@ return {
             c_judgement = {
                 name = "审判",
                 text = {
-                    "生成一张随机的",
-                    "{C:attention}{}小丑牌",
+                    "随机生成",
+                    "一张{C:attention}小丑牌",
                     "{C:inactive}（必须有空位）"
                 }
             },

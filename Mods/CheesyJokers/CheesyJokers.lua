@@ -21,10 +21,11 @@ function SMODS.INIT.CheesyJokers()
     local jokers = {
         {
             name = "Title Card",
+            dispname = "标题卡",
             slug = 'cj_title_card',
             desc = {
-                "{X:red,C:white}X#1#{} Mult on {C:attention}first",
-                "{C:attention}hand{} of round"
+                "每回合的{C:attention}第一次出牌",
+                "{X:red,C:white}X#1#{}倍率"
             },
             config = {
                 extra = 2
@@ -261,11 +262,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Coloured In",
+            dispname = "填色本",
             slug = 'cj_coloured_in',
             desc = {
-                "Enhance a random card",
-                "into a {C:attention}Wild{} card",
-                "for each played hand"
+                "将每次出牌中的",
+                "随机一张牌增强为{C:attention}百搭牌"
             },
             config = {},
             pos = {x = 5, y = 1},
@@ -276,11 +277,11 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Engraving",
+            dispname = "镌刻",
             slug = 'cj_engraving',
             desc = {
-                "{C:attention}Jokers{} no longer",
-                "change their condition",
-                "for activating"
+                "{C:attention}小丑牌{}的触发条件",
+                "不再改变"
             },
             config = {},
             pos = {x = 6, y = 1},
@@ -636,12 +637,13 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Stained Glass",
+            dispname = "染色玻璃",
             slug = 'cj_stained_glass',
             desc = {
-                "Played {C:attention}Enhanced{} cards",
-                "give {X:red,C:white} X#1# {} Mult and",
-                "have a {C:green}#2# in #3#{} chance",
-                "to break when scored"
+                "打出的{C:attention}增强{}卡牌",
+                "给予{X:red,C:white} X#1# {}倍率",
+                "且有{C:green}#2#/#3#{}的几率",
+                "在计分时摧毁"
             },
             config = {
                 extra = {
@@ -834,7 +836,7 @@ function SMODS.INIT.CheesyJokers()
                 if context.scoring_hand[i]:get_id() == G.GAME.current_round.treasure_card.id1 then 
                     count_rank1 = count_rank1 + 1 
                 elseif next(find_joker("Facial Recognition")) and 
-                context.card:is_face() and (
+                context.scoring_hand[i]:is_face() and (
                 (G.GAME.current_round.treasure_card.id1 == 11) or 
                 (G.GAME.current_round.treasure_card.id1 == 12) or 
                 (G.GAME.current_round.treasure_card.id1 == 13)) then
@@ -844,7 +846,7 @@ function SMODS.INIT.CheesyJokers()
                 if context.scoring_hand[i]:get_id() == G.GAME.current_round.treasure_card.id2 then 
                     count_rank2 = count_rank2 + 1 
                 elseif next(find_joker("Facial Recognition")) and 
-                context.card:is_face() and (
+                context.scoring_hand[i]:is_face() and (
                 (G.GAME.current_round.treasure_card.id2 == 11) or 
                 (G.GAME.current_round.treasure_card.id2 == 12) or 
                 (G.GAME.current_round.treasure_card.id2 == 13)) then
@@ -1807,12 +1809,13 @@ function SMODS.INIT.CheesyJokers()
     }
 
     G.localization.descriptions.Other.cj_universe = {
-        name = '{s:1.4,C:dark_edition} ~ {s:1.4}The Universe {s:1.4,C:dark_edition}~ ',
+        name = '{s:1.4,C:dark_edition} ~ {s:1.4}寰 宇{s:1.4,C:dark_edition} ~ ',
         text = {
-            "When {C:attention}Blind{} is selected, four {C:dark_edition}Conditions{} are",
-            "chosen at {C:tarot}random,{} which when {C:tarot}completed,",
-            "give a specified {C:tarot}number{} of {C:chips}chips{} directly",
-            "{C:tarot}against{} the current {C:attention}Blind{} requirement"
+            "选择{C:attention}盲注{}后",
+            "{C:tarot}随机{}出现四个{C:dark_edition}条件",
+            "出牌次数耗尽时",
+            "直接使用{C:tarot}已达成{}的条件",
+            "所奖励的{C:chips}筹码{}数{C:tarot}补充盲注得分"
         }
     }
 
@@ -1852,26 +1855,32 @@ function SMODS.INIT.CheesyJokers()
         elseif self.beginning_end then
             local descriptions = {
                 "?? ???? ?",
-                "reset your full deck()",
-                "destroy ALL jokers)",
-                "destroy ALL !!!!!!!",
-                "jokers no longer appear...",
-                "in the~ shop ",
+                "重置牌组()",
+                "JCHHJMC",
+                "摧毀[所有]小醜牌）",
+                "摧毀【所有】",
+                "则灭绝所有小丑牌",
+                "DES_ROY A_L J_KERS",
+                "(lvl.██)",
+                "上限上限上限",
+                "包括：商店中",
                 "-* *-*-- -*-* *",
-                "set joker slots to 0?",
-                "joker set slots to ?",
+                "小丑牌槽位歸零끝",
+                "小丑牌槽位设为끝",
                 "???? ?",
-                "set hands p3r round to 4",
-                "set discards pe* round to 4",
-                "set discards pe      ( 4) ",
-                "set hand s_ze to 8",
+                "H I S   T H R O N E",
+                "每回合手卑上限殳为4",
+                "每囬合弃█次数设为4",
+                "每██████弃牌次数      四（4）",
+                "手牌끝限设为8",
                 "%%%%%%%%%%%",
-                "blinds are 2X the SIZE!",
-                "  Xbase BLIND size",
-                "destroy THE jokerS###",
-                "there is no going b()k",
-                "th^^e is no *&&*& back",
-                "THEREISNOGOINGBACK",
+                "███████████",
+                "盲注最低分數要求X2！",
+                "  X基礎盲注分数要求",
+                "摧毁 小醜牌###",
+                "你回不（██）了",
+                "尔*&&*& 不呿了",
+                "《你回不了头了》"
             }
             local cols = {
                 G.C.BLACK,
@@ -1888,7 +1897,7 @@ function SMODS.INIT.CheesyJokers()
             }
             ui_table = generate_card_ui(G.P_CENTERS['c_jupiter'], nil, {}, '', {}, nil, main_start)
             ui_table.main = {{{n=G.UIT.O, config={object = DynaText({string = descriptions, colours = cols, pop_in_rate = 9999999, silent = true, random_element = false, pop_delay = 0.4, scale = 0.32, min_cycle_time = 0})}}}}
-            ui_table.name = {{n=G.UIT.O, config={object = DynaText({string = {"The Beginning", "The End"}, colours = {G.C.WHITE}, pop_in_rate = 9999999, silent = true, random_element = true, pop_delay = 0.15, scale = 0.482, min_cycle_time = 0, shadow = true})}}}
+            ui_table.name = {{n=G.UIT.O, config={object = DynaText({string = {"开端", "终末", "结束", "起源", "生", "死", "存", "亡", "始", "末", "███", "The Beginning", "█████", "The End", "Начало", "███████", "Конец", "PRINCIPIUM", "FINEM"}, colours = {G.C.WHITE}, pop_in_rate = 9999999, silent = true, random_element = true, pop_delay = 0.15, scale = 0.482, min_cycle_time = 0, shadow = true})}}}
             ui_table.badges = {card_type = '????'}
             return ui_table
         else
@@ -2015,19 +2024,19 @@ function SMODS.INIT.CheesyJokers()
             if context.pre_discard then return false end
             local suits = {['Hearts'] = 0, ['Diamonds'] = 0, ['Spades'] = 0, ['Clubs'] = 0}
             for i = 1, #context.scoring_hand do
-                if context.card.ability.name ~= 'Wild Card' then
-                    if context.card:is_suit('Hearts') and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
-                    elseif context.card:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
-                    elseif context.card:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
-                    elseif context.card:is_suit('Clubs') and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
+                if context.scoring_hand[i].ability.name ~= 'Wild Card' then
+                    if context.scoring_hand[i]:is_suit('Hearts') and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Clubs') and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
                 end
             end
             for i = 1, #context.scoring_hand do
-                if context.card.ability.name == 'Wild Card' then
-                    if context.card:is_suit('Hearts') and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
-                    elseif context.card:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
-                    elseif context.card:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
-                    elseif context.card:is_suit('Clubs') and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
+                if context.scoring_hand[i].ability.name == 'Wild Card' then
+                    if context.scoring_hand[i]:is_suit('Hearts') and suits["Hearts"] == 0 then suits["Hearts"] = suits["Hearts"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
+                    elseif context.scoring_hand[i]:is_suit('Clubs') and suits["Clubs"] == 0  then suits["Clubs"] = suits["Clubs"] + 1 end
                 end
             end
             return suits["Hearts"] > 0 and suits["Diamonds"] > 0 and suits["Spades"] > 0 and suits["Clubs"] > 0
@@ -2116,7 +2125,7 @@ function SMODS.INIT.CheesyJokers()
 
     local function fail_letter(letter)
         G.E_MANAGER:add_event(Event({trigger = 'before', delay = 1, func = function()
-            card_eval_status_text(letter, 'extra', nil, nil, nil, {message = "Failed!", colour = G.C.RED, instant = true})
+            card_eval_status_text(letter, 'extra', nil, nil, nil, {message = "失败！", colour = G.C.RED, instant = true})
             letter.failed = true
             return true
         end
@@ -2163,249 +2172,263 @@ function SMODS.INIT.CheesyJokers()
     local letters = {
         {
             name = 'Alpha',
+            dispname = '阿尔法',
             key = 'cj_alpha',
             pos = {x = 0, y = 0},
             desc = {
-                "Play two or fewer",
-                "unique {C:attention}poker hands{}"
+                "打出的{C:attention}牌型",
+                "不超过两个"
             },
             reward_mult = 0.4
         },
         {
             name = 'Beta',
+            dispname = '贝塔',
             key = 'cj_beta',
             pos = {x = 1, y = 0},
             desc = {
-                "Do {C:red}not{} discard",
-                "a {C:attention}High Card"
+                "{C:red}不得{}弃置{C:attention}高牌"
             },
             reward_mult = 0.3
         },
         {
             name = 'Gamma',
+            dispname = '伽马',
             key = 'cj_gamma',
             pos = {x = 2, y = 0},
             desc = {
-                "All discards must",
-                "contain {C:attention}5{} cards"
+                "弃牌必须满{C:attention}5{}张"
             },
             reward_mult = 0.25
         },
         {
             name = 'Delta',
+            dispname = '德尔塔',
             key = 'cj_delta',
             pos = {x = 3, y = 0},
             desc = {
-                "All hands must contain",
-                "a scoring {C:attention}face{} card"
+                "所有出牌必须包含",
+                "计分的{C:attention}人头牌"
             },
             reward_mult = 0.3
         },
         {
             name = 'Epsilon',
+            dispname = '艾普西隆',
             key = 'cj_epsilon',
             pos = {x = 4, y = 0},
             desc = {
-                "Do {C:red}not{} play any cards",
-                "that {C:attention}do not score{}"
+                "{C:red}不得{}打出",
+                "{C:attention}不计分{}的牌"
             },
             reward_mult = 0.3
         },
         {
             name = 'Zeta',
+            dispname = '泽塔',
             key = 'cj_zeta',
             pos = {x = 5, y = 0},
             desc = {
-                "Do {C:red}not{} discard a hand",
-                "that you have {C:attention}played{}",
-                "{C:attention}previously{} this round"
+                "{C:red}不得{}弃置",
+                "本回合{C:attention}已打出过{}的牌型"
             },
             reward_mult = 0.3
         },
         {
             name = 'Eta',
+            dispname = '伊塔',
             key = 'cj_eta',
             pos = {x = 0, y = 1},
             desc = {
-                "Play a {C:attention}Straight Flush",
-                "or a {C:attention}Four of a Kind"
+                "打出一手{C:attention}同花顺",
+                "或{C:attention}四条"
             },
             reward_mult = 0.5
         },
         {
             name = 'Theta',
+            dispname = '西塔',
             key = 'cj_theta',
             pos = {x = 1, y = 1},
             desc = {
-                "All played {C:attention}hands{} must",
-                "contain a {C:attention}Pair"
+                "所有{C:attention}出牌",
+                "必须包含{C:attention}对子"
             },
             reward_mult = 0.5
         },
         {
             name = 'Iota',
+            dispname = '约塔',
             key = 'cj_iota',
             pos = {x = 2, y = 1},
             desc = {
-                "Do {C:red}not{} play your",
-                "{C:attention}poker hand(s){} with",
-                "the highest {C:attention}level"
+                "{C:red}不得{}打出",
+                "{C:attention}等级{}最高的{C:attention}牌型"
             },
             reward_mult = 0.3
         },
         {
             name = 'Kappa',
+            dispname = '卡帕',
             key = 'cj_kappa',
             pos = {x = 3, y = 1},
             desc = {
-                "Played hands must",
-                "{C:red}not{} contain {C:attention}4{} suits"
+                "打出的牌{C:red}不得",
+                "包含{C:attention}4{}种花色"
             },
             reward_mult = 0.25
         },
         {
             name = 'Lambda',
+            dispname = '拉姆达',
             key = 'cj_lambda',
             pos = {x = 4, y = 1},
             desc = {
-                "Always have at least {C:attention}30{}",
-                "remaining cards in deck",
+                "保持牌组剩余卡牌",
+                "不低于{C:attention}30"
             },
             reward_mult = 0.3
         },
         {
             name = 'Mu',
+            dispname = '谬',
             key = 'cj_mu',
             pos = {x = 5, y = 1},
             desc = {
-                "Do {C:red}not{} play a {C:attention}hand type{}",
-                "you have played more than",
-                "{C:attention}9{} times this run"
+                "{C:red}不得{}打出本赛局内打出次数",
+                "大于{C:attention}9{}的{C:attention}牌型"
             },
             reward_mult = 0.4
         },
         {
             name = 'Nu',
+            dispname = '纽',
             key = 'cj_nu',
             pos = {x = 0, y = 2},
             desc = {
-                "Your {C:attention}first{} and {C:attention}second{}",
-                "played poker hands must",
-                "be the same {C:attention}hand type"
+                "{C:attention}第一{}和{C:attention}第二{}次出牌",
+                "{C:attention}牌型{}必须一致"
             },
             reward_mult = 0.3
         },
         {
             name = 'Xi',
+            dispname = '克西',
             key = 'cj_xi',
             pos = {x = 1, y = 2},
             desc = {
-                "Your {C:attention}hands{} and {C:attention}discards",
-                "cannot have a difference",
-                "of more than {C:attention}1"
+                "{C:attention}出牌{}和{C:attention}弃牌{}",
+                "次数之差不得大于{C:attention}1"
             },
             reward_mult = 0.3
         },
         {
             name = 'Omicron',
+            dispname = '奥米克戎',
             key = 'cj_omicron',
             pos = {x = 2, y = 2},
             desc = {
-                "Do {C:red}not{} use your",
-                "final {C:attention}2{} discards"
+                "{C:red}不得{}动用",
+                "最后{C:attention}2{}次弃牌"
             },
             reward_mult = 0.3
         },
         {
             name = 'Pi',
+            dispname = '派',
             key = 'cj_pi',
             pos = {x = 3, y = 2},
             desc = {
-                "Do {C:red}not{} play any",
-                "repeat {C:attention}poker hands"
+                "{C:red}不得{}重复打出{C:attention}牌型"
             },
             reward_mult = 0.4
         },
         {
             name = 'Rho',
+            dispname = '柔',
             key = 'cj_rho',
             pos = {x = 4, y = 2},
             desc = {
-                "Do {C:red}not{} discard",
-                "an {C:attention}Ace, 2, 4{} or {C:attention}8"
+                "{C:red}不得{}弃置",
+                "{C:attention}A、2、4{}或{C:attention}8"
             },
             reward_mult = 0.5
         },
         {
             name = 'Sigma',
+            dispname = '西格马',
             key = 'cj_sigma',
             pos = {x = 5, y = 2},
             desc = {
-                "Discards may {C:red}not{} contain",
-                "both {C:attention}odd{} and {C:attention}even{} cards"
+                "{C:red}不得{}同时弃置",
+                "{C:attention}奇数{}和{C:attention}偶数{}牌"
             },
             reward_mult = 0.5
         },
         {
             name = 'Tau',
+            dispnamw = '陶',
             key = 'cj_tau',
             pos = {x = 0, y = 3},
             desc = {
-                "The {C:attention}range{} of ranks of",
-                "each discard may {C:red}not{}",
-                "be greater than {C:attention}6",
-                "{C:inactive}(Excludes Aces)"
+                "所弃牌的点数 {C:attention}差{}",
+                "{C:red}不得{}大于{C:attention}6",
+                "{C:inactive}（不含A）"
             },
             reward_mult = 0.4
         },
         {
             name = 'Upsilon',
+            dispname = '宇普西隆',
             key = 'cj_upsilon',
             pos = {x = 1, y = 3},
             desc = {
-                "Do {C:red}not{} play a hand at a",
-                "lower {C:attention}level{} than your",
-                "previously played hand"
+                "出牌的牌型{C:attention}等级{C:red}不得{}低于",
+                "先前所出牌型"
             },
             reward_mult = 0.4
         },
         {
             name = 'Phi',
+            dispname = '斐',
             key = 'cj_phi',
             pos = {x = 2, y = 3},
             desc = {
-                "Do {C:red}not{} play a hand without",
-                "a {C:attention}Face{} card held in hand"
+                "出牌后手中{C:red}必须",
+                "留有{C:attention}人头牌"
             },
             reward_mult = 0.4
         },
         {
             name = 'Chi',
+            dispname = '希',
             key = 'cj_chi',
             pos = {x = 3, y = 3},
             desc = {
-                "Final discard of round must be",
-                "your most played {C:attention}poker hand"
+                "回合的最后一次弃牌",
+                "必须为最常出的{C:attention}牌型"
             },
             reward_mult = 0.3
         },
         {
             name = 'Psi',
+            dispname = '普西',
             key = 'cj_psi',
             pos = {x = 4, y = 3},
             desc = {
-                "Played hands may {C:red}not{} contain",
-                "a {C:attention}Two Pair{} nor {C:attention}Three of a Kind"
+                "出牌{C:red}不得{}包含",
+                "{C:attention}两对{}或{C:attention}三条"
             },
             reward_mult = 0.25
         },
         {
             name = 'Omega',
+            dispname = '奥米伽',
             key = 'cj_omega',
             pos = {x = 5, y = 3},
             desc = {
-                "Do {C:red}not{} play or",
-                "discard any {C:attention}Aces"
+                "{C:red}不得{}打出",
+                "或弃置{C:attention}A"
             },
             reward_mult = 0.3
         },
@@ -2413,7 +2436,7 @@ function SMODS.INIT.CheesyJokers()
     G.localization.descriptions.Letter = {}
     for _, v in ipairs(letters) do
         G.P_CENTERS[v.key] = {
-            name = v.name,
+            name = v.dispname,
             set = 'Letter',
             key = v.key,
             config = {},
@@ -2428,12 +2451,12 @@ function SMODS.INIT.CheesyJokers()
     end
     G.localization.descriptions.Letter.reward = {name = '', text = {
         "{s:0.5} ", 
-        "{C:inactive}  Reward: +#1# Chips  ", 
+        "{C:inactive}  奖励：+#1#筹码  ", 
         "{s:0.3} "
     }}
     G.localization.descriptions.Letter.failed = {name = '', text = {
         "{s:0.5} ", 
-        "{C:red}  Requirement Failed  ", 
+        "{C:red}  未达成条件  ", 
         "{s:0.3} "
     }}
     init_localization()
