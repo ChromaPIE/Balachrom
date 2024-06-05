@@ -22,8 +22,12 @@ jobs:
         submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Mod files arrange
+    - name: Per-mod files/directories clean-up
       run: |
+        echo "_______SDM_0 Mods"
+        mv "Mods/SDM0_Mods/SDM_0's Stuff" Mods/
+        rm -rf Mods/SDM0_Mods
+
         echo "_______Myst's Mods"
         RPATH="Mods/MystMods"
         mv $RPATH/Steamodded/MystBlinds $RPATH/MystBlinds
@@ -33,14 +37,16 @@ jobs:
         echo "_______Codex Arcanum"
         mv Mods/Codex-Arcanum/mod Mods/ca-temp
         rm -rf Mods/Codex-Arcanum
-        mv Mods/{ca-temp,Codex-Arcanum}
+        mv Mods/ca-temp Mods/Codex-Arcanum
 
         echo "_______BossJokers"
         mv Mods/BossJokers/BossJokers/* Mods/BossJokers/
         rm -rf Mods/BossJokers/BossJokers
 
         echo "_______Steamodded"
-        mv Mods/Steamodded/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
+        RPATH="Mods/Steamodded"
+        mv RPATH/example_mods/Mods/MoreSpeeds.lua Mods/MoreSpeeds.lua
+        rm -rf RPATH/{7-zip,example_mods,requirements.txt}
         
         echo "_______DX Tarots"
         RPATH="Mods/DX-Tarots"
@@ -49,13 +55,12 @@ jobs:
         mv $RPATH/assets/1x/Tarots_dx1x.png $RPATH/assets/1x/Tarots_dx.png
         mv $RPATH/assets/2x/Tarots_dx2x.png $RPATH/assets/2x/Tarots_dx.png
 
-    - name: Remove unwanted files and directories
+        echo "_______Betmma"
+        rm -rf Mods/Betmma-mods/{Betmma_Voucher_Pack,5_legendary_challenges}
+
+    - name: Universal unwanted files/directories removal
       run: |
         rm -rf .gitignore .gitmodules .github
-        rm -rf Mods/Betmma-mods/Betmma_Voucher_Pack
-        rm -rf Mods/Betmma-mods/5_legendary_challenges
-        rm -rf Mods/Codex-Arcanum/art Mods/Codex-Arcanum/doc
-        rm -rf Mods/Steamodded/7-zip Mods/Steamodded/example_mods Mods/Steamodded/requirements.txt
         find ./Mods -maxdepth 2 -type f -name 'icon.png' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'index.html' -exec rm -f {} +
         find ./Mods -maxdepth 2 -type f -name 'm6x11plus.ttf' -exec rm -f {} +
