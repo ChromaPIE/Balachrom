@@ -26,6 +26,11 @@ jobs:
       run: |
         echo "Start re-arranging mod files..."
 
+        RPATH="Mods/CheesyJokers"
+        mv $RPATH/CheesyJokers/* $RPATH/
+        rm -rf $RPATH/CheesyJokers
+        echo "CheesyJokers Done."
+
         mv "Mods/SDM0_Mods/SDM_0's Stuff" Mods/
         rm -rf Mods/SDM0_Mods
         echo "SDM0_Mods Done."
@@ -57,8 +62,8 @@ jobs:
         mv $RPATH/assets/2x/Tarots_dx2x.png $RPATH/assets/2x/Tarots_dx.png
         echo "DX-Tarots Done."
 
-        echo "_______Betmma"
         rm -rf Mods/Betmma-mods/{Betmma_Voucher_Pack,5_legendary_challenges}
+        echo "Betmma-mods Done."
 
     - name: Universal unwanted files/directories removal
       run: |

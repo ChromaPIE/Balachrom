@@ -37,3 +37,6 @@
 [submodule "Mods/SDM0_Mods"]
 	path = Mods/SDM0_Mods
 	url = https://github.com/ChromaPIE/Balatro-Mods.git
+[submodule "Mods/CheesyJokers"]
+	path = Mods/CheesyJokers
+	url = https://github.com/ChromaPIE/CheesyJokers.git
