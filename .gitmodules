@@ -13,3 +13,6 @@
 [submodule "Mods/MystMods"]
 	path = Mods/MystMods
 	url = https://github.com/ChromaPIE/BalatroMods.git
+[submodule "Mods/BBBalatro"]
+	path = Mods/BBBalatro
+	url = https://github.com/ChromaPIE/BBBalatro.git
