@@ -167,7 +167,8 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = false
         }, 
         {
-            name = "储钱罐",
+            name = "Piggy Bank",
+            dispname = "储钱罐",
             slug = 'cj_piggy_bank',
             desc = {
                 "将售出{C:attention}小丑牌{}和{C:attention}消耗牌",
@@ -306,12 +307,13 @@ function SMODS.INIT.CheesyJokers()
         }, 
         {
             name = "Sticker Sheet",
+            dispname = "童趣贴画",
             slug = 'cj_sticker_sheet',
             desc = {
-                "When {C:attention}Blind{} is selected,",
-                "create a random {C:spectral}Spectral",
-                "card that adds a {C:attention}Seal",
-                "{C:inactive}(Must have room)"
+                "选择{C:attention}盲注{}时",
+                "随机生成一张",
+                "{C:attention}蜡封{}类{C:spectral}幻灵牌",
+                "{C:inactive}（必须有空位）"
             },
             config = {},
             pos = {x = 0, y = 2},
@@ -450,7 +452,8 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = true
         },
         {
-            name = "异星来客",
+            name = "Extraterrestrial",
+            dispname = '异星来客',
             slug = 'cj_extraterrestrial',
             desc = {
                 "使用{C:planet}星球牌{}后",
@@ -663,11 +666,12 @@ function SMODS.INIT.CheesyJokers()
         },
         {
             name = "Klein Bottle",
+            dispname = "克莱因瓶",
             slug = 'cj_klein_bottle',
             desc = {
-                "Cards held in hand",
-                "are {C:attention}also{} scored as",
-                "if they were {C:attention}played"
+                "手牌{C:attention}也会{}像",
+                "{C:attention}打出{}的牌一样",
+                "得以计分"
             },
             config = {},
             pos = {x = 1, y = 4},
@@ -677,7 +681,8 @@ function SMODS.INIT.CheesyJokers()
             eternal_compat = true
         },
         {
-            name = "视错觉",
+            name = "Optical Illusion",
+            dispname = "视错觉",
             slug = 'cj_optical_illusion',
             desc = {
                 "所有{C:attention}补充包",
@@ -694,6 +699,7 @@ function SMODS.INIT.CheesyJokers()
     }
 
     for _, v in pairs(jokers) do
+    if v.name ~= "Klein Bottle" then
         joker = SMODS.Joker:new(
             v.name, 
             v.slug, 
@@ -712,6 +718,7 @@ function SMODS.INIT.CheesyJokers()
         )
         joker.loc_def = v.loc_def
         joker:register()
+    end
     end
 
     G.centers_must_appear = {

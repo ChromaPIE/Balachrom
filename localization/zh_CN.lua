@@ -2154,9 +2154,9 @@ return {
             c_hex = {
                 name = "妖法",
                 text = {
-                    "随机为一张{C:attention}小丑牌{}添加",
-                    "{C:attention}多彩{}，摧毁",
-                    "其他小丑牌"
+                    "为随机一张{C:attention}小丑牌",
+                    "添加{C:attention}多彩",
+                    "并摧毁其他小丑牌"
                 }
             },
             c_trance = {
@@ -2168,7 +2168,7 @@ return {
                 }
             },
             c_medium = {
-                name = "灵媒",
+                name = "介质",
                 text = {
                     "为手牌中",
                     "{C:attention}1{}张选定的卡牌",
@@ -2178,8 +2178,8 @@ return {
             c_cryptid = {
                 name = "神秘生物",
                 text = {
-                    "选定手牌中的{C:attention}1{}张牌",
-                    "生成{C:attention}#1#{}张其复制牌"
+                    "为所选定的{C:attention}1{}张手牌",
+                    "生成{C:attention}#1#{}张复制"
                 }
             }
         },
