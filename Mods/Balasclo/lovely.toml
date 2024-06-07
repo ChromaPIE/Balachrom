@@ -359,3 +359,18 @@ payload = '''
 self.F_SKIP_TUTORIAL = true            --Completely skip the tutorial on fresh save
 '''
 match_indent = true
+
+# 挑战“小”“大”盲注
+[[patches]]
+[patches.pattern]
+target = "challenges.lua"
+pattern = '''
+{id = 'no_reward_specific', value = 'Small'},
+{id = 'no_reward_specific', value = 'Big'},
+'''
+position = "at"
+payload = '''
+{id = 'no_reward_specific', value = '小'},
+{id = 'no_reward_specific', value = '大'},
+'''
+match_indent = true

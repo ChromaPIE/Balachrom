@@ -3520,7 +3520,7 @@ return {
             k_level_prefix = "等级",
             k_also_applied = "下列限制也都起效",
             k_base_cards = "基础卡牌",
-            k_effective = "有效",
+            k_effective = "实际有效",
             k_aces = "A",
             k_face_cards = "人头牌",
             k_numbered_cards = "数字牌",
@@ -3543,7 +3543,7 @@ return {
             k_none = "无",
             k_game_modifiers = "游戏规则变化",
             k_custom_rules = "自定义规则",
-            k_banned_cards = "禁用卡",
+            k_banned_cards = "禁用卡牌",
             k_banned_tags = "禁用标签",
             k_other = "其他",
             k_money = "资金",
@@ -3641,14 +3641,14 @@ return {
                 "种子"
             },
             ml_disabled_seed = {
-                "所有解锁和",
-                "发现均被禁用"
+                "无法进行任何",
+                "解锁或发现"
             },
             ['$'] = "$",
             k_redeemed_ex = "已兑换！",
             k_duplicated_ex = "复制！",
-            k_no_room_ex = "没有空间！",
-            k_no_space_ex = "没有空间！",
+            k_no_room_ex = "没有空位！",
+            k_no_space_ex = "没有空位！",
             k_no_other_jokers = "没有其他小丑牌！",
             k_plus_tarot = "+1塔罗牌",
             k_plus_stone = "+1石头牌",
@@ -3685,12 +3685,12 @@ return {
             k_card_stats = "卡牌属性",
             k_view = "查看",
             k_all_hands = "全部出牌",
-            k_high_score_ex = "高分！",
+            k_high_score_ex = "最高得分！",
             k_demo_version_ex = "试玩版！",
             k_playing_as = "使用",
             k_choose = "选择",
             k_achievements_disabled = "未开启成就",
-            ph_no_boss_active = "无活跃boss",
+            ph_no_boss_active = "尚未进行Boss盲注",
             ph_you_win = "你赢了！",
             ph_you_win_demo = "你赢下了试玩版！",
             ph_defeat_the_boss = "打赢Boss盲注",
@@ -3782,7 +3782,7 @@ return {
                 "每回合{C:red}#1#{}次弃牌"
             },
             ch_m_reroll_cost = {
-                "{C:money}$#1#{}基本重掷费用"
+                "{C:money}$#1#{}起始重掷费用"
             },
             ch_m_joker_slots = {
                 "{C:attention}#1#{}小丑牌槽位"
@@ -3803,16 +3803,16 @@ return {
                 "{C:attention}#1#盲注{}均无奖励金"
             },
             ch_c_no_extra_hand_money = {
-                "额外的{C:blue}出牌次数{}不再赚取资金"
+                "剩余{C:blue}出牌次数{}无法折现"
             },
             ch_c_no_interest = {
-                "回合结束时不赚取{C:attention}利息{}"
+                "回合结束时无法赚取{C:attention}利息"
             },
             ch_c_daily = {
                 "{E:1,s:1.2,C:red}每日挑战！"
             },
             ch_c_set_seed = {
-                "使用固定种子进行1次性的挑战：{C:inactive}{Hidden}"
+                "使用固定的种子进行一次性挑战：{C:inactive}{Hidden}"
             },
             ch_c_chips_dollar_cap = {
                 "{C:blue}筹码{}不能超过当前{C:money}$"
@@ -3821,7 +3821,7 @@ return {
                 "{C:inactive}无"
             },
             ch_c_inflation = {
-                "每次购买后所有物价永久上涨{C:money}$1{}"
+                "每次购买后所有商品售价永久上涨{C:money}$1{}"
             },
             ch_c_discard_cost = {
                 "每次弃牌花费{C:money}$#1#{}"
