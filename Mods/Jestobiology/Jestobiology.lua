@@ -653,7 +653,7 @@ function SMODS.INIT.Jestobiology()
         FusionJokers.fusions:add_fusion("j_shepherd", "chips", false, "j_pitiful", nil, false, "j_f_party_animal", 8)
     end
     if is_mystJokers then
-        FusionJokers.fusions:add_fusion("j_stencil", nil, false, "j_autism_creature", nil, false, "j_f_original_character", 18)
+        FusionJokers.fusions:add_fusion("j_stencil", nil, false, "j_myst_autism_creature", nil, false, "j_f_original_character", 18)
     end
 end
 
