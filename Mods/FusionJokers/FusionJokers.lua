@@ -78,8 +78,18 @@ FusionJokers.fusions = {
 	}, result_joker = "j_camping_trip", cost = 10 },
 }
 
+Fusables = {}
+function FJInclude()
+    for _, t in ipairs(FusionJokers.fusions) do
+        local j1 = t.jokers[1].name
+        local j2 = t.jokers[2].name
+        table.insert(Fusables, {j1, j2})
+    end
+end
+FJInclude()
 
 function FusionJokers.fusions:add_fusion(joker1, carry_stat1, extra1, joker2, carry_stat2, extra2, result_joker, cost)
+    table.insert(Fusables, {joker1,joker2})
 	table.insert(self, 
 		{ jokers = {
 			{ name = joker1, carry_stat = carry_stat1, extra_stat = extra1 },

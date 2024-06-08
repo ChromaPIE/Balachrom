@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''self.ability_UIBox_table = self:generate_UIBox_ability_table()'''
+position = "after"
+payload = '''FJInfo(self)'''
+match_indent = true
+overwrite = false
