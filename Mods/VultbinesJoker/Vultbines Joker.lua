@@ -11,7 +11,7 @@
 G.localization.misc.v_dictionary.sweet_theatre_combo = {"+#1#倍率 +#2#筹码"}
 G.localization.misc.v_dictionary.melancholy_phantom = {"X#1#倍率 +#2#筹码"}
 
-local Vultbines_Joker = {}
+Vultbines_Joker = {}
 Vultbines_Joker.fusions = {
 	{ jokers = {
 		{ name = "j_popcorn", carry_stat = nil, extra_stat = false },
@@ -54,15 +54,6 @@ Vultbines_Joker.fusions = {
 		{ name = "j_madness", carry_stat = nil, extra_stat = false }
 	}, result_joker = "j_serial_killer", cost = 5 },
 }
-
-function FJInfoVultbine()
-    for _, t in ipairs(Vultbines_Joker.fusions) do
-        local j1 = t.jokers[1].name
-        local j2 = t.jokers[2].name
-        table.insert(Fusables, {j1, j2})
-    end
-end
-FJInfoVultbine()
 
 local function has_joker(val)
 	for k, v in pairs(G.jokers.cards) do
