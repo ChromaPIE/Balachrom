@@ -11,11 +11,11 @@
 for _, t in ipairs(Fusables) do
     G.localization.descriptions.Other[t[1]] = {
         name = "_",
-        text = {'{s:1.2,E:1,C:dark_edition}' .. G.localization.descriptions.Joker[t[1]].name .. '{}'}
+        text = {'{s:1.2,E:1,C:dark_edition}' .. localize{type = 'name_text', key = t[1], set = 'Joker'} .. '{}'}
     }
     G.localization.descriptions.Other[t[2]] = {
         name = "_",
-        text = {'{s:1.2,E:1,C:dark_edition}' .. G.localization.descriptions.Joker[t[2]].name .. '{}'}
+        text = {'{s:1.2,E:1,C:dark_edition}' .. localize{type = 'name_text', key = t[2], set = 'Joker'} .. '{}'}
     }
 end
 

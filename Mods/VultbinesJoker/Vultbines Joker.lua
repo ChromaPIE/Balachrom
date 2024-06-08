@@ -55,6 +55,15 @@ Vultbines_Joker.fusions = {
 	}, result_joker = "j_serial_killer", cost = 5 },
 }
 
+function FJInfoVultbine()
+    for _, t in ipairs(Vultbines_Joker.fusions) do
+        local j1 = t.jokers[1].name
+        local j2 = t.jokers[2].name
+        table.insert(Fusables, {j1, j2})
+    end
+end
+FJInfoVultbine()
+
 local function has_joker(val)
 	for k, v in pairs(G.jokers.cards) do
 		if v.ability.set == 'Joker' and v.config.center_key == val then 
