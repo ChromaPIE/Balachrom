@@ -138,7 +138,7 @@ return {
                     "每有一个空的{C:attention}小丑牌{}槽位",
                     "本牌获得{X:red,C:white} X1{}倍率",
                     "{s:0.8}自身算作空位",
-                    "（当前为{X:red,C:white} X#1# {C:inactive}倍率）"
+                    "{C:inactive}（当前为{X:red,C:white} X#1# {C:inactive}倍率）"
                 }
             },
             j_four_fingers = {
