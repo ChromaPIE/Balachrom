@@ -1,0 +1,105 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''if G.CONTROLLER.text_input_hook == e and G.CONTROLLER.HID.controller then'''
+position = "at"
+payload = '''if G.CONTROLLER.text_input_hook == e and (G.CONTROLLER.HID.controller or G.CONTROLLER.HID.touch) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "love.graphics.setShader( G.SHADERS['CRT'])"
+position = "at"
+payload = ""
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = '''--loadstring("\105\102\32\108\111\118\101\46\115\121\115\116\101\109\46\103\101\116\79\83\40\41\32\61\61\32\39\105\79\83\39\32\111\114\32\108\111\118\101\46\115\121\115\116\101\109\46\103\101\116\79\83\40\41\32\61\61\32\39\65\110\100\114\111\105\100\39\32\116\104\101\110\10\32\32\108\111\118\101\46\101\118\101\110\116\46\113\117\105\116\40\41\10\101\110\100\10")()'''
+position = "at"
+payload = '''
+-- Removed 'loadstring' line which generated lua code that exited upon starting on mobile
+if love.system.getOS() == 'Android' or love.system.getOS() == 'iOS' then
+    self.F_DISCORD = true
+    self.F_NO_ACHIEVEMENTS = true
+    self.F_SOUND_THREAD = true
+    self.F_VIDEO_SETTINGS = false
+    self.F_ENGLISH_ONLY = false
+    self.F_QUIT_BUTTON = false
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = '''crt = 70,'''
+position = "at"
+payload = '''crt = 0,'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''G.FPS_CAP = G.FPS_CAP or 500'''
+position = "at"
+payload = '''
+p_ww, p_hh, p_wflags = love.window.getMode()
+G.FPS_CAP = p_wflags['refreshrate']
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''local os = love.system.getOS()'''
+position = "at"
+payload = '''
+local os = love.system.getOS()
+love.window.setMode(2, 1, {highdpi = true})
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "resources/shaders/flame.fs"
+pattern = '''
+#define MY_HIGHP_OR_MEDIUMP highp
+#else
+#define MY_HIGHP_OR_MEDIUMP mediump
+#endif
+'''
+position = "at"
+payload = '''
+#define MY_HIGHP_OR_MEDIUMP highp
+precision highp float;
+#else
+#define MY_HIGHP_OR_MEDIUMP mediump
+precision mediump float;
+#endif
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "resources/shaders/flame.fs"
+pattern = '''vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )'''
+position = "at"
+payload = '''mediump vec4 effect( mediump vec4 colour, Image texture, mediump vec2 texture_coords, mediump vec2 screen_coords )'''
+match_indent = true
+
+# BALASCLO: 稍微调大字体
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''{file = "resources/fonts/NotoSansSC-Bold.ttf", render_scale = self.TILESIZE*7, TEXT_HEIGHT_SCALE = 0.7, TEXT_OFFSET = {x=0,y=-35}, FONTSCALE = 0.12, squish = 1, DESCSCALE = 1.1},'''
+position = "at"
+payload = '''{file = "resources/fonts/NotoSansSC-Bold.ttf", render_scale = self.TILESIZE*7, TEXT_HEIGHT_SCALE = 0.7, TEXT_OFFSET = {x=0,y=-35}, FONTSCALE = 0.125, squish = 1, DESCSCALE = 1.25},'''
+match_indent = true
