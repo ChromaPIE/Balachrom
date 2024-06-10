@@ -690,19 +690,20 @@ function SMODS.INIT.MtlJokers()
             }
         },
         j_open = {
-            name = "Grand Slam",
+            name = "大满贯",
             text = {
-                "{X:mult,C:white}x#1#{} Mult for each",
-                "unique flush suit played this round ",
-                "{C:inactive}(Played suits: #3# ){}",
-                "{C:inactive}(Currently {X:mult,C:white}x#2#{} Mult){}"
+                "本回合内",
+                "每打出一种花色的同花",
+                "本牌获得{X:mult,C:white}X#1#{}倍率",
+                "{C:inactive}（已打出花色：#3#）",
+                "{C:inactive}（当前为{X:mult,C:white}X#2#{}倍率）"
             }
         },       
         j_thedream = {
-            name = "The Dream",
+            name = "梦",
             text = {
-                "{C:attention}Level Up{} secret poker hands",
-                "when played"
+                "打出秘密牌型时",
+                "{C:attention}提升{}其等级"
             }
         },   
         j_ishihara = {
@@ -1321,6 +1322,16 @@ function Card.calculate_joker(self, context)
                             else
                                 --level up 5oak
                                 level_up_hand(self, "Five of a Kind", false)
+                            end
+                        end
+                        if next(context.poker_hands["Spectrum"]) then
+                            if next(context.poker_hands["Spectrum House"]) then
+                                level_up_hand(self, "Spectrum House", false)
+                            elseif next(context.poker_hands["Spectrum Five"]) then
+                                level_up_hand(self, "Spectrum Five", false)
+                            elseif next(context.poker_hands["Straight Spectrum"]) then
+                                level_up_hand(self, "Straight Spectrum", false)
+                            else level_up_hand(self, "Spectrum", false)
                             end
                         end
                     end

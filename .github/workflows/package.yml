@@ -62,7 +62,7 @@ jobs:
         mv $RPATH/assets/2x/Tarots_dx2x.png $RPATH/assets/2x/Tarots_dx.png
         echo "DX-Tarots Done."
 
-        rm -rf Mods/Betmma-mods/{Betmma_Voucher_Pack,5_legendary_challenges}
+        rm -rf Mods/Betmma-mods/5_legendary_challenges
         echo "Betmma-mods Done."
 
     - name: Universal unwanted files/directories removal
