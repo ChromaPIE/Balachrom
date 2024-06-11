@@ -40,3 +40,6 @@
 [submodule "Mods/CheesyJokers"]
 	path = Mods/CheesyJokers
 	url = https://github.com/ChromaPIE/CheesyJokers.git
+[submodule "Mods/Aura"]
+	path = Mods/Aura
+	url = https://github.com/MathIsFun0/Aura.git
