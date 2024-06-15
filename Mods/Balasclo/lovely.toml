@@ -392,3 +392,25 @@ love.graphics.print("Current Time: "..time, 15, 15, 0, 0.8, 0.8)
 love.graphics.print("Sponsored by Balachrom", 15, 40, 0, 0.5, 0.5)
 '''
 match_indent = true
+
+# get_straight 1.0改动回迁（修补housing choice）
+[[patches]]
+[patches.pattern]
+target = "main.lua"
+pattern = '''
+local rank = hand[i].base.value
+if RANKS[rank] then
+RANKS[rank][#RANKS[rank] + 1] = hand[i]
+else
+RANKS[rank] = { hand[i] }
+end
+'''
+position = "at"
+payload = '''
+if hand[i]:get_id() > 0 then
+local rank = hand[i].base.value
+RANKS[rank] = RANKS[rank] or {}
+RANKS[rank][#RANKS[rank] + 1] = hand[i]
+end
+'''
+match_indent = true
