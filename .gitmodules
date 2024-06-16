@@ -43,3 +43,6 @@
 [submodule "Mods/Aura"]
 	path = Mods/Aura
 	url = https://github.com/MathIsFun0/Aura.git
+[submodule "Mods/CruelBlinds"]
+	path = Mods/CruelBlinds
+	url = https://github.com/Mathguy23/Cruel-Blinds.git
